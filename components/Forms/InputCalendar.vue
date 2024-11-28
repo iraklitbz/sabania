@@ -1,0 +1,18 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+  <FormKit
+      type="date"
+      value="1999-01-01"
+      label="Birthday"
+      help="Enter your birth day"
+      validation="required|date_before:2010-01-01"
+      validation-visibility="live"
+  />
+</template>
+
+<style scoped>
+
+</style>

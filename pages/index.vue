@@ -4,6 +4,6 @@
 
 <template>
     <main>
-        Hola mundo
+        <Hero />
     </main>
 </template>

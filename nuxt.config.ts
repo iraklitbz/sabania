@@ -6,9 +6,11 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@pinia/nuxt',
-    '@nuxtjs/strapi',
-    '@samk-dev/nuxt-vcalendar'
+    '@nuxtjs/strapi'
   ],
+  build: {
+    transpile: ['@vuepic/vue-datepicker']
+  },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
     prefix: '/api',

@@ -19,7 +19,6 @@
     "@nuxtjs/strapi": "2.0.0",
     "@nuxtjs/tailwindcss": "6.12.2",
     "@pinia/nuxt": "0.7.0",
-    "@samk-dev/nuxt-vcalendar": "^1.0.4",
     "@types/node": "20.13.0",
     "@types/tailwindcss": "3.1.0",
     "nuxt": "3.14.159",
@@ -28,7 +27,8 @@
     "vue": "3.5.12"
   },
   "dependencies": {
-    "@formkit/tempo": "^0.1.2",
+    "@formkit/tempo": "0.1.2",
+    "@vuepic/vue-datepicker": "^10.0.0",
     "qs": "6.10.1"
   }
 }
