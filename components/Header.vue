@@ -1,0 +1,9 @@
+<template>
+    <header>
+        <h2
+            class="text-2xl"
+        >
+            Header
+        </h2>
+    </header>
+</template>
