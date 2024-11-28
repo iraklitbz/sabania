@@ -1,0 +1,35 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.vercel
+.cache
+dist
+dist-sourcemaps
+.wrangler
+
+# Node dependencies
+**/node_modules
+.pnpm-store
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.vscode
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Google Fonts
+assets/googleFonts
+
+# Stylelint caches
+.stylelintcache
