@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div class="min-h-96 bg-red-100 w-full">
-    <h1>Hero</h1>
-  </div>
+  <h2>404</h2>
 </template>
 
 <style scoped>

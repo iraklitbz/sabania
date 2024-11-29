@@ -1,7 +1,7 @@
 <template>
     <header>
         <h2
-            class="text-2xl"
+            class="text-2xl text-center"
         >
             Header
         </h2>

@@ -2,11 +2,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   modules: [
     '@nuxtjs/tailwindcss',
-    '@formkit/nuxt',
     '@nuxt/icon',
     '@nuxt/image',
     '@pinia/nuxt',
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    '@formkit/nuxt'
   ],
   build: {
     transpile: ['@vuepic/vue-datepicker']
@@ -22,10 +22,6 @@ export default defineNuxtConfig({
       sameSite: true
     },
     cookieName: 'jwt'
-  },
-  formkit: {
-    autoImport: true,
-    configFile: '~/formkit.config.ts'
   },
   tailwindcss: {
     exposeConfig: true,
