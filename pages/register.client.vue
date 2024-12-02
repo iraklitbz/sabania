@@ -34,21 +34,26 @@ const onSubmit = async (input: RegisterInput, node: any) => {
 
 
 <template>
-    <div>
+    <div
+        class="flex justify-center"
+    >
+      <div
+          class="w-full bg-gray-100 py-14 px-6"
+      >
         <FormKit
-                type="form"
-                :actions="false"
-                form-class="flex flex-col gap-3"
-                name="registerForm"
-                @submit="onSubmit"
-            >
+          type="form"
+          :actions="false"
+          form-class="flex flex-col gap-3 max-w-[20em] mx-auto"
+          name="registerForm"
+          @submit="onSubmit"
+        >
                 <FormKit
                     id="username"
                     name="username"
                     autocomplete="new-username"
                     placeholder="jon Snow"
                     type="text"
-                    label="username"
+                    label="Username"
                     validation="required"
                     :classes="{
                         outer: 'mb-3 sm:mb-0'
@@ -60,9 +65,9 @@ const onSubmit = async (input: RegisterInput, node: any) => {
                     name="email"
                     placeholder="winterfell@sabania.com"
                     type="email"
-                    label="email"
+                    label="Email"
                     validation="required|email"
-                    validation-visibility="live"
+                    validation-visibility="dirty"
                     :classes="{
                         outer: 'mb-3 sm:mb-0'
                     }"
@@ -77,7 +82,7 @@ const onSubmit = async (input: RegisterInput, node: any) => {
                     type="password"
                     autocomplete="new-password"
                     validation="required|contains_numeric|contains_special|contains_uppercase"
-                    label="password"
+                    label="Password"
                     :classes="{
                         outer: 'mb-3 sm:mb-0'
                     }"
@@ -85,11 +90,29 @@ const onSubmit = async (input: RegisterInput, node: any) => {
                         required: 'This field is required'
                     }"
                 />
-
+                <FormKit
+                    id="passwordConfirmation"
+                    name="password_confirm"
+                    type="password"
+                    autocomplete="new-password"
+                    validation="required|confirm"
+                    validation-visibility="live"
+                    label="Confirm Password"
+                    :classes="{
+                        outer: 'mb-3 sm:mb-0'
+                    }"
+                    :validation-messages="{
+                        required: 'This field is required',
+                        confirm: 'Passwords do not match'
+                    }"
+                />
                 <FormKit 
                     variant="primary" 
                     type="submit"
                     :disabled="loading"
+                    :classes="{
+                        input: 'w-full flex justify-center'
+                    }"
                 >
                     <span
                         v-if="!loading"
@@ -120,5 +143,6 @@ const onSubmit = async (input: RegisterInput, node: any) => {
                     />
                 </transition>
             </FormKit>
+      </div>
     </div>
 </template>

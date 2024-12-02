@@ -914,7 +914,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "submit__outer": {
     "group": true,
-    "max-w-[20em]": true,
     "min-w-0": true,
     "grow": true,
     "data-[disabled]:select-none": true,
@@ -1093,7 +1092,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "colorpicker__outer": {
     "group": true,
-    "max-w-[20em]": true,
     "min-w-0": true,
     "grow": true,
     "mb-4": true,
@@ -2118,7 +2116,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "slider__outer": {
     "group": true,
-    "max-w-[20em]": true,
     "min-w-0": true,
     "grow": true,
     "mb-4": true,
@@ -3021,7 +3018,6 @@ const classes: Record<string, Record<string, boolean>> = {
 const globals: Record<string, Record<string, boolean>> = {
   "outer": {
     "group": true,
-    "max-w-[20em]": true,
     "min-w-0": true,
     "grow": true,
     "data-[disabled]:select-none": true,
