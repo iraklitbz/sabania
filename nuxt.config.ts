@@ -1,5 +1,15 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
+  app: {
+    layoutTransition: {
+      name: 'fade',
+      mode: 'out-in'
+    },
+    pageTransition: {
+      name: 'fade',
+      mode: 'out-in'
+    }
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/icon',
@@ -24,8 +34,8 @@ export default defineNuxtConfig({
     cookieName: 'jwt'
   },
   tailwindcss: {
-    exposeConfig: true,
-    cssPath: '~/assets/scss/main.scss',
+    cssPath: '~/assets/css/main.scss',
+    exposeConfig: true
   },
   icon: {
     customCollections: [
@@ -38,7 +48,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       SMOOBU_API_URL: process.env.SMOOBU_API_URL ?? '',
-      SMOOBU_API_KEY: process.env.SMOOBU_API_KEY ?? ''
+      SMOOBU_API_KEY: process.env.SMOOBU_API_KEY ?? '',
     }
   },
   devtools: { enabled: true }

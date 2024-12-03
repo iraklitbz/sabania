@@ -52,7 +52,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "family:button__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -62,7 +61,7 @@ const classes: Record<string, Record<string, boolean>> = {
     "flex": true,
     "!text-sm": true,
     "px-7": true,
-    "py-3": true,
+    "py-4": true,
     "items-center": true,
     "mb-1.5": true,
     "text-sm": true,
@@ -94,7 +93,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "family:box__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -216,7 +214,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "family:text__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
     "text-base": true,
@@ -283,7 +280,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "family:dropdown__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
     "grow": true,
@@ -532,7 +528,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "button__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -556,7 +551,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "color__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -599,7 +593,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "date__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -609,7 +602,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "datetime-local__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -685,7 +677,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "file__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -748,7 +739,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "month__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -771,7 +761,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "range__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -833,17 +822,14 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "select__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
-    "selection:text-neutral-700": true,
-    "group-data-[has-overlay]:selection:!text-transparent": true,
     "grow": true,
     "p-2": true,
-    "data-[placeholder]:text-neutral-950": true,
+    "data-[placeholder]:text-neutral-600": true,
     "py-4": true,
     "px-3": true,
     "pr-[2em]": true,
     "text-base": true,
-    "text-neutral-950": true,
+    "text-red": true,
     "text-ellipsis": true,
     "min-w-0": true,
     "outline-none": true,
@@ -922,7 +908,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "submit__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -994,7 +979,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "textarea__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
     "text-base": true,
@@ -1044,7 +1028,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "time__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -1054,7 +1037,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "week__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -1535,7 +1517,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "datepicker__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -1663,7 +1644,6 @@ const classes: Record<string, Record<string, boolean>> = {
   "datepicker__timeInput": {
     "w-full": true,
     "border-2": true,
-    "[color-scheme:light]": true,
     "text-neutral-700": true,
     "border-neutral-300": true,
     "rounded": true,
@@ -1865,7 +1845,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "mask__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -1926,7 +1905,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "rating__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -2322,7 +2300,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "taglist__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -2363,7 +2340,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "toggle__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -2449,7 +2425,6 @@ const classes: Record<string, Record<string, boolean>> = {
   },
   "togglebuttons__input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true,
@@ -3039,7 +3014,6 @@ const globals: Record<string, Record<string, boolean>> = {
   },
   "input": {
     "appearance-none": true,
-    "[color-scheme:light]": true,
     "selection:bg-blue-100": true,
     "selection:text-neutral-700": true,
     "group-data-[has-overlay]:selection:!text-transparent": true

@@ -96,7 +96,7 @@ const onSubmit = async (input: RegisterInput, node: any) => {
                     type="password"
                     autocomplete="new-password"
                     validation="required|confirm"
-                    validation-visibility="live"
+                    validation-visibility="dirty"
                     label="Confirm Password"
                     :classes="{
                         outer: 'mb-3 sm:mb-0'

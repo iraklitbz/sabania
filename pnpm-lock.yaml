@@ -44,6 +44,9 @@ devDependencies:
   '@vuepic/vue-datepicker':
     specifier: 10.0.0
     version: 10.0.0(vue@3.5.12)
+  click-outside-vue3:
+    specifier: 4.0.1
+    version: 4.0.1
   nuxt:
     specifier: 3.14.159
     version: 3.14.159(@types/node@20.13.0)(sass@1.77.8)(typescript@5.6.3)(vite@6.0.1)
@@ -2832,6 +2835,11 @@ packages:
 
   /clear@0.1.0:
     resolution: {integrity: sha512-qMjRnoL+JDPJHeLePZJuao6+8orzHMGP04A8CdwCNsKhRbOnKRjefxONR7bwILT3MHecxKBjHkKL/tkZ8r4Uzw==}
+    dev: true
+
+  /click-outside-vue3@4.0.1:
+    resolution: {integrity: sha512-sbplNecrup5oGqA3o4bo8XmvHRT6q9fvw21Z67aDbTqB9M6LF7CuYLTlLvNtOgKU6W3zst5H5zJuEh4auqA34g==}
+    engines: {node: '>=6'}
     dev: true
 
   /clipboardy@4.0.0:

@@ -12,11 +12,21 @@
   const emit = defineEmits<{
     (e: 'closeGalleryDetail'): void
   }>()
+  const openDetailImage = ref<boolean>(false)
+  const selectedImage = ref<Photos | null>(null)
+  function handleDetailImage(photo:Photos) {
+    openDetailImage.value = true
+    selectedImage.value = photo
+  }
+  function hanldeClosePhoto() {
+    openDetailImage.value = false
+  }
 </script>
 
 <template>
   <main
-    class="bg-white h-screen fixed top-0 left-0 z-50 w-full overflow-y-auto"
+    class="bg-white h-screen fixed top-0 left-0 z-50 w-full"
+    :class="openDetailImage ? 'overflow-hidden' : 'overflow-y-auto'"
   >
     <div
         class="relative max-w-7xl mx-auto p-6 lg:px-8"
@@ -44,20 +54,49 @@
               <div
                 v-for="photo in item?.photos"
                 :key="photo?.name"
-                class="overflow-hidden rounded-lg h-44"
+                class="overflow-hidden rounded-lg h-44 cursor-pointer group"
               >
                   <nuxt-img
                       :src="photo?.url"
                       :alt="photo?.name"
-                      class="object-cover w-full h-full"
+                      class="object-cover w-full h-full group-hover:scale-105 transition-all ease-in-out duration-300"
                       width="400"
                       height="200"
+                      @click="handleDetailImage(photo)"
                   />
               </div>
           </div>
         </div>
       </section>
     </div>
+    <transition name="fade" mode="out-in">
+      <div
+        v-if="openDetailImage"
+        class="bg-black fixed top-0 left-0 w-full h-full bg-opacity-95 px-10 py-8 pb-20 overflow-y-auto"
+      >
+        <div
+          class="flex flex-col justify-center items-center max-w-4xl mx-auto"
+        >
+          <button
+              class="flex items-center gap-1 mb-5 text-white"
+              @click="hanldeClosePhoto()"
+          >
+            <Icon
+                name="icon:close"
+                class="text-3xl text-white"
+            />
+            Close
+          </button>
+          <nuxt-img
+              :src="selectedImage?.url"
+              :alt="selectedImage?.name"
+              class="object-cover w-full h-full"
+              width="400"
+              height="200"
+          />
+        </div>
+      </div>
+    </transition>
   </main>
 </template>
 

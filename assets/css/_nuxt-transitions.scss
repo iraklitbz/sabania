@@ -46,3 +46,11 @@
 .fade-up-delay-leave-to {
     @apply opacity-0 -translate-y-2;
 }
+.fade-up-enter-active,
+.fade-up-leave-active {
+    @apply transition-all duration-300;
+}
+.fade-up-enter-from,
+.fade-up-leave-to {
+    @apply opacity-0 translate-y-2;
+}
