@@ -48,6 +48,7 @@
         :enable-time-picker="false"
         locale="de"
         cancelText="Abbrechen"
+        :hide-offset-dates="true"
         :disabled-dates="apartments().getDisabledDates"
         selectText="OK"
         :config="config"
