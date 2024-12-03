@@ -11,12 +11,12 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    '@nuxtjs/strapi',
     '@nuxtjs/tailwindcss',
     '@nuxt/icon',
     '@nuxt/image',
     '@pinia/nuxt',
-    '@nuxtjs/strapi',
-    '@formkit/nuxt'
+    '@formkit/nuxt',
   ],
   build: {
     transpile: ['@vuepic/vue-datepicker']
