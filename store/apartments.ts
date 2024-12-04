@@ -5,7 +5,10 @@ export const apartments = defineStore('apartmentsData', {
     state: ()=> ({
         apartments: [] as Apartments[],
         apartment: {} as Apartments,
-        occupiedDates: [] as string[]
+        occupiedDates: [] as string[],
+        selectedRange: null as any,
+        checkinDate: null as any,
+        checkoutDate: null as any
     }),
     getters: {
         getDisabledDates(state) {
@@ -62,6 +65,20 @@ export const apartments = defineStore('apartmentsData', {
                 departure: booking.departure,
                 apartment: booking.apartment
             }))
+        },
+        updateDatesCalendar(newRange: string[]) {
+            if (newRange.length === 2) {
+                this.checkinDate = newRange[0]
+                this.checkoutDate = newRange[1]
+            } else {
+                this.checkinDate = null
+                this.checkoutDate = null
+            }
+        },
+        clearDatesCalendar() {
+            this.selectedRange = null
+            this.checkinDate = null
+            this.checkoutDate = null
         }
     }
 })

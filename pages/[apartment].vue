@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { apartments } from "~/store/apartments"
 import AsideDetail from "~/components/Aside/AsideDetail"
+import ApartmentDetail from "~/components/ApartmentDetail.vue"
 const route = useRoute()
 await apartments().fetchApartment(route.params.apartment as string)
 if (!apartments().apartment || Object.keys(apartments().apartment).length === 0) {
@@ -113,10 +114,9 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
     >
         <div class="flex flex-col gap-6 md:gap-12 lg:flex-row">
           <div class="lg:w-8/12">
-              <article>
-                <h1>{{ apartments().apartment.name }}</h1>
-                <p>{{ apartments().apartment.description }}</p>
-              </article>
+              <ApartmentDetail
+                  :data="apartments().apartment"
+              />
           </div>
           <AsideDetail
             :data="apartments().apartment"

@@ -20,7 +20,7 @@
 
 <template>
   <aside class="top-32 flex w-full shrink-0 flex-col gap-3 lg:sticky lg:h-full lg:w-4/12 lg:gap-6">
-    <div class="bg-white border border-solid border-gray-300 p-4 rounded-md shadow-xl">
+    <div class="bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl">
       <h2 class="font-bold text-2xl mb-5"> {{ props.data.price }}€ <span class="font-normal text-lg ml-1">night</span></h2>
       <FormKit
           type="form"

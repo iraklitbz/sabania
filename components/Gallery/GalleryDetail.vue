@@ -25,23 +25,29 @@
 
 <template>
   <main
-    class="bg-white h-screen fixed top-0 left-0 z-50 w-full"
+    class="bg-white h-screen fixed top-0 left-0 z-40 w-full"
     :class="openDetailImage ? 'overflow-hidden' : 'overflow-y-auto'"
   >
     <div
         class="relative max-w-7xl mx-auto p-6 lg:px-8"
     >
-     <button
-        class="flex items-center gap-1"
-        @click="emit('closeGalleryDetail')"
+     <header
+      class="sticky top-0 bg-white z-50 p-6 lg:px-8"
      >
-       <Icon
-           name="icon:chevron-left"
-           class="text-3xl text-black"
-       />
-       Back
-     </button>
-      <section>
+       <button
+           class="flex items-center gap-1"
+           @click="emit('closeGalleryDetail')"
+       >
+         <Icon
+             name="icon:chevron-left"
+             class="text-3xl text-black"
+         />
+         Back
+       </button>
+     </header>
+      <section
+          class="p-6 lg:px-8"
+      >
         <div
           v-for="(item, index) in props.data"
           :key="index"
@@ -72,7 +78,7 @@
     <transition name="fade" mode="out-in">
       <div
         v-if="openDetailImage"
-        class="bg-black fixed top-0 left-0 w-full h-full bg-opacity-95 px-10 py-8 pb-20 overflow-y-auto"
+        class="bg-black fixed top-0 left-0 w-full h-full bg-opacity-95 px-10 py-8 pb-20 overflow-y-auto z-50"
       >
         <div
           class="flex flex-col justify-center items-center max-w-4xl mx-auto"

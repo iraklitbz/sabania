@@ -12,7 +12,32 @@ export const apartmentQuery = `
       apartments(filters: $filters) {
         name
         price
+        description
         smoobuID
+        rooms {
+          beds
+          WC
+          guests
+          rooms
+        }
+        standards
+        checkin
+        address {
+            postalCode
+            street
+            city
+            latitude
+            longitude
+        }
+        list
+        location {
+            city
+            slug
+        }
+        discount {
+          percentageDiscount
+        }
+        checkout
         feature {
             name
             url

@@ -2,24 +2,12 @@
   import Datepicker from '@vuepic/vue-datepicker'
   import { apartments } from "~/store/apartments"
   import '@vuepic/vue-datepicker/dist/main.css'
-  const selectedRange = ref()
-  const checkinDate = ref()
-  const checkoutDate = ref()
   const config = {
     setDateOnMenuClose: true
   }
   const today = new Date()
   const maxDate = new Date()
   maxDate.setFullYear(today.getFullYear() + 1)
-  function updateDates(newRange: string[]) {
-    if (newRange.length === 2) {
-      checkinDate.value = newRange[0]
-      checkoutDate.value = newRange[1]
-    } else {
-      checkinDate.value = ''
-      checkoutDate.value = ''
-    }
-  }
 </script>
 
 <template>
@@ -27,17 +15,17 @@
     class="relative"
   >
     <FormKit
-        v-model="checkinDate"
+        v-model="apartments().checkinDate"
         id="checkinDate"
         type="hidden"
     />
     <FormKit
-        v-model="checkoutDate"
+        v-model="apartments().checkoutDate"
         id="checkoutDate"
         type="hidden"
     />
     <Datepicker
-        v-model="selectedRange"
+        v-model="apartments().selectedRange"
         :range="true"
         :multi-calendars="2"
         placeholder="Check-in - Check-out"
@@ -55,8 +43,8 @@
         :action-row="{
           showPreview: false
         }"
-        @update:modelValue="updateDates"
-        @cleared="updateDates([])"
+        @update:modelValue="apartments().updateDatesCalendar"
+        @cleared="apartments().updateDatesCalendar([])"
     />
   </div>
 </template>
