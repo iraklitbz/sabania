@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@pinia/nuxt',
     '@formkit/nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
   ],
   build: {
     transpile: ['@vuepic/vue-datepicker']
@@ -50,6 +50,27 @@ export default defineNuxtConfig({
     public: {
       SMOOBU_API_URL: process.env.SMOOBU_API_URL ?? '',
       SMOOBU_API_KEY: process.env.SMOOBU_API_KEY ?? '',
+      PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID
+    }
+  },
+  routeRules: {
+    'account/**': {
+      ssr: false
+    },
+    'login': {
+      ssr: false
+    },
+    'register': {
+      ssr: false
+    },
+    'activate-user': {
+      ssr: false
+    },
+    'thanks': {
+      ssr: false
+    },
+    'book/**': {
+      ssr: false
     }
   },
   devtools: { enabled: true }

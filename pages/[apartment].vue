@@ -118,10 +118,12 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                   :data="apartments().apartment"
               />
           </div>
-          <AsideDetail
-            :data="apartments().apartment"
-            :occupied-dates="apartments().occupiedDates"
-          />
+          <client-only>
+            <AsideDetail
+              :data="apartments().apartment"
+              :occupied-dates="apartments().occupiedDates"
+            />
+          </client-only>
         </div>
     </section>
   </div>

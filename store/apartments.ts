@@ -5,17 +5,29 @@ export const apartments = defineStore('apartmentsData', {
     state: ()=> ({
         apartments: [] as Apartments[],
         apartment: {} as Apartments,
+        currentSlug: '' as string,
         travelers: '' as string,
         occupiedDates: [] as string[],
-        selectedRange: null as any,
-        checkinDate: null as any,
-        checkoutDate: null as any,
+        selectedRange: '' as string,
+        checkinDate: '' as string,
+        checkoutDate: '' as string,
         checkIfdataRangeIsEmpty: false
     }),
     persist: {
-        paths: ['apartment', 'checkinDate', 'checkoutDate']
+        storage: piniaPluginPersistedstate.localStorage(),
+        pick: ['apartment', 'selectedRange', 'checkinDate', 'checkoutDate', 'travelers']
     },
     getters: {
+        calculateNights(state) {
+            const arrivalDate = new Date(state.checkinDate)
+            const departureDate = new Date(state.checkoutDate)
+            const timeDifference = departureDate.getTime() - arrivalDate.getTime()
+            const daysDifference = timeDifference / (1000 * 3600 * 24)
+            return daysDifference > 0 ? Math.ceil(daysDifference) : 0
+        },
+        calculateTotalPrice(state) {
+            return state.calculateNights * state.apartment.price
+        },
         getDisabledDates(state) {
             const disabledDates = [];
             state.occupiedDates.forEach((range) => {
@@ -53,6 +65,10 @@ export const apartments = defineStore('apartmentsData', {
             }
         },
         async fetchApartment(slug: string) {
+            if (this.currentSlug === slug && Object.keys(this.apartment).length > 0) {
+                return
+            }
+            this.currentSlug = slug
             this.clearDatesCalendar()
             const variables = {
                 filters: {
@@ -81,14 +97,16 @@ export const apartments = defineStore('apartmentsData', {
                 this.checkinDate = newRange[0]
                 this.checkoutDate = newRange[1]
             } else {
-                this.checkinDate = null
-                this.checkoutDate = null
+                this.checkinDate = ''
+                this.checkoutDate = ''
             }
         },
         clearDatesCalendar() {
-            this.selectedRange = null
-            this.checkinDate = null
-            this.checkoutDate = null
+            this.apartment = {} as Apartments
+            this.selectedRange = ''
+            this.checkinDate = ''
+            this.checkoutDate = ''
+            this.travelers = ''
         },
         setCheckDataRangeIsEmpty () {
             this.checkIfdataRangeIsEmpty = true

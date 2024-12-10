@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import InputCalendar from "~/components/Forms/InputCalendar.vue";
+import PayPalButton from '~/components/PayPalButton.vue'
 </script>
 
 <template>
@@ -38,6 +37,7 @@ import InputCalendar from "~/components/Forms/InputCalendar.vue";
       Reserve
     </FormKit>
   </FormKit>
+  <PayPalButton />
 </div>
 </template>
 

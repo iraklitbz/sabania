@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import InputCalendar from "~/components/Forms/InputCalendar.vue"
   import {apartments} from "~/store/apartments"
-  import {checkout} from "~/store/checkout"
   import {currencyFormat} from "~/utils/currency-utils";
   type Apartment = {
     id: number,
@@ -24,7 +23,6 @@
         apartments().setCheckDataRangeIsEmpty()
         return
      } else {
-       checkout().setApartmentToCheckout(apartments().apartment, apartments().checkinDate, apartments().checkoutDate, apartments().travelers)
        navigateTo('/book/' + apartments().apartment?.slug)
      }
   }
