@@ -5,11 +5,16 @@ export const apartments = defineStore('apartmentsData', {
     state: ()=> ({
         apartments: [] as Apartments[],
         apartment: {} as Apartments,
+        travelers: '' as string,
         occupiedDates: [] as string[],
         selectedRange: null as any,
         checkinDate: null as any,
-        checkoutDate: null as any
+        checkoutDate: null as any,
+        checkIfdataRangeIsEmpty: false
     }),
+    persist: {
+        paths: ['apartment', 'checkinDate', 'checkoutDate']
+    },
     getters: {
         getDisabledDates(state) {
             const disabledDates = [];
@@ -26,6 +31,9 @@ export const apartments = defineStore('apartmentsData', {
                 }
             });
             return disabledDates
+        },
+        getIfDataRangeIsEmpty(state) {
+            return !(state.checkinDate && state.checkoutDate)
         }
     },
     actions: {
@@ -45,6 +53,7 @@ export const apartments = defineStore('apartmentsData', {
             }
         },
         async fetchApartment(slug: string) {
+            this.clearDatesCalendar()
             const variables = {
                 filters: {
                     slug: {
@@ -67,6 +76,7 @@ export const apartments = defineStore('apartmentsData', {
             }))
         },
         updateDatesCalendar(newRange: string[]) {
+            this.checkIfdataRangeIsEmpty = false
             if (newRange.length === 2) {
                 this.checkinDate = newRange[0]
                 this.checkoutDate = newRange[1]
@@ -79,6 +89,9 @@ export const apartments = defineStore('apartmentsData', {
             this.selectedRange = null
             this.checkinDate = null
             this.checkoutDate = null
+        },
+        setCheckDataRangeIsEmpty () {
+            this.checkIfdataRangeIsEmpty = true
         }
     }
 })

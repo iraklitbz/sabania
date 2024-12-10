@@ -12,7 +12,7 @@
 
 <template>
   <div
-    class="relative"
+    class="relative group"
   >
     <FormKit
         v-model="apartments().checkinDate"
@@ -29,6 +29,7 @@
         :range="true"
         :multi-calendars="2"
         placeholder="Check-in - Check-out"
+        :class="{ 'empty-input': apartments().checkIfdataRangeIsEmpty }"
         :clearable="true"
         :hide-navigation="['month', 'year']"
         :min-date="today"
@@ -80,5 +81,8 @@
 }
 .dp__calendar_header {
   font-weight: 700;
+}
+.empty-input .dp__input {
+  @apply border-red-500 ring-1 ring-red-500
 }
 </style>

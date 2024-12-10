@@ -3,6 +3,7 @@ export const apartmentsByLocaleQuery = `
       apartments(filters: $filters) {
         name
         slug
+        price
       }
   }
 `
@@ -11,6 +12,7 @@ export const apartmentQuery = `
   query getApartment($filters: ApartmentFiltersInput){
       apartments(filters: $filters) {
         name
+        slug
         price
         description
         smoobuID

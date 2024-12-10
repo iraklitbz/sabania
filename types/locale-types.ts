@@ -20,9 +20,12 @@ export interface ComponentAddressAddress {
 }
 
 export interface Apartments {
+    slug: string,
     address: ComponentAddressAddress,
+    price: number,
     checkin: string,
     checkout: string,
     description: string,
-    name: string
+    name: string,
+    checkIfdataRangeIsEmpty: boolean
 }

@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@pinia/nuxt',
     '@formkit/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
   build: {
     transpile: ['@vuepic/vue-datepicker']

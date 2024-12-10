@@ -3069,6 +3069,7 @@ const globals: Record<string, Record<string, boolean>> = {
   "message": {
     "text-red-600": true,
     "mb-1.5": true,
+    "mt-2": true,
     "text-xs": true,
   },
   "overlay": {
