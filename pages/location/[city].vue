@@ -17,7 +17,7 @@ if (Object.keys(locations().location).length > 0) {
   <div>
     <section
         v-if="locations().location"
-        class="max-w-xl md:max-w-[1120px] mx-auto"
+        class="relative max-w-7xl mx-auto p-6 lg:px-8"
     >
       <h2
           class="text-center mt-10 text-2xl font-bold"

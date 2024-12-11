@@ -9,7 +9,7 @@
     <main>
       <Hero />
       <section
-        class="max-w-xl md:max-w-[1120px] mx-auto"
+        class="relative max-w-7xl mx-auto p-6 lg:px-8"
       >
           <div
             class="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 "

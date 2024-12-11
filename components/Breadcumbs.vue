@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   name: string,
-  prev: {
+  prev?: {
     name: string,
     slug: string
   }
