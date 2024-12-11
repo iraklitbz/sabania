@@ -50,10 +50,10 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
       />
     </transition>
    <div
-    class="bg-red-100 w-full relative"
+    class="w-full relative"
    >
      <section
-         class="relative max-w-7xl mx-auto p-6 lg:px-8"
+         class="relative max-w-7xl mx-auto px-6 py-10 lg:px-8"
      >
        <client-only>
          <div
@@ -63,7 +63,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                class="lg:w-6/12"
            >
              <div
-                 class="overflow-hidden rounded-lg h-full cursor-pointer group"
+                 class="overflow-hidden rounded-lg h-full cursor-pointer group border-4 border-solid border-black"
                  @click="toggleGallery"
              >
                <nuxt-img
@@ -84,7 +84,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                <div
                    v-for="(photo, index) in randomPhotos"
                    :key="index"
-                   class="overflow-hidden rounded-lg cursor-pointer group"
+                   class="overflow-hidden rounded-lg cursor-pointer group border-4 border-solid border-black"
                    @click="toggleGallery"
                >
                  <nuxt-img
@@ -99,7 +99,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
            </div>
          </div>
          <button
-             class="absolute bottom-10 right-10 bg-white/80 text-gray-900 px-4 py-2 rounded-md flex items-center gap-2"
+             class="absolute bottom-14 right-14 bg-white/80 text-gray-900 px-4 py-2 rounded-md flex items-center gap-2"
              @click="toggleGallery"
          >
            <Icon

@@ -8,7 +8,7 @@ const props = defineProps<{
     lat: number
     lng: number
   },
-  apartamentsLocation : Apartments[]
+  apartamentsLocation? : Apartments[]
 }>()
 
 const handleMarkerClick = (apartment: Apartments) => {
