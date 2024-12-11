@@ -2,7 +2,6 @@
 import { apartments } from "~/store/apartments"
 import AsideDetail from "~/components/Aside/AsideDetail"
 import ApartmentDetail from "~/components/ApartmentDetail.vue"
-import {locations} from "~/store/locations";
 import Maps from "~/components/Maps.vue";
 const route = useRoute()
 await apartments().fetchApartment(route.params.apartment as string)
@@ -63,7 +62,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                class="lg:w-6/12"
            >
              <div
-                 class="overflow-hidden rounded-lg h-full cursor-pointer group border-4 border-solid border-black"
+                 class="overflow-hidden rounded-lg h-full cursor-pointer group border-2 border-solid border-black"
                  @click="toggleGallery"
              >
                <nuxt-img
@@ -84,7 +83,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                <div
                    v-for="(photo, index) in randomPhotos"
                    :key="index"
-                   class="overflow-hidden rounded-lg cursor-pointer group border-4 border-solid border-black"
+                   class="overflow-hidden rounded-lg cursor-pointer group border-2 border-solid border-black"
                    @click="toggleGallery"
                >
                  <nuxt-img
@@ -114,7 +113,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
     <section
       class="max-w-7xl mx-auto p-6 lg:px-8"
     >
-        <div class="flex flex-col gap-6 md:gap-12 lg:flex-row">
+        <div class="flex flex-col gap-6 md:gap-12 lg:flex-row relative">
           <div class="lg:w-8/12">
               <ApartmentDetail
                   :data="apartments().apartment"
@@ -128,12 +127,14 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
           </client-only>
         </div>
     </section>
-    <Maps
-        :city-location="{
+    <div class="mt-16">
+      <Maps
+          :city-location="{
             lat: apartments().apartment.address.latitude,
             lng: apartments().apartment.address.longitude
         }"
-    />
+      />
+    </div>
   </div>
 </template>
 

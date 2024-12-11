@@ -66,3 +66,20 @@ export const apartmentQuery = `
       }
   }
 `
+
+export const apartmentsQuery = `
+  query getApartment{
+      apartments {
+        name
+        slug
+        location {
+            city
+            slug
+        }
+        feature {
+            name
+            url
+        }
+      }
+  }
+`

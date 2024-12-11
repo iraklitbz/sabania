@@ -31,25 +31,25 @@
 <template>
   <aside class="top-32 flex w-full shrink-0 flex-col gap-3 lg:sticky lg:h-full lg:w-4/12 lg:gap-6">
     <div class="bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl">
-      <h2 class="font-bold text-2xl mb-5"> {{ currencyFormat(props.data.price) }} <span class="font-normal text-lg ml-1">night</span></h2>
-      <FormKit
-          type="form"
-          :actions="false"
-          form-class="flex flex-col gap-4"
-          name="input"
-          :on-submit-invalid="true"
-          :incomplete-message="false"
-          @submit="handleSearch"
-      >
-        <InputCalendar />
+        <h2 class="text-xl lg:text-2xl xl:text-3xl font-bold mb-5"> {{ currencyFormat(props.data.price) }} <span class="font-normal text-lg ml-1">night</span></h2>
         <FormKit
-            v-model="apartments().travelers"
-            id="adultsInput"
-            name="travelers"
-            type="select"
-            placeholder="Adults"
-            validation="required"
-            :options="{
+            type="form"
+            :actions="false"
+            form-class="flex flex-col gap-4"
+            name="input"
+            :on-submit-invalid="true"
+            :incomplete-message="false"
+            @submit="handleSearch"
+        >
+          <InputCalendar />
+          <FormKit
+              v-model="apartments().travelers"
+              id="adultsInput"
+              name="travelers"
+              type="select"
+              placeholder="Adults"
+              validation="required"
+              :options="{
               1: '1',
               2: '2',
               3: '3',
@@ -61,25 +61,25 @@
               9: '9',
               10: '10'
             }"
-        >
-          <template #message="{ message }">
-          </template>
-          <template #prefixIcon="context">
-            <Icon
-                name="icon:user"
-                class="text-2xl ml-3"
-            />
-          </template>
-        </FormKit>
-        <FormKit
-            type="submit"
-            :classes="{
+          >
+            <template #message="{ message }">
+            </template>
+            <template #prefixIcon="context">
+              <Icon
+                  name="icon:user"
+                  class="text-2xl ml-3"
+              />
+            </template>
+          </FormKit>
+          <FormKit
+              type="submit"
+              :classes="{
               input: 'w-full flex justify-center'
             }"
-        >
-          Reserve
+          >
+            Reserve
+          </FormKit>
         </FormKit>
-      </FormKit>
     </div>
   </aside>
 </template>

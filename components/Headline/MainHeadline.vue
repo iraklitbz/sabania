@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40">
+  <div class="relative max-w-7xl mx-auto px-6 py-10 lg:px-8">
     <div class="mx-auto max-w-2xl lg:max-w-none">
       <div style="opacity: 1; transform: none;">
         <h1>

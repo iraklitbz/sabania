@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { locations } from "~/store/locations"
 import { apartments } from "~/store/apartments"
-import CardApartments from "~/components/Cards/CardApartments.vue";
+import CardApartments from "~/components/Cards/CardApartments.vue"
+import MainHeadline from "~/components/Headline/MainHeadline.vue"
 import Maps from "~/components/Maps.vue";
 const route = useRoute()
 await locations().fetchLocation(route.params.city as string)
@@ -15,15 +16,14 @@ if (Object.keys(locations().location).length > 0) {
 
 <template>
   <div>
+    <MainHeadline
+        :title="locations().location.city"
+        :description="locations().location.description"
+    />
     <section
         v-if="locations().location"
         class="relative max-w-7xl mx-auto p-6 lg:px-8"
     >
-      <h2
-          class="text-center mt-10 text-2xl font-bold"
-      >
-        {{ locations().location.city }}
-      </h2>
       <Breadcumbs
         :name="locations().location.city"
       />
@@ -39,7 +39,7 @@ if (Object.keys(locations().location).length > 0) {
       </div>
     </section>
     <div
-        class="mt-10"
+        class="mt-16"
     >
       <Maps
         :city-location="{

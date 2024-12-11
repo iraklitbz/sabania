@@ -36,7 +36,7 @@ const props = defineProps<{
             Apartment
           </span>
         </div>
-        <h2 class="text-lg font-semibold leading-snug tracking-tight mt-2">
+        <h2 class="text-lg lg:text-xl xl:text-2xl font-semibold leading-snug tracking-tight mt-2">
           <span class="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]">
               {{ props.data.name }}
             </span>

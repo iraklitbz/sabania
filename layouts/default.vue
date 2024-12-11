@@ -8,13 +8,11 @@ router.afterEach(() => {
 </script>
 
 <template>
-  <div>
-    <div>
+  <div class="general">
       <Header />
       <Menu />
-    </div>
       <div
-          class="primary py-32 overflow-hidden bg-white rounded-t-[40px]"
+          class="py-32 bg-white rounded-t-[40px]"
       >
         <slot />
       </div>

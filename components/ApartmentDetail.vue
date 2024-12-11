@@ -20,7 +20,7 @@ maxDate.setFullYear(today.getFullYear() + 1)
           slug: data?.location?.slug
         }"
    />
-    <h2 class="text-xl font-bold"> {{ data.name }} </h2>
+    <h2 class="text-xl lg:text-2xl xl:text-3xl font-bold"> {{ data.name }} </h2>
     <ul class="md:flex gap-4">
       <li v-if="data?.rooms?.guests"> <b>Travelers:</b> <span class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1">{{ data.rooms.guests }}</span></li>
       <li v-if="data?.rooms?.rooms"> <b>Rooms:</b> <span class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1">{{ data.rooms.rooms }}</span>  </li>

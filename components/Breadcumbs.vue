@@ -10,7 +10,7 @@ const props = defineProps<{
 
 <template>
   <div>
-    <ul class="md:flex gap-4 text-sm items-center">
+    <ul class="md:flex gap-4 items-center text-sm lg:text-base xl:text-md font-semibold">
       <li>
         <nuxt-link
             to="/"

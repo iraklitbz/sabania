@@ -1,6 +1,6 @@
 import type { Apartments } from '~/types/locale-types'
 import { apiCall } from "~/composables/apiCall"
-import { apartmentsByLocaleQuery, apartmentQuery } from '~/graphql/queries/apartments.query.gql'
+import {apartmentsByLocaleQuery, apartmentQuery, apartmentsQuery} from '~/graphql/queries/apartments.query.gql'
 export const apartments = defineStore('apartmentsData', {
     state: ()=> ({
         apartments: [] as Apartments[],
@@ -60,6 +60,13 @@ export const apartments = defineStore('apartmentsData', {
                 }
             }
             const data = await apiCall(apartmentsByLocaleQuery, 'data', variables)
+            if (data) {
+                this.apartments = data.apartments
+            }
+        },
+        async fetchApartments() {
+            this.apartments = []
+            const data = await apiCall(apartmentsQuery, 'data', {})
             if (data) {
                 this.apartments = data.apartments
             }
