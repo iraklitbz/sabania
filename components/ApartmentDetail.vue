@@ -13,31 +13,13 @@ maxDate.setFullYear(today.getFullYear() + 1)
 
 <template>
   <article class="flex flex-col gap-10">
-    <div>
-      <ul class="md:flex gap-4 text-sm items-center">
-        <li>
-          <nuxt-link
-              to="/"
-              class="text-blue-800"
-          >Home</nuxt-link>
-        </li>
-        <Icon
-            name="icon:hand-right"
-        />
-        <li>
-          <nuxt-link
-              :to="`/location/${data?.location?.slug}`"
-              class="text-blue-800"
-          >{{ data?.location?.city }}</nuxt-link>
-        </li>
-        <Icon
-            name="icon:hand-right"
-        />
-        <li>
-          {{ data?.name }}
-        </li>
-      </ul>
-    </div>
+   <Breadcumbs
+       :name="data.name"
+        :prev="{
+          name: data?.location?.city,
+          slug: data?.location?.slug
+        }"
+   />
     <h2 class="text-xl font-bold"> {{ data.name }} </h2>
     <ul class="md:flex gap-4">
       <li v-if="data?.rooms?.guests"> <b>Travelers:</b> <span class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1">{{ data.rooms.guests }}</span></li>

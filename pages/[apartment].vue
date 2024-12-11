@@ -2,6 +2,8 @@
 import { apartments } from "~/store/apartments"
 import AsideDetail from "~/components/Aside/AsideDetail"
 import ApartmentDetail from "~/components/ApartmentDetail.vue"
+import {locations} from "~/store/locations";
+import Maps from "~/components/Maps.vue";
 const route = useRoute()
 await apartments().fetchApartment(route.params.apartment as string)
 if (!apartments().apartment || Object.keys(apartments().apartment).length === 0) {
@@ -126,6 +128,12 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
           </client-only>
         </div>
     </section>
+    <Maps
+        :city-location="{
+            lat: apartments().apartment.address.latitude,
+            lng: apartments().apartment.address.longitude
+        }"
+    />
   </div>
 </template>
 

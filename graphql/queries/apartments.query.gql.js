@@ -3,7 +3,19 @@ export const apartmentsByLocaleQuery = `
       apartments(filters: $filters) {
         name
         slug
+        description
         price
+         address {
+            postalCode
+            street
+            city
+            latitude
+            longitude
+        }
+        feature {
+            name
+            url
+        }
       }
   }
 `

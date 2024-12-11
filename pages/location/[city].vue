@@ -2,6 +2,7 @@
 import { locations } from "~/store/locations"
 import { apartments } from "~/store/apartments"
 import CardApartments from "~/components/Cards/CardApartments.vue";
+import Maps from "~/components/Maps.vue";
 const route = useRoute()
 await locations().fetchLocation(route.params.city as string)
 if (!locations().location || Object.keys(locations().location).length === 0) {
@@ -13,26 +14,41 @@ if (Object.keys(locations().location).length > 0) {
 </script>
 
 <template>
-  <div
-    v-if="locations().location"
-  >
-    <h2>
-      {{ locations().location.city }}
-    </h2>
+  <div>
     <section
-      class="max-w-xl md:max-w-[1120px] mx-auto"
+        v-if="locations().location"
+        class="max-w-xl md:max-w-[1120px] mx-auto"
     >
+      <h2
+          class="text-center mt-10 text-2xl font-bold"
+      >
+        {{ locations().location.city }}
+      </h2>
+      <Breadcumbs
+        :name="locations().location.city"
+      />
       <div
-        class="mt-10 grid
+          class="mt-10 grid
         gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3"
       >
         <CardApartments
-          v-for="(apartment, index) in apartments().apartments"
-          :key="index"
-          :data="apartment"
+            v-for="(apartment, index) in apartments().apartments"
+            :key="index"
+            :data="apartment"
         />
       </div>
     </section>
+    <div
+        class="mt-10"
+    >
+      <Maps
+        :city-location="{
+          lat: locations().location.latitude,
+          lng: locations().location.longitude
+        }"
+        :apartaments-location="apartments().apartments"
+      />
+    </div>
   </div>
 </template>
 

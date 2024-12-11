@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     'pinia-plugin-persistedstate/nuxt',
   ],
   build: {
-    transpile: ['@vuepic/vue-datepicker']
+    transpile: ['@vuepic/vue-datepicker', '@fawmi/vue-google-maps']
   },
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
@@ -50,7 +50,9 @@ export default defineNuxtConfig({
     public: {
       SMOOBU_API_URL: process.env.SMOOBU_API_URL ?? '',
       SMOOBU_API_KEY: process.env.SMOOBU_API_KEY ?? '',
-      PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID
+      PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
+      GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+      GOOGLE_MAPS_ID: process.env.GOOGLE_MAPS_ID
     }
   },
   routeRules: {

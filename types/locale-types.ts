@@ -10,13 +10,17 @@ export interface RegisterInput {
 
 export interface Location {
     city: string,
-    slug: string
+    slug: string,
+    latitude: string,
+    longitude: string
 }
 
 export interface ComponentAddressAddress {
     city: string,
     postalCode: string,
-    street: string
+    street: string,
+    latitude: string,
+    longitude: string
 }
 
 export interface Apartments {
