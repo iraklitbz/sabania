@@ -21,7 +21,7 @@ import {currencyFormat} from "../../utils/currency-utils";
       <div
         class="w-full"
       >
-        <h2 class="text-lg font-bold">{{ apartments()?.apartment.name }}</h2>
+        <h2 class="text-lg xl:text-xl font-bold">{{ apartments()?.apartment.name }}</h2>
       </div>
     </div>
     <div>
@@ -43,7 +43,7 @@ import {currencyFormat} from "../../utils/currency-utils";
             class="flex flex-col items-end"
           >
             <span> Total (EUR) </span>
-            <span class="font-bold text-2xl mt-1"> {{currencyFormat(apartments().calculateTotalPrice)}} </span>
+            <span class="text-xl xl:text-2xl font-bold mt-1"> {{currencyFormat(apartments().calculateTotalPrice)}} </span>
           </div>
         </div>
     </div>

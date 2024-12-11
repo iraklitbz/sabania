@@ -23,7 +23,7 @@ definePageMeta({
       <div class="lg:w-6/12">
         <h2 class="text-xl mb-10">
           Your book is for:
-          <span class="block mt-2 font-bold">{{ apartments()?.apartment.name }}</span>
+          <span class="text-xl lg:text-2xl xl:text-3xl mt-2 font-bold block">{{ apartments()?.apartment.name }}</span>
         </h2>
         <div
           class="mt-10"

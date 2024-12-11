@@ -16,6 +16,5 @@ router.afterEach(() => {
       >
         <slot />
       </div>
-    <Footer />
   </div>
 </template>
