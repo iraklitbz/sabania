@@ -1,6 +1,5 @@
 import process from 'node:process'
 import type { CodegenConfig } from '@graphql-codegen/cli'
-
 const config: CodegenConfig = {
     generates: {
         './types/sabania-types.ts': {

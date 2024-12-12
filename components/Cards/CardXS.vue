@@ -1,52 +1,47 @@
 <script setup lang="ts">
 const props = defineProps<{
   data: {
-    name: string,
-    slug: string,
+    name: string;
+    slug: string;
     feature: {
-      name: string,
-      url: string
-    }
-  }
-}>()
+      name: string;
+      url: string;
+    };
+  };
+}>();
 </script>
 
 <template>
-  <nuxt-link
-      class="flex gap-3 justify-start"
-      :to="`/${props.data.slug}`"
-  >
+  <nuxt-link class="flex gap-3 justify-start" :to="`/${props.data.slug}`">
     <div>
-      <figure
-          class="aspect-square w-20 h-20"
-      >
+      <figure class="aspect-square w-20 h-20">
         <nuxt-img
-            :alt="props.data.feature.name"
-            loading="lazy"
-            decoding="async"
-            data-nimg="fill"
-            class="object-cover w-full h-full rounded-md"
-            sizes="(max-width: 768px) 30vw, 33vw"
-            :src="props.data.feature.url"
+          :alt="props.data.feature.name"
+          loading="lazy"
+          decoding="async"
+          data-nimg="fill"
+          class="object-cover w-full h-full rounded-md"
+          sizes="(max-width: 768px) 30vw, 33vw"
+          :src="props.data.feature.url"
         />
       </figure>
     </div>
     <div class="">
       <div>
-        <span class="inline-block text-xs font-medium tracking-wider uppercase  text-emerald-700">
-            Apartment
+        <span
+          class="inline-block text-xs font-medium tracking-wider uppercase text-emerald-700"
+        >
+          Apartment
         </span>
         <h2 class="text-lg font-semibold">
           {{ props.data.name }}
         </h2>
         <span class="font-bold text-base">
-           {{ currencyFormat(props.data.price) }} /Night
+          {{ currencyFormat(props.data.price) }} /Night
         </span>
       </div>
     </div>
   </nuxt-link>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

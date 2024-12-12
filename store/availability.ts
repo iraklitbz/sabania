@@ -1,27 +1,27 @@
-export const availability = defineStore('availabilityData', {
+export const availability = defineStore("availabilityData", {
   state: () => ({
     availability: {
-      bookings: []
+      bookings: [],
     },
-    disabledDates: [] as Date[] // Tipo explícito como un array de fechas
+    disabledDates: [] as Date[], // Tipo explícito como un array de fechas
   }),
   getters: {
     occupiedDates: (state) => {
-      const dates: Date[] = []
+      const dates: Date[] = [];
       state.availability.bookings.forEach(({ arrival, departure }) => {
-        const start = new Date(arrival)
-        const end = new Date(departure)
+        const start = new Date(arrival);
+        const end = new Date(departure);
         for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
-          dates.push(new Date(d))
+          dates.push(new Date(d));
         }
-      })
-      return dates // Retornamos un nuevo array sin modificar el estado directamente
-    }
+      });
+      return dates; // Retornamos un nuevo array sin modificar el estado directamente
+    },
   },
   actions: {
     async fetchApartment(url: string) {
-      const { data } = await useFetch(url)
-      this.availability = data.value // Nos aseguramos de asignar el valor correcto
-    }
-  }
-})
+      const { data } = await useFetch(url);
+      this.availability = data.value; // Nos aseguramos de asignar el valor correcto
+    },
+  },
+});
