@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-    <div>
-
-    </div>
+    <footer class="bg-neutral-950 text-neutral-400 py-2.5 px-6">
+        <p class="text-center w-full">Iraklitbz</p>
+    </footer>
 </template>

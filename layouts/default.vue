@@ -12,9 +12,10 @@ router.afterEach(() => {
       <Header />
       <Menu />
       <div
-          class="py-32 bg-white rounded-t-[40px]"
+          class="pt-32 bg-white rounded-t-[40px]"
       >
         <slot />
       </div>
+      <Footer />
   </div>
 </template>

@@ -12,15 +12,16 @@ onMounted(async () => {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '100.00', // Reemplaza con tu monto
+              value: '100.00',
             },
           }],
         });
       },
       onApprove: (data, actions) => {
         return actions.order.capture().then(details => {
-          console.log('Transaction completed by:', details.payer.name.given_name);
-        });
+          console.log('Transaction completed by', details)
+          navigateTo('/success')
+        })
       },
       onError: (err) => {
         console.error('PayPal SDK error:', err);

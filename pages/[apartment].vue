@@ -62,7 +62,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                class="lg:w-6/12"
            >
              <div
-                 class="overflow-hidden rounded-lg h-full cursor-pointer group border-2 border-solid border-black"
+                 class="overflow-hidden rounded-lg h-full cursor-pointer group"
                  @click="toggleGallery"
              >
                <nuxt-img
@@ -83,7 +83,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
                <div
                    v-for="(photo, index) in randomPhotos"
                    :key="index"
-                   class="overflow-hidden rounded-lg cursor-pointer group border-2 border-solid border-black"
+                   class="overflow-hidden rounded-lg cursor-pointer group"
                    @click="toggleGallery"
                >
                  <nuxt-img

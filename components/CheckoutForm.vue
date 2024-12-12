@@ -13,29 +13,7 @@ import PayPalButton from '~/components/PayPalButton.vue'
       :incomplete-message="false"
       @submit="handleCheckout"
   >
-    <FormKit
-        type="text"
-        name="name"
-        placeholder="Name"
-    />
-    <FormKit
-        type="text"
-        name="surname"
-        placeholder="Surname"
-    />
-    <FormKit
-        type="email"
-        name="email"
-        placeholder="Email"
-    />
-    <FormKit
-        type="submit"
-        :classes="{
-              input: 'w-full flex justify-center'
-            }"
-    >
-      Reserve
-    </FormKit>
+
   </FormKit>
   <PayPalButton />
 </div>

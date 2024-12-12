@@ -805,7 +805,7 @@ const classes: Record<string, Record<string, boolean>> = {
     "items-center": true,
     "bg-white": true,
     "border": true,
-    "border-neutral-950": true,
+    "border-neutral-400": true,
     "rounded": true,
     "focus-within:ring-1": true,
     "focus-within:!ring-blue-500": true,
