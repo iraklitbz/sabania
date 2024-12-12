@@ -3,7 +3,7 @@ export const availability = defineStore("availabilityData", {
     availability: {
       bookings: [],
     },
-    disabledDates: [] as Date[], // Tipo explícito como un array de fechas
+    disabledDates: [] as Date[],
   }),
   getters: {
     occupiedDates: (state) => {
@@ -15,13 +15,13 @@ export const availability = defineStore("availabilityData", {
           dates.push(new Date(d));
         }
       });
-      return dates; // Retornamos un nuevo array sin modificar el estado directamente
+      return dates;
     },
   },
   actions: {
     async fetchApartment(url: string) {
       const { data } = await useFetch(url);
-      this.availability = data.value; // Nos aseguramos de asignar el valor correcto
+      this.availability = data.value;
     },
   },
 });

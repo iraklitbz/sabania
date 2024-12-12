@@ -38,7 +38,7 @@ import { currencyFormat } from "../../utils/currency-utils";
         <p class="font-bold mb-2">Price details:</p>
         <p>
           {{ currencyFormat(apartments()?.totalPrice) }} x
-          {{ apartments().calculateNights }} night
+
         </p>
       </div>
     </div>

@@ -33,3 +33,8 @@ export interface Apartments {
   name: string;
   checkIfdataRangeIsEmpty: boolean;
 }
+export interface Range {
+  arrival: string;
+  departure: string;
+  apartment?: string;
+}

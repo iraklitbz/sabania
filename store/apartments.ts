@@ -1,4 +1,5 @@
-import type { Apartments } from "~/types/locale-types";
+import type { ApartmentSabania } from "~/types/sabania-types";
+import type { Range } from "~/types/locale-types";
 import { apiCall } from "~/composables/apiCall";
 import {
   apartmentsByLocaleQuery,
@@ -7,12 +8,12 @@ import {
 } from "~/graphql/queries/apartments.query.gql";
 export const apartments = defineStore("apartmentsData", {
   state: () => ({
-    apartments: [] as Apartments[],
-    apartment: {} as Apartments,
+    apartments: [] as ApartmentSabania[],
+    apartment: {} as ApartmentSabania,
     currentSlug: "" as string,
     travelers: 1 as number,
     totalPrice: 0 as number,
-    occupiedDates: [] as string[],
+    occupiedDates: [] as Range[],
     selectedRange: "" as string,
     checkinDate: "" as string,
     checkoutDate: "" as string,
@@ -29,19 +30,19 @@ export const apartments = defineStore("apartmentsData", {
     ],
   },
   getters: {
-    calculateNights(state) {
+    calculateNights(state): number {
       const arrivalDate = new Date(state.checkinDate);
       const departureDate = new Date(state.checkoutDate);
       const timeDifference = departureDate.getTime() - arrivalDate.getTime();
       const daysDifference = timeDifference / (1000 * 3600 * 24);
       return daysDifference > 0 ? Math.ceil(daysDifference) : 0;
     },
-    calculateTotalPrice(state) {
+    calculateTotalPrice(state: any) {
       return state.calculateNights * state.totalPrice;
     },
     getDisabledDates(state) {
-      const disabledDates = [];
-      state.occupiedDates.forEach((range) => {
+      const disabledDates: string[] = []
+      state.occupiedDates.forEach((range:Range) => {
         const from = new Date(range.arrival);
         const to = new Date(range.departure);
 
@@ -103,12 +104,14 @@ export const apartments = defineStore("apartmentsData", {
     },
     async fetchApartmentSmoobu(id: string) {
       this.occupiedDates = [];
-      const { data } = await useFetch(`/api/availability/${id}`);
-      this.occupiedDates = data.value.bookings.map((booking: any) => ({
-        arrival: booking.arrival,
-        departure: booking.departure,
-        apartment: booking.apartment,
-      }));
+      const { data } = await useFetch<{ bookings: Range[] }>(`/api/availability/${id}`);
+      if (data.value) {
+        this.occupiedDates = data.value.bookings.map((booking: Range) => ({
+          arrival: booking.arrival,
+          departure: booking.departure,
+          apartment: booking.apartment,
+        }));
+      }
     },
     updateDatesCalendar(newRange: string[]) {
       this.checkIfdataRangeIsEmpty = false;
@@ -121,11 +124,11 @@ export const apartments = defineStore("apartmentsData", {
       }
     },
     clearDatesCalendar() {
-      this.apartment = {} as Apartments;
+      this.apartment = {} as ApartmentSabania;
       this.selectedRange = "";
       this.checkinDate = "";
       this.checkoutDate = "";
-      this.travelers = "";
+      this.travelers = 1;
     },
     setCheckDataRangeIsEmpty() {
       this.checkIfdataRangeIsEmpty = true;
