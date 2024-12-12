@@ -9,7 +9,7 @@ definePageMeta({
 
 <template>
   <section
-      class="relative max-w-5xl mx-auto p-6 lg:px-8"
+      class="relative max-w-7xl mx-auto p-6 lg:px-8"
   >
     <nuxt-link
         v-if="apartments()?.apartment.slug"

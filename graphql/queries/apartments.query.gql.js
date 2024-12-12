@@ -2,9 +2,15 @@ export const apartmentsByLocaleQuery = `
   query getApartmentsByLocale($filters: ApartmentFiltersInput){
       apartments(filters: $filters) {
         name
+        shortDescription
         slug
         description
-        price
+        price {
+            price
+            travelers
+            maxTravelers
+            increasePrice
+        }
          address {
             postalCode
             street
@@ -24,8 +30,14 @@ export const apartmentQuery = `
   query getApartment($filters: ApartmentFiltersInput){
       apartments(filters: $filters) {
         name
+        shortDescription
         slug
-        price
+        price {
+            price
+            travelers
+            maxTravelers
+            increasePrice
+        }
         description
         smoobuID
         rooms {
@@ -71,6 +83,7 @@ export const apartmentsQuery = `
   query getApartment{
       apartments {
         name
+        shortDescription
         slug
         location {
             city

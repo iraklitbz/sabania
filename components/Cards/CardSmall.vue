@@ -21,31 +21,30 @@ import {currencyFormat} from "../../utils/currency-utils";
       <div
         class="w-full"
       >
-        <h2 class="text-lg xl:text-xl font-bold">{{ apartments()?.apartment.name }}</h2>
+        <h2 class="text-lg xl:text-xl mb-2">{{ apartments()?.apartment.name }}</h2>
+        <h2 class="text-lg xl:text-xl font-bold">{{ apartments()?.apartment.shortDescription }}</h2>
       </div>
     </div>
-    <div>
-      <p class="font-bold mb-2">Selected dates</p>
-      <p><b>Check-in:</b> {{ format(apartments()?.checkinDate, "medium") }}</p>
-      <p><b>Check-Out:</b> {{ format(apartments()?.checkoutDate, "medium") }}</p>
+    <div class="grid lg:grid-cols-3 gap-5 lg:gap-10">
+      <div class="whitespace-nowrap">
+        <p class="font-bold mb-2">Selected dates</p>
+        <p><b>From:</b> {{ format(apartments()?.checkinDate, "medium") }}</p>
+        <p><b>To:</b> {{ format(apartments()?.checkoutDate, "medium") }}</p>
+      </div>
+      <div class="">
+        <p class="font-bold mb-2">Travelers</p>
+        <p>{{ apartments()?.travelers }} Travelers</p>
+      </div>
+      <div class="lg:text-right">
+        <p class="font-bold mb-2">Price details:</p>
+        <p>{{ currencyFormat(apartments()?.totalPrice) }} x {{ apartments().calculateNights }} night</p>
+      </div>
     </div>
-    <div>
-      <p class="font-bold">Travelers</p>
-      <p>{{ apartments()?.travelers }} Travelers</p>
-    </div>
-    <div>
-      <h2 class="text-lg font-bold mb-4">Price details:</h2>
-      <div
-          class="flex justify-between items-start gap-3"
-      >
-        <span> {{ currencyFormat(apartments()?.apartment.price) }} x {{ apartments().calculateNights }} nights </span>
-          <div
-            class="flex flex-col items-end"
-          >
-            <span> Total (EUR) </span>
-            <span class="text-xl xl:text-2xl font-bold mt-1"> {{currencyFormat(apartments().calculateTotalPrice)}} </span>
-          </div>
-        </div>
+    <div
+        class="flex flex-col items-end"
+    >
+      <span> Total (EUR) </span>
+      <span class="text-xl xl:text-2xl font-bold mt-1"> {{currencyFormat(apartments().calculateTotalPrice)}} </span>
     </div>
   </div>
 </template>

@@ -6,7 +6,8 @@ export const apartments = defineStore('apartmentsData', {
         apartments: [] as Apartments[],
         apartment: {} as Apartments,
         currentSlug: '' as string,
-        travelers: '' as string,
+        travelers: 1 as number,
+        totalPrice: 0 as number,
         occupiedDates: [] as string[],
         selectedRange: '' as string,
         checkinDate: '' as string,
@@ -26,7 +27,7 @@ export const apartments = defineStore('apartmentsData', {
             return daysDifference > 0 ? Math.ceil(daysDifference) : 0
         },
         calculateTotalPrice(state) {
-            return state.calculateNights * state.apartment.price
+            return state.calculateNights * state.totalPrice
         },
         getDisabledDates(state) {
             const disabledDates = [];
@@ -72,6 +73,7 @@ export const apartments = defineStore('apartmentsData', {
             }
         },
         async fetchApartment(slug: string) {
+            this.totalPrice = 0
             if (this.currentSlug === slug && Object.keys(this.apartment).length > 0) {
                 return
             }
@@ -117,6 +119,9 @@ export const apartments = defineStore('apartmentsData', {
         },
         setCheckDataRangeIsEmpty () {
             this.checkIfdataRangeIsEmpty = true
+        },
+        setTotalPrice (price: number) {
+            this.totalPrice = price
         }
     }
 })

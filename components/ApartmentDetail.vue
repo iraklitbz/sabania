@@ -44,15 +44,21 @@ maxDate.setFullYear(today.getFullYear() + 1)
         <li v-if="data?.address?.postalCode"> {{ data.address.postalCode }}  </li>
       </ul>
     </div>
-    <div>
+    <div
+      v-if="data?.list && data?.list.length"
+    >
       <h3 class="text-lg font-bold mb-2"> What this apartment has: </h3>
       <ul class="grid grid-cols-3 gap-4">
         <li
-          v-for="item in data?.list"
+          v-for="item in matchingCategories(data?.list)"
           :key="item"
-          class="bg-gray-100 rounded-full px-2 py-1 text-center border border-solid border-gray-200 text-neutral-600"
+          class="bg-gray-100 rounded-full px-2 py-2 text-center border border-solid border-gray-200 text-neutral-600 flex items-center gap-2 justify-center"
         >
-          {{ item }}
+          <Icon
+              :name="`icon:${item.icon}`"
+              class="text-2xl"
+          />
+          {{ item.name }}
         </li>
       </ul>
     </div>

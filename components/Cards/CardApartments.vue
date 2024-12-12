@@ -31,14 +31,17 @@ const props = defineProps<{
     </div>
     <nuxt-link :to="`/${props.data.slug}`">
       <div>
-        <div class="flex gap-3">
-         <span class="inline-block text-xs font-medium tracking-wider uppercase   mt-5 text-emerald-700">
+        <div class="flex gap-3 justify-between">
+         <span class="inline-block text-xs font-medium tracking-wider uppercase   mt-5 text-blue-500">
             Apartment
           </span>
+          <span class="inline-block text-xs font-medium tracking-wider uppercase   mt-5 bg-blue-500 text-white py-1 px-4 rounded-2xl">
+             {{ props.data.name }}
+          </span>
         </div>
-        <h2 class="text-lg lg:text-xl xl:text-2xl font-semibold leading-snug tracking-tight mt-2">
-          <span class="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]">
-              {{ props.data.name }}
+        <h2 class="text-lg lg:text-xl xl:text-2xl font-semibold leading-snug tracking-tight mt-3">
+          <span class="bg-gradient-to-r from-blue-200 to-blue-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]">
+              {{ props.data.shortDescription }}
             </span>
         </h2>
       </div>

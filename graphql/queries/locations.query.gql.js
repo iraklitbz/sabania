@@ -6,6 +6,10 @@ export const locationsQuery = `
         longitude
         description
         slug
+        feature {
+            name
+            url
+        }
       }
   }
 `
@@ -18,6 +22,10 @@ export const locationQuery = `
         latitude
         longitude
         slug
+        feature {
+            name
+            url
+        }
     }
   }
 `
