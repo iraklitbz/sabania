@@ -43,6 +43,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
       :action-row="{
         showPreview: false,
       }"
+      :format="'yyyy/MM/dd'"
       @update:modelValue="apartments().updateDatesCalendar"
       @cleared="apartments().updateDatesCalendar([])"
     />
