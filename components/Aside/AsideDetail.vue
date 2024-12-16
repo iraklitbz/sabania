@@ -69,7 +69,7 @@ const optionsTravelers = computed(() => {
       >
         <InputCalendar />
         <FormKit
-          v-model="apartments().travelers"
+          v-model.number="apartments().travelers"
           id="adultsInput"
           name="travelers"
           type="select"

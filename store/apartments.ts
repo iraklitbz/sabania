@@ -27,15 +27,18 @@ export const apartments = defineStore("apartmentsData", {
       "checkinDate",
       "checkoutDate",
       "travelers",
+      "totalPrice",
+      "calculateTotalPrice",
+      "calculateNights"
     ],
   },
   getters: {
-    calculateNights(state): number {
-      const arrivalDate = new Date(state.checkinDate);
-      const departureDate = new Date(state.checkoutDate);
-      const timeDifference = departureDate.getTime() - arrivalDate.getTime();
-      const daysDifference = timeDifference / (1000 * 3600 * 24);
-      return daysDifference > 0 ? Math.ceil(daysDifference) : 0;
+    calculateNights (state) {
+        const arrivalDate = new Date(state.checkinDate);
+        const departureDate = new Date(state.checkoutDate);
+        const timeDifference = departureDate.getTime() - arrivalDate.getTime();
+        const daysDifference = timeDifference / (1000 * 3600 * 24)
+        return daysDifference > 0 ? Math.ceil(daysDifference) : 0
     },
     calculateTotalPrice(state: any) {
       return state.calculateNights * state.totalPrice;
@@ -71,9 +74,13 @@ export const apartments = defineStore("apartmentsData", {
           },
         },
       };
-      const data = await apiCall(apartmentsByLocaleQuery, "data", variables);
+      const data = await apiCall(apartmentsByLocaleQuery, "data", variables)
       if (data) {
-        this.apartments = data.apartments;
+        this.apartments = data.apartments.sort((a:ApartmentSabania, b: ApartmentSabania) => {
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
+          return 0;
+        });
       }
     },
     async fetchApartments() {
@@ -127,8 +134,12 @@ export const apartments = defineStore("apartmentsData", {
       this.apartment = {} as ApartmentSabania;
       this.selectedRange = "";
       this.checkinDate = "";
+      this.occupiedDates = [];
       this.checkoutDate = "";
       this.travelers = 1;
+      this.totalPrice = 0;
+      this.checkIfdataRangeIsEmpty = false;
+
     },
     setCheckDataRangeIsEmpty() {
       this.checkIfdataRangeIsEmpty = true;

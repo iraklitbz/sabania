@@ -37,7 +37,15 @@ definePageMeta({
       <aside
         class="lg:w-6/12 bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"
       >
-        <CardSmall />
+        <CardSmall
+          :apartment="apartments()?.apartment"
+          :checkin-date="apartments()?.checkinDate"
+          :checkout-date="apartments()?.checkoutDate"
+          :travelers="apartments()?.travelers"
+          :total-price="apartments()?.totalPrice"
+          :calculate-nights="apartments()?.calculateNights"
+          :calculate-total-price="apartments()?.calculateTotalPrice"
+        />
       </aside>
     </div>
   </section>
