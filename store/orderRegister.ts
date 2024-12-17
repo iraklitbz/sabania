@@ -1,6 +1,7 @@
 import { orderMutation } from "~/graphql/mutations/orders.mutation.gql.js"
 import { apartments } from "~/store/apartments";
 import type {OrderInputSabania, ApartmentSabania} from "~/types/sabania-types";
+import {format} from "@formkit/tempo";
 export const orderRegister = defineStore("orderData", {
     state: () => ({
         currentOrder: {} as OrderInputSabania,
@@ -32,7 +33,7 @@ export const orderRegister = defineStore("orderData", {
 
             try {
                 const smoobuData = {
-                    smoobuID: currentApartment.apartment.smoobuID,
+                    apartmentId: currentApartment.apartment.smoobuID,
                     ...order
                 }
                 const { data: postResponse, error: postError } = await useFetch('/api/reservations', {
@@ -57,13 +58,16 @@ export const orderRegister = defineStore("orderData", {
             }
         },
         async tryApiCall () {
+            const checkInDate = "Fri Dec 12 2025 11:47:00 GMT+0100 (Central European Standard Time)"
+            const checkOutDate = "Sat Dec 13 2025 11:48:00 GMT+0100 (Central European Standard Time)"
             let dataToSend = JSON.stringify({
-                "arrivalDate": "2025-12-04",
-                "departureDate": "2025-12-05",
+                "arrivalDate": 'Fri Dec 12 2025 11:47:00 GMT+0100 (Central European Standard Time)',
+                "departureDate": 'Sat Dec 13 2025 11:48:00 GMT+0100 (Central European Standard Time)',
                 "apartmentId": 2130636,
-                "firstName": "irakli",
-                "lastName": "tbz",
-                "email": "iraklitbz@gmail.com"
+                "fullName": 'irakli tavberidze',
+                "email": "iraklitbz@gmail.com",
+                'adults': 1,
+                'price': 200
             });
             const { data, error } = await useFetch('/api/reservations', {
                 method: 'POST',

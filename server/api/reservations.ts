@@ -1,24 +1,28 @@
 import { format } from "@formkit/tempo";
-
+import {apartments} from "~/store/apartments";
 export default defineEventHandler(async (event): Promise<any> => {
     const config = useRuntimeConfig();
+    const body = await readBody(event);
+    const [firstName, ...lastNameParts] = body.fullName.split(" ");
+    const lastName = lastNameParts.join(" ");
     let dataToSend = JSON.stringify({
-        "arrivalDate": "2025-12-04",
-        "departureDate": "2025-12-05",
-        "apartmentId": 2130636,
-        "firstName": "irakli",
-        "lastName": "tbz",
-        "email": "iraklitbz@gmail.com"
+        "arrivalDate": format(new Date(body.checkin), "YYYY-MM-DD"),
+        "departureDate": format(new Date(body.checkout), "YYYY-MM-DD"),
+        "apartmentId": Number(body.apartmentId),
+        "firstName": firstName || "",
+        "lastName": lastName || "",
+        "email": body.email,
+        'adults': Number(body.travelers),
+        'price': parseFloat(body.amountPayed)
     });
-
     try {
-        const response = await $fetch('https://login.smoobu.com/api/reservations', {
+        const response = await $fetch(`${config.public.SMOOBU_API_URL}/api/reservations`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "API-Key": config.public.SMOOBU_API_KEY
             },
-            data: dataToSend
+            body: dataToSend
         });
 
         return response;
