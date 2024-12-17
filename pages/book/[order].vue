@@ -39,8 +39,8 @@ definePageMeta({
       >
         <CardSmall
           :apartment="apartments()?.apartment"
-          :checkin-date="apartments()?.checkinDate"
-          :checkout-date="apartments()?.checkoutDate"
+          :checkin-date="apartments()?.checkinDate.toString()"
+          :checkout-date="apartments()?.checkoutDate.toString()"
           :travelers="apartments()?.travelers"
           :total-price="apartments()?.totalPrice"
           :calculate-nights="apartments()?.calculateNights"

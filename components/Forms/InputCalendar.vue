@@ -28,7 +28,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
       :range="true"
       :multi-calendars="2"
       placeholder="Check-in - Check-out"
-      :class="{ 'empty-input': apartments().checkIfdataRangeIsEmpty }"
+      :class="{ 'empty-input': apartments().checkIfDataRangeIsEmpty }"
       :clearable="true"
       :hide-navigation="['month', 'year']"
       :min-date="today"

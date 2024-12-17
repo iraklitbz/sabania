@@ -31,7 +31,7 @@ export interface Apartments {
   checkout: string;
   description: string;
   name: string;
-  checkIfdataRangeIsEmpty: boolean;
+  checkIfDataRangeIsEmpty: boolean;
 }
 export interface Range {
   arrival: string;

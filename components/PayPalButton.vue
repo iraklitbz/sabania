@@ -43,6 +43,7 @@ onMounted(async () => {
             };
             const currentApartmentData = {
               apartment: apartments().apartment,
+              smoobuID: apartments().apartment.smoobuID,
               checkinDate: apartments().checkinDate,
               checkoutDate: apartments().checkoutDate,
               travelers: apartments().travelers,
@@ -62,7 +63,7 @@ onMounted(async () => {
       }).render(paypalRef.value!);
     }
   } catch (err) {
-    console.error("Error loading PayPal buttons:", err); // Manejo de errores al cargar el SDK de PayPal
+    console.error("Error loading PayPal buttons:", err);
   }
 });
 </script>

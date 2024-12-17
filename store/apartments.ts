@@ -17,7 +17,7 @@ export const apartments = defineStore("apartmentsData", {
     selectedRange: "" as string,
     checkinDate: "" as string,
     checkoutDate: "" as string,
-    checkIfdataRangeIsEmpty: false,
+    checkIfDataRangeIsEmpty: false,
   }),
   persist: {
     storage: piniaPluginPersistedstate.localStorage(),
@@ -121,10 +121,10 @@ export const apartments = defineStore("apartmentsData", {
       }
     },
     updateDatesCalendar(newRange: string[]) {
-      this.checkIfdataRangeIsEmpty = false;
+      this.checkIfDataRangeIsEmpty = false;
       if (newRange.length === 2) {
-        this.checkinDate = newRange[0];
-        this.checkoutDate = newRange[1];
+        this.checkinDate = newRange[0].toString();
+        this.checkoutDate = newRange[1].toString();
       } else {
         this.checkinDate = "";
         this.checkoutDate = "";
@@ -138,11 +138,11 @@ export const apartments = defineStore("apartmentsData", {
       this.checkoutDate = "";
       this.travelers = 1;
       this.totalPrice = 0;
-      this.checkIfdataRangeIsEmpty = false;
+      this.checkIfDataRangeIsEmpty = false;
 
     },
     setCheckDataRangeIsEmpty() {
-      this.checkIfdataRangeIsEmpty = true;
+      this.checkIfDataRangeIsEmpty = true;
     },
     setTotalPrice(price: number) {
       this.totalPrice = price;

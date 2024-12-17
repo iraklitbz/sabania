@@ -29,10 +29,30 @@ export const orderRegister = defineStore("orderData", {
             this.currentApartment = currentApartment
             this.orderCreationTime = new Date().toISOString()
             apartments().clearDatesCalendar()
-            const variables = { data: order as OrderInputSabania };
-            const data = await apiCall(orderMutation, "data", variables)
-            if (data) {
-                this.currentOrder = data.createOrder
+
+            try {
+                const smoobuData = {
+                    smoobuID: currentApartment.apartment.smoobuID,
+                    ...order
+                }
+                const { data: postResponse, error: postError } = await useFetch('/api/reservations', {
+                    method: 'POST',
+                    body: smoobuData
+                })
+
+                if (postError.value) {
+                    console.error('Error en la llamada POST:', postError.value)
+                    return
+                }
+
+                const variables = { data: order as OrderInputSabania }
+                // const data = await apiCall(orderMutation, "data", variables)
+
+                // if (data) {
+                //     this.currentOrder = data.createOrder
+                // }
+            } catch (error) {
+                console.error('Error general en registerOrder:', error)
             }
         },
         cleanOrderData() {

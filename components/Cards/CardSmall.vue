@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ApartmentSabania } from "~/types/sabania-types";
 import { format } from "@formkit/tempo";
-import { currencyFormat } from "../../utils/currency-utils";
 const props = defineProps<{
   apartment: ApartmentSabania;
   checkinDate: string;
@@ -36,8 +35,8 @@ const props = defineProps<{
     <div class="grid lg:grid-cols-3 gap-5 lg:gap-10">
       <div class="whitespace-nowrap">
         <p class="font-bold mb-2">Selected dates</p>
-        <p><b>From:</b> {{ format(props.checkinDate, "medium") }}</p>
-        <p><b>To:</b> {{ format(props.checkoutDate, "medium") }}</p>
+        <p><b>From:</b> {{ format(new Date(props.checkinDate), "medium") }}</p>
+        <p><b>To:</b> {{ format(new Date(props.checkoutDate), "medium") }}</p>
       </div>
       <div class="">
         <p class="font-bold mb-2">Travelers</p>
