@@ -20,7 +20,6 @@ const handleMarkerClick = (apartment: Apartments) => {
     <GoogleMap
       :api-key="config.public.GOOGLE_MAPS_API_KEY"
       :mapId="config.public.GOOGLE_MAPS_ID"
-      style="width: 100%; height: 500px"
       :center="{
         lat: Number(props.cityLocation.lat),
         lng: Number(props.cityLocation.lng),

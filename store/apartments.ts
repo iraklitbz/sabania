@@ -1,6 +1,7 @@
-import type { ApartmentSabania } from "~/types/sabania-types";
+import type { ApartmentSabania, ComponentDiscountDiscountSabania } from "~/types/sabania-types";
 import type { Range } from "~/types/locale-types";
 import { apiCall } from "~/composables/apiCall";
+import { calculatePrice } from "~/utils/calculatePrice";
 import {
   apartmentsByLocaleQuery,
   apartmentQuery,
@@ -12,7 +13,6 @@ export const apartments = defineStore("apartmentsData", {
     apartment: {} as ApartmentSabania,
     currentSlug: "" as string,
     travelers: 1 as number,
-    totalPrice: 0 as number,
     occupiedDates: [] as Range[],
     selectedRange: "" as string,
     checkinDate: "" as string,
@@ -40,8 +40,17 @@ export const apartments = defineStore("apartmentsData", {
         const daysDifference = timeDifference / (1000 * 3600 * 24)
         return daysDifference > 0 ? Math.ceil(daysDifference) : 0
     },
+    getTotalPrice (state) {
+        return calculatePrice(
+            state.apartment.price.price,
+            state.apartment.price.travelers,
+            state.apartment.price.maxTravelers,
+            state.apartment.price.increasePrice,
+            apartments().travelers
+        );
+    },
     calculateTotalPrice(state: any) {
-      return state.calculateNights * state.totalPrice;
+      return state.calculateNights * state.getTotalPrice;
     },
     getDisabledDates(state) {
       const disabledDates: string[] = []
@@ -61,6 +70,23 @@ export const apartments = defineStore("apartmentsData", {
     },
     getIfDataRangeIsEmpty(state) {
       return !(state.checkinDate && state.checkoutDate);
+    },
+    getAppliedDiscount(state) {
+      const nights = this.calculateNights;
+      const discounts = state.apartment.discount;
+      let discount = 0;
+
+      for (const d of discounts as ComponentDiscountDiscountSabania[]) {
+        if (d.days != null && d.percentageDiscount != null && nights >= d.days) {
+          discount = d.percentageDiscount;
+        }
+      }
+
+      return discount;
+    },
+    getTotalPriceWithDiscount(): number {
+      const discount = (this.calculateTotalPrice * this.getAppliedDiscount) / 100
+      return this.calculateTotalPrice - discount
     },
   },
   actions: {
@@ -91,7 +117,6 @@ export const apartments = defineStore("apartmentsData", {
       }
     },
     async fetchApartment(slug: string) {
-      this.totalPrice = 0;
       if (this.currentSlug === slug && Object.keys(this.apartment).length > 0) {
         return;
       }
@@ -137,15 +162,11 @@ export const apartments = defineStore("apartmentsData", {
       this.occupiedDates = [];
       this.checkoutDate = "";
       this.travelers = 1;
-      this.totalPrice = 0;
       this.checkIfDataRangeIsEmpty = false;
 
     },
     setCheckDataRangeIsEmpty() {
       this.checkIfDataRangeIsEmpty = true;
-    },
-    setTotalPrice(price: number) {
-      this.totalPrice = price;
-    },
+    }
   },
 });

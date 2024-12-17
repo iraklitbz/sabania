@@ -61,7 +61,8 @@ export const apartmentQuery = `
             slug
         }
         discount {
-          percentageDiscount
+            days
+            percentageDiscount
         }
         checkout
         feature {

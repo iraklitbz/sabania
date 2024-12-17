@@ -14,11 +14,7 @@ const props = defineProps<{
       <figure class="relative block aspect-square">
         <img
           alt="Thumbnail"
-          loading="lazy"
-          decoding="async"
-          data-nimg="fill"
           class="object-cover transition-all absolute h-full w-full text-transparent inset-0"
-          sizes="(max-width: 768px) 30vw, 33vw"
           src="https://picsum.photos/200/300"
         />
       </figure>

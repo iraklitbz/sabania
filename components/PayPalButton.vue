@@ -4,7 +4,6 @@ import { apartments } from "~/store/apartments";
 import { orderRegister } from "~/store/orderRegister";
 import { usePayPal } from "~/composables/usePayPal";
 const paypalRef = ref<HTMLElement | null>(null);
-
 onMounted(async () => {
   try {
     const paypal = await usePayPal();
@@ -16,7 +15,7 @@ onMounted(async () => {
             purchase_units: [
               {
                 amount: {
-                  value: apartments().calculateTotalPrice,
+                  value: apartments().calculateTotalPrice === apartments().getTotalPriceWithDiscount ? apartments().calculateTotalPrice : apartments().getTotalPriceWithDiscount
                 },
               },
             ],
@@ -47,9 +46,10 @@ onMounted(async () => {
               checkinDate: apartments().checkinDate,
               checkoutDate: apartments().checkoutDate,
               travelers: apartments().travelers,
-              totalPrice: apartments().totalPrice,
+              totalPrice: apartments()?.getTotalPrice,
               calculateNights: apartments().calculateNights,
-              calculateTotalPrice: apartments().calculateTotalPrice
+              calculateTotalPrice: apartments().calculateTotalPrice,
+              discountPrice: apartments().getTotalPriceWithDiscount
             }
             await orderRegister().registerOrder(orderDetail, currentApartmentData);
             navigateTo("/book/success");

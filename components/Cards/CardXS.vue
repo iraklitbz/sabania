@@ -17,11 +17,7 @@ const props = defineProps<{
       <figure class="aspect-square w-20 h-20">
         <nuxt-img
           :alt="props.data.feature.name"
-          loading="lazy"
-          decoding="async"
-          data-nimg="fill"
           class="object-cover w-full h-full rounded-md"
-          sizes="(max-width: 768px) 30vw, 33vw"
           :src="props.data.feature.url"
         />
       </figure>

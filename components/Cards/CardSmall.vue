@@ -9,6 +9,7 @@ const props = defineProps<{
   totalPrice: number;
   calculateNights: number;
   calculateTotalPrice: number;
+  discountPrice?: number;
 }>();
 </script>
 <template>
@@ -49,10 +50,19 @@ const props = defineProps<{
         </p>
       </div>
     </div>
-    <div class="flex flex-col items-end">
+    <div v-if="props.calculateTotalPrice === props.discountPrice" class="flex flex-col items-end">
       <span> Total (EUR) </span>
       <span class="text-xl xl:text-2xl font-bold mt-1">
         {{ currencyFormat(props.calculateTotalPrice) }}
+      </span>
+    </div>
+    <div v-else class="flex flex-col items-end">
+      <span> Total (EUR) </span>
+      <span class="text-xl xl:text-2xl font-bold mt-1">
+        {{ currencyFormat(props.discountPrice) }}
+      </span>
+      <span class="text-sm text-green-800 mt-1">
+        You saved <b>{{ currencyFormat(props.calculateTotalPrice - props.discountPrice) }}</b> with this booking
       </span>
     </div>
   </div>

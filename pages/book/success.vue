@@ -30,6 +30,7 @@ if(orderRegister().getDataIsExpired) {
           :total-price="orderRegister().currentApartment.totalPrice"
           :calculate-nights="orderRegister().currentApartment.calculateNights"
           :calculate-total-price="orderRegister().currentApartment.calculateTotalPrice"
+          :discount-price="orderRegister().currentApartment.discountPrice"
         />
       </aside>
     </div>

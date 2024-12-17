@@ -42,9 +42,10 @@ definePageMeta({
           :checkin-date="apartments()?.checkinDate.toString()"
           :checkout-date="apartments()?.checkoutDate.toString()"
           :travelers="apartments()?.travelers"
-          :total-price="apartments()?.totalPrice"
+          :total-price="apartments()?.getTotalPrice"
           :calculate-nights="apartments()?.calculateNights"
           :calculate-total-price="apartments()?.calculateTotalPrice"
+          :discount-price="apartments().getTotalPriceWithDiscount"
         />
       </aside>
     </div>

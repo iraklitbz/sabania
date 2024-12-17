@@ -21,11 +21,7 @@ const props = defineProps<{
       >
         <nuxt-img
           :alt="props.data.feature.name"
-          loading="lazy"
-          decoding="async"
-          data-nimg="fill"
           class="object-cover transition-all absolute h-full w-full text-transparent inset-0"
-          sizes="(max-width: 768px) 30vw, 33vw"
           :src="props.data.feature.url"
         />
       </nuxt-link>
@@ -38,19 +34,19 @@ const props = defineProps<{
           >
             Apartment
           </span>
-          <span
-            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 bg-blue-500 text-white py-1 px-4 rounded-2xl"
-          >
-            {{ props.data.name }}
-          </span>
         </div>
+        <h2
+            class="inline-block text-lg lg:text-xl font-medium tracking-wider mt-5 bg-blue-500 text-white py-1 px-4 rounded-2xl"
+        >
+            {{ props.data.name }}
+          </h2>
         <h2
           class="text-lg lg:text-xl xl:text-2xl font-semibold leading-snug tracking-tight mt-3"
         >
           <span
             class="bg-gradient-to-r from-blue-200 to-blue-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
           >
-            {{ props.data.shortDescription }}
+            {{ props.data?.shortDescription }}
           </span>
         </h2>
       </div>

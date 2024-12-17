@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import InputCalendar from "~/components/Forms/InputCalendar.vue";
 import { apartments } from "~/store/apartments";
-import {orderRegister} from "~/store/orderRegister";
 import { currencyFormat } from "~/utils/currency-utils";
-import { calculatePrice } from "~/utils/calculatePrice";
 type Apartment = {
   id: number;
   name: string;
@@ -20,21 +18,11 @@ const props = defineProps<{
   };
   occupiedDates: Array<OccupiedDates>;
 }>();
-const totalPrice = computed(() => {
-  return calculatePrice(
-    props.data.price.price,
-    props.data.price.travelers,
-    props.data.price.maxTravelers,
-    props.data.price.increasePrice,
-    apartments().travelers,
-  );
-});
 function handleSearch() {
   if (!(apartments().checkinDate && apartments().checkoutDate)) {
     apartments().setCheckDataRangeIsEmpty();
     return;
   } else {
-    apartments().setTotalPrice(totalPrice.value as number);
     navigateTo("/book/" + apartments().apartment?.slug);
   }
 }
@@ -56,7 +44,7 @@ const optionsTravelers = computed(() => {
       class="bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"
     >
       <h2 class="text-xl lg:text-2xl xl:text-3xl font-bold mb-5">
-        {{ currencyFormat(totalPrice) }}
+        {{ currencyFormat(apartments().getTotalPrice) }}
         <span class="font-normal text-lg ml-1">night</span>
       </h2>
       <FormKit
