@@ -28,13 +28,31 @@ const totalPrice = computed(() => {
     apartments().travelers,
   );
 });
-function handleSearch() {
+async function handleSearch() {
+  const config = useRuntimeConfig();
   if (!(apartments().checkinDate && apartments().checkoutDate)) {
     apartments().setCheckDataRangeIsEmpty();
     return;
   } else {
     apartments().setTotalPrice(totalPrice.value as number);
-    navigateTo("/book/" + apartments().apartment?.slug);
+    let dataToSend = JSON.stringify({
+      "arrivalDate": "2025-12-04",
+      "departureDate": "2025-12-05",
+      "apartmentId": 2130636,
+      "firstName": "irakli",
+      "lastName": "tbz",
+      "email": "iraklitbz@gmail.com"
+    });
+    const data = await $fetch(`${config.public.SMOOBU_API_URL}/api/reservations`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "API-Key": config.public.SMOOBU_API_KEY
+      },
+      data: dataToSend
+    });
+    console.log(data)
+    // navigateTo("/book/" + apartments().apartment?.slug);
   }
 }
 
