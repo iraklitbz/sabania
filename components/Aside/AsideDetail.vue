@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import InputCalendar from "~/components/Forms/InputCalendar.vue";
 import { apartments } from "~/store/apartments";
+import {orderRegister} from "~/store/orderRegister";
 import { currencyFormat } from "~/utils/currency-utils";
 import { calculatePrice } from "~/utils/calculatePrice";
 type Apartment = {
@@ -28,31 +29,13 @@ const totalPrice = computed(() => {
     apartments().travelers,
   );
 });
-async function handleSearch() {
-  const config = useRuntimeConfig();
+function handleSearch() {
   if (!(apartments().checkinDate && apartments().checkoutDate)) {
     apartments().setCheckDataRangeIsEmpty();
     return;
   } else {
     apartments().setTotalPrice(totalPrice.value as number);
-    let dataToSend = JSON.stringify({
-      "arrivalDate": "2025-12-04",
-      "departureDate": "2025-12-05",
-      "apartmentId": 2130636,
-      "firstName": "irakli",
-      "lastName": "tbz",
-      "email": "iraklitbz@gmail.com"
-    });
-    const data = await $fetch(`${config.public.SMOOBU_API_URL}/api/reservations`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "API-Key": config.public.SMOOBU_API_KEY
-      },
-      data: dataToSend
-    });
-    console.log(data)
-    // navigateTo("/book/" + apartments().apartment?.slug);
+    navigateTo("/book/" + apartments().apartment?.slug);
   }
 }
 
@@ -109,6 +92,7 @@ const optionsTravelers = computed(() => {
           Reserve
         </FormKit>
       </FormKit>
+      <div @click="orderRegister().tryApiCall()">BUTTTTTTTTTTOOOON</div>
     </div>
   </aside>
 </template>

@@ -2,9 +2,6 @@ import { format } from "@formkit/tempo";
 
 export default defineEventHandler(async (event): Promise<any> => {
     const config = useRuntimeConfig();
-    const body = await readBody(event);
-    const [firstName, ...lastNameParts] = body.fullName.split(" ");
-    const lastName = lastNameParts.join(" ");
     let dataToSend = JSON.stringify({
         "arrivalDate": "2025-12-04",
         "departureDate": "2025-12-05",
@@ -15,7 +12,7 @@ export default defineEventHandler(async (event): Promise<any> => {
     });
 
     try {
-        const response = await $fetch(`${config.public.SMOOBU_API_URL}/api/reservations`, {
+        const response = await $fetch('https://login.smoobu.com/api/reservations', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

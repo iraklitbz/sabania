@@ -45,14 +45,36 @@ export const orderRegister = defineStore("orderData", {
                     return
                 }
 
-                const variables = { data: order as OrderInputSabania }
-                // const data = await apiCall(orderMutation, "data", variables)
 
-                // if (data) {
-                //     this.currentOrder = data.createOrder
-                // }
+                const variables = { data: order as OrderInputSabania }
+                const data = await apiCall(orderMutation, "data", variables)
+
+                if (data) {
+                    this.currentOrder = data.createOrder
+                }
             } catch (error) {
                 console.error('Error general en registerOrder:', error)
+            }
+        },
+        async tryApiCall () {
+            let dataToSend = JSON.stringify({
+                "arrivalDate": "2025-12-04",
+                "departureDate": "2025-12-05",
+                "apartmentId": 2130636,
+                "firstName": "irakli",
+                "lastName": "tbz",
+                "email": "iraklitbz@gmail.com"
+            });
+            const { data, error } = await useFetch('/api/reservations', {
+                method: 'POST',
+                body: dataToSend
+            })
+            if (data.value) {
+                console.log(data.value)
+            }
+            if (error.value) {
+                console.error('Error en la llamada POST:', error.value)
+                return
             }
         },
         cleanOrderData() {
