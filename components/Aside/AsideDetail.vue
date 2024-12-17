@@ -92,7 +92,6 @@ const optionsTravelers = computed(() => {
           Reserve
         </FormKit>
       </FormKit>
-      <div @click="orderRegister().tryApiCall()">BUTTTTTTTTTTOOOON</div>
     </div>
   </aside>
 </template>

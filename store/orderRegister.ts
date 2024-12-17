@@ -57,30 +57,6 @@ export const orderRegister = defineStore("orderData", {
                 console.error('Error general en registerOrder:', error)
             }
         },
-        async tryApiCall () {
-            const checkInDate = "Fri Dec 12 2025 11:47:00 GMT+0100 (Central European Standard Time)"
-            const checkOutDate = "Sat Dec 13 2025 11:48:00 GMT+0100 (Central European Standard Time)"
-            let dataToSend = JSON.stringify({
-                "arrivalDate": 'Fri Dec 12 2025 11:47:00 GMT+0100 (Central European Standard Time)',
-                "departureDate": 'Sat Dec 13 2025 11:48:00 GMT+0100 (Central European Standard Time)',
-                "apartmentId": 2130636,
-                "fullName": 'irakli tavberidze',
-                "email": "iraklitbz@gmail.com",
-                'adults': 1,
-                'price': 200
-            });
-            const { data, error } = await useFetch('/api/reservations', {
-                method: 'POST',
-                body: dataToSend
-            })
-            if (data.value) {
-                console.log(data.value)
-            }
-            if (error.value) {
-                console.error('Error en la llamada POST:', error.value)
-                return
-            }
-        },
         cleanOrderData() {
             this.currentOrder = {}
             this.currentApartment = {}
