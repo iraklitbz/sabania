@@ -165,6 +165,7 @@ export type ComponentAddressAddressSabania = {
   city?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   latitude?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
   longitude?: Maybe<Scalars['String']['output']>;
   postalCode?: Maybe<Scalars['String']['output']>;
   street?: Maybe<Scalars['String']['output']>;
@@ -174,6 +175,7 @@ export type ComponentAddressAddressFiltersInputSabania = {
   and?: InputMaybe<Array<InputMaybe<ComponentAddressAddressFiltersInputSabania>>>;
   city?: InputMaybe<StringFilterInputSabania>;
   latitude?: InputMaybe<StringFilterInputSabania>;
+  location?: InputMaybe<StringFilterInputSabania>;
   longitude?: InputMaybe<StringFilterInputSabania>;
   not?: InputMaybe<ComponentAddressAddressFiltersInputSabania>;
   or?: InputMaybe<Array<InputMaybe<ComponentAddressAddressFiltersInputSabania>>>;
@@ -185,6 +187,7 @@ export type ComponentAddressAddressInputSabania = {
   city?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   latitude?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
   longitude?: InputMaybe<Scalars['String']['input']>;
   postalCode?: InputMaybe<Scalars['String']['input']>;
   street?: InputMaybe<Scalars['String']['input']>;
@@ -714,6 +717,7 @@ export type MutationupdateUsersPermissionsUserSabaniaArgs = {
 
 export type OrderSabania = {
   __typename?: 'Order';
+  address?: Maybe<ComponentAddressAddressSabania>;
   amountPayed?: Maybe<Scalars['String']['output']>;
   apartment?: Maybe<Scalars['String']['output']>;
   checkin?: Maybe<Scalars['String']['output']>;
@@ -722,8 +726,10 @@ export type OrderSabania = {
   date?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   email?: Maybe<Scalars['String']['output']>;
-  fullName?: Maybe<Scalars['String']['output']>;
+  firstName?: Maybe<Scalars['String']['output']>;
+  lastName?: Maybe<Scalars['String']['output']>;
   orderID?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   travelers?: Maybe<Scalars['Int']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -736,6 +742,7 @@ export type OrderEntityResponseCollectionSabania = {
 };
 
 export type OrderFiltersInputSabania = {
+  address?: InputMaybe<ComponentAddressAddressFiltersInputSabania>;
   amountPayed?: InputMaybe<StringFilterInputSabania>;
   and?: InputMaybe<Array<InputMaybe<OrderFiltersInputSabania>>>;
   apartment?: InputMaybe<StringFilterInputSabania>;
@@ -745,24 +752,29 @@ export type OrderFiltersInputSabania = {
   date?: InputMaybe<DateTimeFilterInputSabania>;
   documentId?: InputMaybe<IDFilterInputSabania>;
   email?: InputMaybe<StringFilterInputSabania>;
-  fullName?: InputMaybe<StringFilterInputSabania>;
+  firstName?: InputMaybe<StringFilterInputSabania>;
+  lastName?: InputMaybe<StringFilterInputSabania>;
   not?: InputMaybe<OrderFiltersInputSabania>;
   or?: InputMaybe<Array<InputMaybe<OrderFiltersInputSabania>>>;
   orderID?: InputMaybe<StringFilterInputSabania>;
+  phone?: InputMaybe<StringFilterInputSabania>;
   publishedAt?: InputMaybe<DateTimeFilterInputSabania>;
   travelers?: InputMaybe<IntFilterInputSabania>;
   updatedAt?: InputMaybe<DateTimeFilterInputSabania>;
 };
 
 export type OrderInputSabania = {
+  address?: InputMaybe<ComponentAddressAddressInputSabania>;
   amountPayed?: InputMaybe<Scalars['String']['input']>;
   apartment?: InputMaybe<Scalars['String']['input']>;
   checkin?: InputMaybe<Scalars['String']['input']>;
   checkout?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['DateTime']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
-  fullName?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']['input']>;
   orderID?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   travelers?: InputMaybe<Scalars['Int']['input']>;
 };

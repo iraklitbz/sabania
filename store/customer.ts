@@ -2,12 +2,11 @@ import type { Customer } from "~/types/locale-types";
 export const customer = defineStore("customerData", {
     state: () => ({
         userData: {
-            name: "",
-            surname: "",
-            address: "",
-            houseNumber: "",
+            firstName: "",
+            lastName: "",
+            street: "",
             postalCode: "",
-            city: "",
+            location: "",
             email: "",
             phone: ""
         } as Customer,

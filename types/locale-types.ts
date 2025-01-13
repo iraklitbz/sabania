@@ -15,6 +15,17 @@ export interface Location {
   longitude: string;
 }
 
+
+export interface Customer {
+  firstName: string;
+  lastName: string;
+  street: string;
+  postalCode: string;
+  location: string;
+  email: string;
+  phone: string;
+}
+
 export interface ComponentAddressAddress {
   city: string;
   postalCode: string;

@@ -3,14 +3,18 @@ import {apartments} from "~/store/apartments";
 export default defineEventHandler(async (event): Promise<any> => {
     const config = useRuntimeConfig();
     const body = await readBody(event);
-    const [firstName, ...lastNameParts] = body.fullName.split(" ");
-    const lastName = lastNameParts.join(" ");
     let dataToSend = JSON.stringify({
         "arrivalDate": format(new Date(body.checkin), "YYYY-MM-DD"),
         "departureDate": format(new Date(body.checkout), "YYYY-MM-DD"),
         "apartmentId": Number(body.apartmentId),
-        "firstName": firstName || "",
-        "lastName": lastName || "",
+        "firstName": body.firstName || "",
+        "lastName": body.lastName || "",
+        "phone": body.phone || "",
+        "address": {
+            "street": body.street || "",
+            "postalCode": body.postalCode || "",
+            "location": body.location || ""
+        },
         "email": body.email,
         'adults': Number(body.travelers),
         'price': parseFloat(body.amountPayed)

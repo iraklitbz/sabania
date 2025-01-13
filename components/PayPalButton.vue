@@ -1,22 +1,18 @@
 <script setup lang="ts">
 import type { OrderInputSabania } from "~/types/sabania-types"
+import { customer } from "~/store/customer"
 import { apartments } from "~/store/apartments"
 import { orderRegister } from "~/store/orderRegister"
-const isConditionMet = ref(true)
+const emit = defineEmits(["trigger-submit"])
 const router = useRouter()
 onMounted(() => {
   usePaypalButton({
-    onInit: (data, actions) => {
-      if( !isConditionMet.value ) {
-        return actions.disable()
-      }
-      return actions.enable()
-    },
     onClick: (data, actions) => {
-      if (!isConditionMet.value) {
-        return actions.reject();
+      const isFormFiller = customer().getIfInputsAreFilled
+      if( !isFormFiller ) {
+        emit('trigger-submit')
+        return actions.reject()
       }
-      return actions.resolve();
     },
     createOrder: function (data, actions) {
       return actions.order.create({
@@ -37,10 +33,6 @@ onMounted(() => {
           throw new Error("Order actions are not available.");
         }
         const details = await actions.order.capture()
-        const fullName =
-            (details.payer.name?.given_name || "N/A") +
-            " " +
-            (details.payer.name?.surname || "N/A");
 
         const orderDetail: OrderInputSabania = {
           amountPayed: details.purchase_units[0].amount.value,
@@ -48,8 +40,15 @@ onMounted(() => {
           checkin: apartments().checkinDate,
           checkout: apartments().checkoutDate,
           date: new Date(),
-          email: details.payer.email_address || "N/A",
-          fullName: fullName,
+          email: customer().userData.email || "N/A",
+          firstName: customer().userData.firstName,
+          lastName: customer().userData.lastName,
+          address: {
+            street: customer().userData.street,
+            postalCode: customer().userData.postalCode,
+            location: customer().userData.location,
+          },
+          phone: customer().userData.phone,
           orderID: details.id,
           travelers: apartments().travelers,
         };
