@@ -1,11 +1,16 @@
 <script setup lang="ts">
   import { customer } from "~/store/customer"
+  import PayPalButton from "~/components/PayPalButton.vue"
+  const userFields = ref()
+  const submitForm = () => {
+    userFields?.value?.node.submit()
+  };
 </script>
 <template>
   <div>
     <FormKit
+      ref="userFields"
       v-model="customer().userData"
-      id="userFields"
       name="userFields"
       type="form"
       :actions="false"
@@ -17,45 +22,30 @@
           class="flex flex-col md:flex-row w-full gap-3"
       >
           <FormKit
-              id="name"
+              id="firstName"
               type="text"
-              name="name"
+              name="firstName"
               placeholder="Name"
               validation="required"
               :validation-messages="{ required: 'Bitte geben Sie Ihren Namen ein' }"
           />
           <FormKit
-              id="surname"
+              id="lastName"
               type="text"
-              name="surname"
+              name="lastName"
               placeholder="Nachname"
               validation="required"
               :validation-messages="{ required: 'Bitte geben Sie Ihren Nachname ein' }"
           />
       </div>
-      <div
-          class="flex flex-col md:flex-row w-full gap-3"
-      >
-        <FormKit
-            id="address"
-            type="text"
-            name="address"
-            placeholder="Strasse"
-            validation="required"
-            :validation-messages="{ required: 'Bitte geben Sie Ihre Adresse ein' }"
-        />
-        <FormKit
-            id="houseNumber"
-            type="text"
-            name="houseNumber"
-            placeholder="Hausnummer"
-            validation="required|number"
-            :validation-messages="{
-              required: 'Bitte geben Sie Ihre Hausnummer ein',
-              number: 'Bitte geben Sie eine gültige Hausnummer ein'
-            }"
-        />
-      </div>
+      <FormKit
+          id="street"
+          type="text"
+          name="street"
+          placeholder="Strasse"
+          validation="required"
+          :validation-messages="{ required: 'Bitte geben Sie Ihre Adresse ein' }"
+      />
       <div
           class="flex flex-col md:flex-row w-full gap-3"
       >
@@ -71,9 +61,9 @@
             }"
         />
         <FormKit
-            id="city"
+            id="location"
             type="text"
-            name="city"
+            name="location"
             placeholder="Stadt"
             validation="required"
             :validation-messages="{ required: 'Bitte geben Sie Ihre Stadt ein' }"
@@ -102,9 +92,10 @@
       />
     </FormKit>
   </div>
-  <button @click="customer().validateForm()">
-    Custom button
-  </button>
+  <div class="mt-10">
+    <h2 class="mb-2 font-bold">Payment options:</h2>
+    <PayPalButton @trigger-submit="submitForm" />
+  </div>
 </template>
 
 <style scoped></style>

@@ -44,9 +44,6 @@ devDependencies:
   '@nuxtjs/tailwindcss':
     specifier: 6.12.2
     version: 6.12.2
-  '@paypal/paypal-js':
-    specifier: 8.1.2
-    version: 8.1.2
   '@pinia/nuxt':
     specifier: 0.5.5
     version: 0.5.5(typescript@5.6.3)(vue@3.5.12)
@@ -77,6 +74,9 @@ devDependencies:
   nuxt:
     specifier: 3.13.2
     version: 3.13.2(@types/node@20.13.0)(eslint@9.16.0)(sass@1.77.8)(typescript@5.6.3)(vite@6.0.2)
+  nuxt-paypal:
+    specifier: 0.0.1-beta
+    version: 0.0.1-beta
   pinia:
     specifier: 2.2.5
     version: 2.2.5(typescript@5.6.3)(vue@3.5.12)
@@ -3123,8 +3123,8 @@ packages:
       '@parcel/watcher-win32-x64': 2.5.0
     dev: true
 
-  /@paypal/paypal-js@8.1.2:
-    resolution: {integrity: sha512-EKshGSWRxLWU1NyPB9P1TiOkPajVmpTo5I9HuZKoSv8y2uk0XIskXqMkAJ/Y9qAg9iJyP102Jb/atX63tTy24w==}
+  /@paypal/paypal-js@7.1.1:
+    resolution: {integrity: sha512-fVpExBrHINGHsyODYKBXSMinxrgPKzmVW7ZCaCqUaMl7kTSR1ZsVi2IhgLvsPpXF4LWSAMkPTP/J6aetQ6ZlNA==}
     dependencies:
       promise-polyfill: 8.3.0
     dev: true
@@ -8024,6 +8024,18 @@ packages:
     resolution: {integrity: sha512-t9m4zTq44R0/icuzQXJHEyPRM3YbgTPMpytyb6YW2LOL/3mwZ3Bmte1FIlCoigzDvxBJRbcchZGc689+Syyu8w==}
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
+    dev: true
+
+  /nuxt-paypal@0.0.1-beta:
+    resolution: {integrity: sha512-d9ZCsRxs6kK5xXf5P67cHfipcnDo+sZJN++9tuttHfAXWrT/f+prtps7MiaqTc9JxPjwBDrUruDh5eSnTQVDTw==}
+    dependencies:
+      '@nuxt/kit': 3.14.1592(magicast@0.3.5)
+      '@paypal/paypal-js': 7.1.1
+      defu: 6.1.4
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
     dev: true
 
   /nuxt@3.13.2(@types/node@20.13.0)(eslint@9.16.0)(sass@1.77.8)(typescript@5.6.3)(vite@6.0.2):

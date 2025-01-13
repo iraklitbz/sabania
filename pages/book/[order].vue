@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CardSmall from "~/components/Cards/CardSmall.vue";
 import { apartments } from "~/store/apartments";
+import CheckoutForm from "~/components/CheckoutForm.vue";
 import PayPalButton from "~/components/PayPalButton.vue";
 definePageMeta({
   middleware: "route-change",
@@ -29,14 +30,7 @@ definePageMeta({
             {{ apartments()?.apartment.shortDescription }}
           </span>
         </h2>
-        <div class="mt-10">
-          <h2 class="mb-2 font-bold">Your Data</h2>
-          <div>
-            <CheckoutForm />
-            <PayPalButton />
-          </div>
-
-        </div>
+        <CheckoutForm />
       </div>
       <aside
         class="lg:w-6/12 bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"

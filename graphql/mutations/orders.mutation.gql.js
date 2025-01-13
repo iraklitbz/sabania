@@ -9,7 +9,14 @@ export const orderMutation = `
         date
         documentId
         email
-        fullName
+        firstName
+        lastName
+        phone
+        address {
+            street
+            postalCode
+            location
+        }
         orderID
         publishedAt
         travelers

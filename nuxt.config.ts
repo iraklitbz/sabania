@@ -19,7 +19,11 @@ export default defineNuxtConfig({
     "@formkit/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "@nuxt/eslint",
+    'nuxt-paypal',
   ],
+  paypal: {
+    clientId: process.env.PAYPAL_CLIENT_ID,
+  },
   eslint: {
     config: {
       stylistic: {
