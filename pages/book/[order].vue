@@ -31,10 +31,6 @@ definePageMeta({
           </span>
         </h2>
         <CheckoutForm />
-        <div class="mt-10">
-          <h2 class="mb-2 font-bold">Payment options:</h2>
-          <PayPalButton />
-        </div>
       </div>
       <aside
         class="lg:w-6/12 bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"

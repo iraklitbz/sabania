@@ -1,33 +1,42 @@
+<script setup lang="ts">
+  import { customer } from "~/store/customer"
+  import PayPalButton from "~/components/PayPalButton.vue";
+  function handleCheckoutForm() {
+    console.log(customer().userData);
+  }
+</script>
 <template>
   <div>
     <FormKit
-        id="userFields"
-        name="userFields"
-        type="form"
-        :actions="false"
-        form-class="flex flex-col gap-4 mb-10"
-        :on-submit-invalid="true"
-        :incomplete-message="false"
+      v-model="customer().userData"
+      id="userFields"
+      name="userFields"
+      type="form"
+      :actions="false"
+      form-class="flex flex-col gap-4 mb-10"
+      :on-submit-invalid="true"
+      :incomplete-message="false"
+      @submit="customer().handleCheckoutForm"
     >
       <div
           class="flex flex-col md:flex-row w-full gap-3"
       >
-        <FormKit
-            id="name"
-            type="text"
-            name="name"
-            placeholder="Name"
-            validation="required"
-            :validation-messages="{ required: 'Bitte geben Sie Ihren Namen ein' }"
-        />
-        <FormKit
-            id="surname"
-            type="text"
-            name="surname"
-            placeholder="Nachname"
-            validation="required"
-            :validation-messages="{ required: 'Bitte geben Sie Ihren Nachname ein' }"
-        />
+          <FormKit
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Name"
+              validation="required"
+              :validation-messages="{ required: 'Bitte geben Sie Ihren Namen ein' }"
+          />
+          <FormKit
+              id="surname"
+              type="text"
+              name="surname"
+              placeholder="Nachname"
+              validation="required"
+              :validation-messages="{ required: 'Bitte geben Sie Ihren Nachname ein' }"
+          />
       </div>
       <div
           class="flex flex-col md:flex-row w-full gap-3"
@@ -97,6 +106,10 @@
           }"
       />
     </FormKit>
+  </div>
+  <div class="mt-10">
+    <h2 class="mb-2 font-bold">Payment options:</h2>
+    <PayPalButton />
   </div>
 </template>
 
