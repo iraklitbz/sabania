@@ -28,7 +28,7 @@ onMounted(() => {
                   class="inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition bg-white text-neutral-950 hover:bg-neutral-200"
                   to="/contact"
                 >
-                  <span class="relative top-px">Contact us</span>
+                  <span class="relative top-px">Kontaktier uns</span>
                 </nuxt-link>
                 <button
                   type="button"
@@ -65,7 +65,7 @@ onMounted(() => {
                   class="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
                   to="/apartments"
                 >
-                  Apartaments
+                  Wohnungen
                   <span
                     class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
@@ -74,7 +74,7 @@ onMounted(() => {
                   class="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
                   to="/location"
                 >
-                  Location
+                  Städte
                   <span
                     class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
@@ -91,7 +91,7 @@ onMounted(() => {
                   class="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
                   to="/about"
                 >
-                  About Us
+                  Über uns
                   <span
                     class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
@@ -100,7 +100,7 @@ onMounted(() => {
                   class="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
                   to="/contact"
                 >
-                  Contact
+                  Kontaktier uns
                   <span
                     class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
@@ -120,7 +120,7 @@ onMounted(() => {
             >
               <div>
                 <h2 class="font-display text-base font-semibold text-white">
-                  Our office
+                  Unsere Büros
                 </h2>
                 <ul
                   role="list"
@@ -136,7 +136,7 @@ onMounted(() => {
               </div>
               <div class="sm:border-l sm:border-transparent sm:pl-16">
                 <h2 class="font-display text-base font-semibold text-white">
-                  Follow us
+                  Folgen Sie uns
                 </h2>
                 <ul role="list" class="flex gap-x-10 text-white mt-6">
                   <li>

@@ -7,10 +7,10 @@ await apartments().fetchApartments();
 <template>
   <main>
     <MainHeadline
-      :title="'Apartments'"
-      :description="'We are a creative agency located in Copenhagen, Denmark. We have a passion for creating beautiful and functional websites and applications.'"
+      :title="'Wohnungen'"
+      :description="'Entdecken Sie unsere sorgfältig eingerichteten Apartments, die keine Wünsche offenlassen. Zentral gelegen oder mit großzügiger Terrasse – bei Sabania finden Sie Ihre perfekte Unterkunft für jeden Anlass.'"
     />
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 lg:mt-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 lg:mt-20 pb-20">
       <div
         class="relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
       ></div>
@@ -19,7 +19,7 @@ await apartments().fetchApartments();
       >
         <div>
           <h2 class="font-display text-2xl font-semibold text-neutral-950">
-            Our Apartments
+            Unsere Wohnungen
           </h2>
         </div>
         <div class="lg:col-span-3">

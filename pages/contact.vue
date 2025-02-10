@@ -5,10 +5,10 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
 <template>
   <main class="w-full flex-auto">
     <MainHeadline
-      :title="'Contact us'"
-      :description="'We are a creative agency located in Copenhagen, Denmark. We have a passion for creating beautiful and functional websites and applications.'"
+      :title="'Kontaktier uns'"
+      :description="'Haben Sie Fragen oder möchten Sie eine Unterkunft buchen? Wir sind für Sie da. Kontaktieren Sie uns jederzeit – wir freuen uns darauf, Ihnen weiterzuhelfen.'"
     />
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40 pb-20">
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
           <div class="lg:order-last" style="opacity: 1; transform: none">
@@ -18,7 +18,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
               data-np-watching="1"
             >
               <h2 class="font-display text-base font-semibold text-neutral-950">
-                Write us
+                Kontaktieren Sie uns
               </h2>
               <div class="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
                 <FormKit
@@ -30,11 +30,11 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
                   :incomplete-message="false"
                 >
                   <FormKit type="email" name="email" placeholder="Email" />
-                  <FormKit type="text" name="subject" placeholder="Subject" />
+                  <FormKit type="text" name="subject" placeholder="Betreff" />
                   <FormKit
                     type="textarea"
                     name="textarea"
-                    placeholder="Your message"
+                    placeholder="Nachricht"
                   />
                   <FormKit
                     type="submit"
@@ -42,7 +42,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
                       input: 'w-full flex justify-center',
                     }"
                   >
-                    Reserve
+                    Senden
                   </FormKit>
                 </FormKit>
               </div>
@@ -50,11 +50,11 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
           </div>
           <div style="opacity: 1; transform: none">
             <h2 class="font-display text-base font-semibold text-neutral-950">
-              Our offices
+              Unsere Büros
             </h2>
             <p class="mt-6 text-base text-neutral-600">
-              Prefer doing things in person? We don’t but we have to list our
-              addresses here for legal reasons.
+              Wir haben Büros in verschiedenen Städten. Kontaktieren Sie uns
+              gerne – wir freuen uns darauf, von Ihnen zu hören.
             </p>
             <ul role="list" class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
               <li>
@@ -68,21 +68,11 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
               <h2 class="font-display text-base font-semibold text-neutral-950">
-                Email us
+                Kontaktieren Sie uns
               </h2>
               <dl class="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
                 <div>
-                  <dt class="font-semibold text-neutral-950">personal</dt>
-                  <dd>
-                    <a
-                      class="text-neutral-600 hover:text-neutral-950"
-                      href="mailto:careers@studioagency.com"
-                      >hola@sabania.com</a
-                    >
-                  </dd>
-                </div>
-                <div>
-                  <dt class="font-semibold text-neutral-950">Office</dt>
+                  <dt class="font-semibold text-neutral-950">Email</dt>
                   <dd>
                     <a
                       class="text-neutral-600 hover:text-neutral-950"

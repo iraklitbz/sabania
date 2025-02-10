@@ -5,6 +5,7 @@ const props = defineProps<{
     slug: string;
   };
 }>();
+console.log(props.data)
 </script>
 <template>
   <nuxt-link class="group cursor-pointer" :to="`/location/${props.data.slug}`">
@@ -13,9 +14,9 @@ const props = defineProps<{
     >
       <figure class="relative block aspect-square">
         <img
-          alt="Thumbnail"
+          :alt="props?.data?.name"
           class="object-cover transition-all absolute h-full w-full text-transparent inset-0"
-          src="https://picsum.photos/200/300"
+          :src="props?.data?.feature?.url"
         />
       </figure>
     </div>
@@ -25,7 +26,7 @@ const props = defineProps<{
           <span
             class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-emerald-700"
           >
-            Location
+            Städt
           </span>
         </div>
         <h2

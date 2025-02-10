@@ -32,7 +32,7 @@ const props = defineProps<{
           <span
             class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-blue-500"
           >
-            Apartment
+            Wohnungen
           </span>
         </div>
         <h2
