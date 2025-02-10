@@ -16,17 +16,17 @@ definePageMeta({
       :to="`/${apartments()?.apartment.slug}`"
       class="text-blue-500 mb-5 flex items-center"
     >
-      <Icon name="icon:chevron-left" class="text-3xl text-black" />
+      <Icon name="icon:chevron-left" class="text-3xl text-blue-500" />
       Zurück
     </nuxt-link>
     <div class="flex flex-col gap-6 md:gap-12 lg:flex-row items-start">
       <div class="lg:w-6/12">
         <h2 class="text-xl mb-10">
-          Your book is for:
+          Ihr Buch ist für:
           <span class="font-bold">
             {{ apartments()?.apartment.name }}
           </span>
-          <span class="text-lg xl:text-2xl mt-2 font-bold block">
+          <span class="text-lg xl:text-2xl mt-4 block">
             {{ apartments()?.apartment.shortDescription }}
           </span>
         </h2>

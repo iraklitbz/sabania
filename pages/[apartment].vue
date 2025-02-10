@@ -91,7 +91,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
             @click="toggleGallery"
           >
             <Icon name="icon:image" class="text-2xl text-black" />
-            See all photos
+            Alle Bilder
           </button>
         </client-only>
       </section>

@@ -28,37 +28,37 @@ const props = defineProps<{
         <h2 class="text-lg xl:text-xl mb-2">
           {{ props.apartment.name }}
         </h2>
-        <h2 class="text-lg xl:text-xl font-bold">
+        <h2 class="text-lg xl:text-xl">
           {{ props.apartment.shortDescription }}
         </h2>
       </div>
     </div>
     <div class="grid lg:grid-cols-3 gap-5 lg:gap-10">
       <div class="whitespace-nowrap">
-        <p class="font-bold mb-2">Selected dates</p>
-        <p><b>From:</b> {{ format(new Date(props.checkinDate), "medium") }}</p>
-        <p><b>To:</b> {{ format(new Date(props.checkoutDate), "medium") }}</p>
+        <p class="mb-2">Ausgewählte tage</p>
+        <p><b>Von:</b> {{ format(new Date(props.checkinDate), "medium") }}</p>
+        <p><b>Bis:</b> {{ format(new Date(props.checkoutDate), "medium") }}</p>
       </div>
       <div class="">
-        <p class="font-bold mb-2">Travelers</p>
-        <p>{{ props.travelers }} Travelers</p>
+        <p class="mb-2">Reisende</p>
+        <p>{{ props.travelers }} Reisende</p>
       </div>
       <div class="lg:text-right">
-        <p class="font-bold mb-2">Price details:</p>
+        <p class=" mb-2">Preisdetails:</p>
         <p>
           {{ currencyFormat(props.totalPrice) }} x {{ props.calculateNights }}
         </p>
       </div>
     </div>
     <div v-if="props.calculateTotalPrice === props.discountPrice" class="flex flex-col items-end">
-      <span> Total (EUR) </span>
-      <span class="text-xl xl:text-2xl font-bold mt-1">
+      <span> Gesamt (EUR) </span>
+      <span class="text-xl xl:text-2xl mt-1">
         {{ currencyFormat(props.calculateTotalPrice) }}
       </span>
     </div>
     <div v-else class="flex flex-col items-end">
-      <span> Total (EUR) </span>
-      <span class="text-xl xl:text-2xl font-bold mt-1">
+      <span> Gesamt (EUR) </span>
+      <span class="text-xl xl:text-2xl mt-1">
         {{ currencyFormat(props.discountPrice) }}
       </span>
       <span class="text-sm text-green-800 mt-1">

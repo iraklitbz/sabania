@@ -20,47 +20,47 @@ maxDate.setFullYear(today.getFullYear() + 1);
         slug: data?.location?.slug,
       }"
     />
-    <h2 class="text-xl lg:text-2xl xl:text-3xl font-bold">{{ data.name }}</h2>
+    <h2 class="text-xl lg:text-3xl xl:text-4xl -indent-1.5">{{ data.name }}</h2>
     <ul class="md:flex gap-4">
       <li v-if="data?.rooms?.guests">
-        <b>Travelers:</b>
+        <span>Travelers:</span>
         <span
-          class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1"
+          class="rounded-full w-7 h-7 bg-black inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
           >{{ data.rooms.guests }}</span
         >
       </li>
       <li v-if="data?.rooms?.rooms">
-        <b>Rooms:</b>
+        <span>Rooms:</span>
         <span
-          class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1"
+          class="rounded-full w-7 h-7 bg-black inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
           >{{ data.rooms.rooms }}</span
         >
       </li>
       <li v-if="data?.rooms?.beds">
-        <b>Beds:</b>
+        <span>Beds:</span>
         <span
-          class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1"
+          class="rounded-full w-7 h-7 bg-black inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
           >{{ data.rooms.beds }}</span
         >
       </li>
       <li v-if="data?.rooms?.WC">
-        <b>WC:</b>
+        <span>WC:</span>
         <span
-          class="rounded-full w-7 h-7 bg-gray-100 inline-flex items-center justify-center border border-solid border-gray-200 text-neutral-600 m-1"
+          class="rounded-full w-7 h-7 bg-black inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
           >{{ data.rooms.WC }}</span
         >
       </li>
     </ul>
     <div>
       <ul class="md:flex gap-4">
-        <li v-if="data?.checkin"><b>Checkin time:</b> {{ data.checkin }}</li>
-        <li v-if="data?.checkout"><b>Checkout time:</b> {{ data.checkout }}</li>
+        <li v-if="data?.checkin">Checkin time: <span class="font-bold">{{ data.checkin }}</span></li>
+        <li v-if="data?.checkout">Checkout time: <span class="font-bold">{{ data.checkout }}</span></li>
       </ul>
     </div>
-    <p>{{ data.description }}</p>
+    <p class="text-gray-700">{{ data.description }}</p>
 
     <div>
-      <h3 class="text-lg font-bold mb-2">Address:</h3>
+      <h3 class="text-lg mb-2">Address:</h3>
       <ul>
         <li v-if="data?.address?.street">{{ data.address.street }}</li>
         <li v-if="data?.address?.city">{{ data.address.city }}</li>
@@ -68,7 +68,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
       </ul>
     </div>
     <div v-if="data?.list && data?.list.length">
-      <h3 class="text-lg font-bold mb-2">What this apartment has:</h3>
+      <h3 class="text-lg mb-2">What this apartment has:</h3>
       <ul class="grid grid-cols-3 gap-4">
         <li
           v-for="item in matchingCategories(data?.list)"
@@ -81,7 +81,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
       </ul>
     </div>
     <div class="article-calendar">
-      <h3 class="text-lg font-bold mb-5">Select the date of the departure</h3>
+      <h3 class="text-lg mb-5">Wählen Sie das Abfahrtsdatum aus</h3>
       <Datepicker
         v-model="apartments().selectedRange"
         inline
@@ -108,7 +108,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
         class="mt-5 hover:underline text-blue-800 w-full text-right"
         @click="apartments().clearDatesCalendar()"
       >
-        Clean dates
+        Zurücksetzen
       </button>
     </div>
   </article>

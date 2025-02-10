@@ -84,7 +84,7 @@
           id="phone"
           type="tel"
           name="phone"
-          placeholder="Phone"
+          placeholder="Telefonnummer"
           validation="required"
           :validation-messages="{
             required: 'Bitte geben Sie Ihre Telefonnummer ein'
@@ -93,7 +93,7 @@
     </FormKit>
   </div>
   <div class="mt-10">
-    <h2 class="mb-2 font-bold">Payment options:</h2>
+    <h2 class="mb-2">Zahlungsoptionen:</h2>
     <PayPalButton @trigger-submit="submitForm" />
   </div>
 </template>

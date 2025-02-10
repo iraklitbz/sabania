@@ -63,7 +63,7 @@ const navMenu = ref([
         <li
           v-for="(item, index) in navMenu"
           :key="index"
-          class="text-sm/6 font-semibold leading-snug tracking-tight"
+          class="text-sm/6 leading-snug tracking-tight"
         >
           <nuxt-link :to="item.link">
             <span
@@ -75,7 +75,7 @@ const navMenu = ref([
         </li>
       </ul>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <nuxt-link to="/login" class="text-sm/6 font-semibold text-gray-900"
+        <nuxt-link to="/login" class="text-sm/6 text-gray-900"
           >Log in <span aria-hidden="true">&rarr;</span>
         </nuxt-link>
       </div>
@@ -129,7 +129,7 @@ const navMenu = ref([
               <li v-for="(item, index) in navMenu" :key="index">
                 <nuxt-link
                   :to="item.link"
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 text-gray-900 hover:bg-gray-50"
                 >
                   {{ item.name }}
                 </nuxt-link>
@@ -138,7 +138,7 @@ const navMenu = ref([
             <div class="py-6">
               <nuxt-link
                 to="/login"
-                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 text-gray-900 hover:bg-gray-50"
               >
                 Log in
               </nuxt-link>

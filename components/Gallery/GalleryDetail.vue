@@ -36,7 +36,7 @@ function hanldeClosePhoto() {
           @click="emit('closeGalleryDetail')"
         >
           <Icon name="icon:chevron-left" class="text-3xl text-black" />
-          Back
+          Zurück
         </button>
       </header>
       <section class="p-6 lg:px-8">

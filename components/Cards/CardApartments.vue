@@ -36,12 +36,12 @@ const props = defineProps<{
           </span>
         </div>
         <h2
-            class="inline-block text-lg lg:text-xl font-medium tracking-wider mt-5 bg-blue-500 text-white py-1 px-4 rounded-2xl"
+            class="inline-block text-md lg:text-lg font-medium tracking-wider mt-5 bg-black text-white py-1 px-4 rounded-2xl"
         >
             {{ props.data.name }}
           </h2>
         <h2
-          class="text-lg lg:text-xl xl:text-2xl font-semibold leading-snug tracking-tight mt-3"
+          class="text-lg lg:text-xl xl:text-2xl leading-snug tracking-tight mt-3"
         >
           <span
             class="bg-gradient-to-r from-blue-200 to-blue-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"

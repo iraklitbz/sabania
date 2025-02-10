@@ -29,10 +29,10 @@ const props = defineProps<{
         >
           Apartment
         </span>
-        <h2 class="text-lg font-semibold">
+        <h2 class="text-lg">
           {{ props.data.name }}
         </h2>
-        <span class="font-bold text-base">
+        <span class=" text-base">
           {{ currencyFormat(props.data.price) }} /Night
         </span>
       </div>

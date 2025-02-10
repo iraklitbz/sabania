@@ -17,7 +17,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
               data-np-checked="1"
               data-np-watching="1"
             >
-              <h2 class="font-display text-base font-semibold text-neutral-950">
+              <h2 class="font-display text-base  text-neutral-950">
                 Kontaktieren Sie uns
               </h2>
               <div class="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
@@ -49,7 +49,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             </form>
           </div>
           <div style="opacity: 1; transform: none">
-            <h2 class="font-display text-base font-semibold text-neutral-950">
+            <h2 class="font-display text-base text-neutral-950">
               Unsere Büros
             </h2>
             <p class="mt-6 text-base text-neutral-600">
@@ -67,12 +67,12 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             <div
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
-              <h2 class="font-display text-base font-semibold text-neutral-950">
+              <h2 class="font-display text-base text-neutral-950">
                 Kontaktieren Sie uns
               </h2>
               <dl class="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
                 <div>
-                  <dt class="font-semibold text-neutral-950">Email</dt>
+                  <dt class="text-neutral-950">Email</dt>
                   <dd>
                     <a
                       class="text-neutral-600 hover:text-neutral-950"
@@ -86,8 +86,8 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             <div
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
-              <h2 class="font-display text-base font-semibold text-neutral-950">
-                Follow us
+              <h2 class="font-display text-base text-neutral-950">
+                Folgen Sie uns
               </h2>
               <ul role="list" class="flex gap-x-10 text-neutral-950 mt-6">
                 <li>

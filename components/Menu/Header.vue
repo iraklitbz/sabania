@@ -6,10 +6,10 @@ import { settings } from "~/store/settings";
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="flex items-center justify-between">
-          <nuxt-link class="text-2xl font-bold" to="/"> Sabania </nuxt-link>
+          <nuxt-link class="text-2xl" to="/"> Sabania </nuxt-link>
           <div class="flex items-center gap-x-8">
             <nuxt-link
-              class="inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition bg-neutral-950 text-white hover:bg-neutral-800"
+              class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-neutral-950 text-white hover:bg-neutral-800"
               to="/contact"
             >
               <span class="relative top-px"> Kontaktier uns </span>

@@ -43,9 +43,9 @@ const optionsTravelers = computed(() => {
     <div
       class="bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"
     >
-      <h2 class="text-xl lg:text-2xl xl:text-3xl font-bold mb-5">
+      <h2 class="text-xl lg:text-2xl xl:text-3xl mb-5">
         {{ currencyFormat(apartments().getTotalPrice) }}
-        <span class="font-normal text-lg ml-1">night</span>
+        <span class="font-normal text-lg ml-1">nacht</span>
       </h2>
       <FormKit
         type="form"
@@ -77,7 +77,7 @@ const optionsTravelers = computed(() => {
             input: 'w-full flex justify-center',
           }"
         >
-          Reserve
+          Reservieren
         </FormKit>
       </FormKit>
     </div>

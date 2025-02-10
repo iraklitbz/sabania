@@ -18,7 +18,7 @@ await apartments().fetchApartments();
         class="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8"
       >
         <div>
-          <h2 class="font-display text-2xl font-semibold text-neutral-950">
+          <h2 class="font-display text-2xl text-neutral-950">
             Unsere Wohnungen
           </h2>
         </div>
@@ -45,12 +45,12 @@ await apartments().fetchApartments();
                   >
                     <p
                       v-if="apartment?.location && apartment?.location?.city"
-                      class="mt-2 text-sm text-white font-bold"
+                      class="mt-2 text-sm text-white"
                     >
                       {{ apartment.location?.city }}
                     </p>
                     <p
-                      class="font-display text-base/6 font-semibold tracking-wide text-white"
+                      class="font-display text-base/6 tracking-wide text-white"
                     >
                       {{ apartment.name }}
                     </p>

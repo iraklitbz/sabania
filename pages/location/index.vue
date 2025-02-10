@@ -18,7 +18,7 @@ await locations().fetchLocations();
         class="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8"
       >
         <div>
-          <h2 class="font-display text-2xl font-semibold text-neutral-950">
+          <h2 class="font-display text-2xl text-neutral-950">
             Unsere Städte
           </h2>
         </div>
@@ -40,7 +40,7 @@ await locations().fetchLocations();
                     class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black to-black/0 to-40% p-6"
                   >
                     <p
-                      class="font-display text-base/6 font-semibold tracking-wide text-white"
+                      class="font-display text-base/6 tracking-wide text-white"
                     >
                       {{ location.city }}
                     </p>

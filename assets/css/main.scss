@@ -2,8 +2,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Light_Italic_071d6e6a58.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Light_Italic_3c02355017.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184570/Decimal_Black_Italic_b18eeaeb1d.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Black_Italic_979f5ef646.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Bold_Italic_f230e0443f.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Black_Italic_979f5ef646.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184570/Decimal_Black_120238e327.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Black_3dafdc66ea.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184572/Decimal_Bold_76c415dab3.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Bold_6f4ad5a064.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184570/Decimal_Light_aaaae83222.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Light_0a689c88f3.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Thin_Italic_aecd45e024.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Thin_Italic_32872e1901.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184570/Decimal_Thin_c19723b394.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Thin_d1f43b6986.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184570/Decimal_Medium_fde45a0ec2.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Medium_8d8a4639ed.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Decimal';
+    src: url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184570/Decimal_Medium_Italic_380dac8bef.woff2') format('woff2'),
+    url('https://res.cloudinary.com/dxlpytfvs/raw/upload/v1739184571/Decimal_Medium_Italic_1b242be855.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
 @layer base {
     html {
+        font-family: 'Decimal', sans-serif;
         @apply overflow-x-hidden;
     }
     html,
