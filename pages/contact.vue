@@ -5,10 +5,11 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
 <template>
   <main class="w-full flex-auto">
     <MainHeadline
-      :title="'Kontaktier uns'"
-      :description="'Haben Sie Fragen oder möchten Sie eine Unterkunft buchen? Wir sind für Sie da. Kontaktieren Sie uns jederzeit – wir freuen uns darauf, Ihnen weiterzuhelfen.'"
+      :title="'Kontaktieren Sie uns'"
     />
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-24 sm:mt-32 lg:mt-40 pb-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-0 pb-20">
+      <p class="mb-10">Haben Sie Fragen oder möchten Sie eine Unterkunft buchen? Wir sind für Sie da. Kontaktieren Sie uns <span class="pl-1">jederzeit</span> wir freuen uns darauf, Ihnen weiterzuhelfen.</p>
+
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
           <div class="lg:order-last" style="opacity: 1; transform: none">
@@ -49,18 +50,11 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             </form>
           </div>
           <div style="opacity: 1; transform: none">
-            <h2 class="font-display text-base text-neutral-950">
-              Unsere Büros
-            </h2>
-            <p class="mt-6 text-base text-neutral-600">
-              Wir haben Büros in verschiedenen Städten. Kontaktieren Sie uns
-              gerne – wir freuen uns darauf, von Ihnen zu hören.
-            </p>
             <ul role="list" class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
               <li>
-                <address class="text-sm not-italic text-neutral-600">
-                  <strong class="text-neutral-950">Jadraque</strong
-                  ><br />cataperdiz 38<br />19240, Jadraque
+                <address class="text-sm not-italic text-black">
+                  <strong class="text-black">Herforder Straße 109</strong
+                  ><br />33602 Bielefeld
                 </address>
               </li>
             </ul>

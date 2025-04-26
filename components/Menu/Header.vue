@@ -12,7 +12,7 @@ import { settings } from "~/store/settings";
               class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-neutral-950 text-white hover:bg-neutral-800"
               to="/contact"
             >
-              <span class="relative top-px"> Kontaktier uns </span>
+              <span class="relative top-px"> Kontakt </span>
             </nuxt-link>
             <button
               type="button"

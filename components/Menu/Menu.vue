@@ -28,7 +28,7 @@ onMounted(() => {
                   class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-white text-neutral-950 hover:bg-neutral-200"
                   to="/contact"
                 >
-                  <span class="relative top-px">Kontaktier uns</span>
+                  <span class="relative top-px">Kontakt</span>
                 </nuxt-link>
                 <button
                   type="button"
@@ -128,8 +128,8 @@ onMounted(() => {
                 >
                   <li>
                     <address class="text-sm not-italic text-neutral-300">
-                      <strong class="text-white">Madrid</strong
-                      ><br />cantaperdiz 38<br />19240, Jadraque
+                      <strong class="text-white">Herforder Straße 109</strong
+                      ><br />33602 Bielefeld
                     </address>
                   </li>
                 </ul>
