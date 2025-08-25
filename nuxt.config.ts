@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/strapi",
     "@nuxtjs/tailwindcss",
-    "@nuxt/icon",
+    "nuxt-svgo",
     "@nuxt/image",
     "@pinia/nuxt",
     "@formkit/nuxt",
@@ -51,13 +51,8 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/main.scss",
     exposeConfig: true,
   },
-  icon: {
-    customCollections: [
-      {
-        prefix: "icon",
-        dir: "./assets/icons",
-      },
-    ],
+  svgo: {
+    autoImportPath: "./assets/icons/",
   },
   runtimeConfig: {
     public: {

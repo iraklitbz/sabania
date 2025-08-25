@@ -8,7 +8,7 @@ if(orderRegister().getDataIsExpired) {
 <template>
   <section v-if="Object.keys(orderRegister().currentOrder).length && Object.keys(orderRegister().currentApartment).length && !orderRegister().getDataIsExpired" class="relative max-w-7xl mx-auto p-6 lg:px-8">
     <nuxt-link to="/" class="text-blue-500 mb-5 flex items-center">
-      <Icon name="icon:chevron-left" class="text-3xl text-black" />
+      <ChevronLeft class="text-3xl text-black" />
       Home
     </nuxt-link>
     <div class="flex flex-col gap-6 md:gap-12 lg:flex-row items-start">

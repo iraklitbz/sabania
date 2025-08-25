@@ -35,7 +35,7 @@ function hanldeClosePhoto() {
           class="flex items-center gap-1"
           @click="emit('closeGalleryDetail')"
         >
-          <Icon name="icon:chevron-left" class="text-3xl text-black" />
+          <ChevronLeft class="text-3xl text-black" />
           Zurück
         </button>
       </header>
@@ -73,7 +73,7 @@ function hanldeClosePhoto() {
             class="flex items-center gap-1 mb-5 text-white"
             @click="hanldeClosePhoto()"
           >
-            <Icon name="icon:close" class="text-3xl text-white" />
+            <Close class="text-3xl text-white" />
             Close
           </button>
           <nuxt-img

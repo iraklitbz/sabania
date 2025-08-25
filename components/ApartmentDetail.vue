@@ -75,7 +75,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
           :key="item"
           class="bg-gray-100 rounded-full px-2 py-2 text-center border border-solid border-gray-200 text-neutral-600 flex items-center gap-2 justify-center"
         >
-          <Icon :name="`icon:${item.icon}`" class="text-2xl" />
+          <component :is="`svgo-${item.icon}`" class="text-2xl" />
           {{ item.name }}
         </li>
       </ul>

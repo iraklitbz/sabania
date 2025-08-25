@@ -114,7 +114,7 @@ const onSubmit = async (input: RegisterInput, node: any) => {
           }"
         >
           <span v-if="!loading" class="flex items-center"> Register </span>
-          <Icon v-else name="icon:loader" class="text-6xl" />
+          <Loader v-else class="text-6xl" />
         </FormKit>
         <transition name="fade" mode="out-in">
           <FormKitMessages

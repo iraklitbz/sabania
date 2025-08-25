@@ -102,7 +102,7 @@ const handleProviderAuth = async () => {
           :disabled="loading"
         >
           <span v-if="!loading" class="flex items-center"> login </span>
-          <Icon v-else name="icon:loader" class="text-6xl" />
+          <Loader v-else class="text-6xl" />
         </FormKit>
         <div>
           <NuxtLink to="/register" class="text-center text-gray-600">

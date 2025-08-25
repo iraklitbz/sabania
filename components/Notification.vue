@@ -8,7 +8,7 @@
       'bg-red-600': type === 'error',
     }"
   >
-    <Icon v-if="type && getNotificationIcon" :name="getNotificationIcon" />
+    <component v-if="type && getNotificationIcon" :is="`svgo-${getNotificationIcon}`" />
     <span>{{ message }}</span>
   </div>
 </template>
@@ -26,13 +26,13 @@ const props = defineProps({
 const getNotificationIcon = computed(() => {
   switch (props.type) {
     case "info":
-      return "icon:info";
+      return "info";
     case "success":
-      return "icon:check";
+      return "check";
     case "warning":
-      return "icon:warning";
+      return "warning";
     case "error":
-      return "icon:error";
+      return "error";
     default:
       return false;
   }

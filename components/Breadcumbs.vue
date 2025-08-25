@@ -15,13 +15,13 @@ const props = defineProps<{
       <li>
         <nuxt-link to="/" class="text-blue-800">Home</nuxt-link>
       </li>
-      <Icon v-if="prev" name="icon:hand-right" />
+      <HandRight v-if="prev" />
       <li v-if="prev">
         <nuxt-link :to="`/location/${prev.slug}`" class="text-blue-800">{{
           prev.name
         }}</nuxt-link>
       </li>
-      <Icon name="icon:hand-right" />
+      <HandRight />
       <li>
         {{ name }}
       </li>
