@@ -5,7 +5,11 @@
       "Bash(pnpm remove:*)",
       "Bash(pnpm dev:*)",
       "WebFetch(domain:nuxt-svgo.netlify.app)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:nuxt.com)",
+      "Bash(pkill:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm build:*)"
     ],
     "deny": []
   }
