@@ -6,12 +6,22 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
   <main>
     <MainHeadline
       :title="'Über uns'"
-      :description="'Sabania - Ihr Partner für stilvolle und komfortable Kurzzeit-Unterkünfte Kontaktier uns'"
+      :description="'SabaNia – Ihr Partner für stilvolle und komfortable Kurzzeit-Unterkünfte'"
     />
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8 text-xl text-neutral-600 pb-20">
-      <p class="mb-5">Willkommen bei Sabania, Ihrem Experten für stilvolle und gemütliche Ferienwohnungen in Bielefeld. Wir bieten Ihnen hochwertig ausgestattete Apartments, die Funktionalität mit Wohlfühlatmosphäre verbinden - ideal für Geschäftsreisende, Kurzurlauber und spontane Aufenthalte.</p>
-      <p class="mb-5">Unser Anspruch: höchste Qualität, Sauberkeit und eine reibungslose Buchung über Plattformen wie Airbnb und Booking.com. Bei uns stehen Ihr Komfort und Ihre Zufriedenheit an erster Stelle.</p>
-      <p class="mb-5">Entdecken Sie Ihr Zuhause auf Zeit - mit Sabania.</p>
+      <div class="mb-8">
+        <nuxt-link to="/contact" class="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-neutral-950 font-semibold px-6 py-3 rounded-full transition-colors duration-200 text-base">
+          👉 Kontaktieren Sie uns
+        </nuxt-link>
+      </div>
+      <p class="mb-5">Willkommen bei SabaNia, Ihrem zuverlässigen Anbieter für stilvolle und gemütliche Kurzzeit-Unterkünfte in Bielefeld, Hiddenhausen, Oerlinghausen und Hagen.</p>
+      <p class="mb-5">Wir bieten Ihnen hochwertig ausgestattete Apartments und Zimmer, die Funktionalität mit einer angenehmen Wohlfühlatmosphäre verbinden – ideal für Geschäftsreisende, Monteure, Kurzurlauber oder längere Aufenthalte.</p>
+      <p class="mb-5">Unsere Unterkünfte überzeugen durch durchdachte Ausstattung, moderne Einrichtung und eine konsequent hohe Sauberkeit. Jedes Detail ist darauf ausgelegt, Ihnen einen entspannten und unkomplizierten Aufenthalt zu ermöglichen – ganz gleich, ob Sie nur wenige Tage oder mehrere Wochen bleiben.</p>
+      <p class="mb-5">Dank flexibler Buchungsmöglichkeiten und einer reibungslosen Abwicklung über Plattformen wie Airbnb und Booking.com garantieren wir Ihnen eine einfache und zuverlässige Organisation Ihres Aufenthalts.</p>
+      <p class="mb-5 font-semibold text-neutral-800">Unser Anspruch ist klar:<br />höchste Qualität, faire Preise und ein Service, auf den Sie sich jederzeit verlassen können.</p>
+      <p class="mb-5">Ob beruflich unterwegs oder auf der Suche nach einem komfortablen Zuhause auf Zeit – bei SabaNia finden Sie die passende Unterkunft.</p>
+      <p class="mb-5 font-semibold text-neutral-800">Ankommen. Entspannen. Wohlfühlen.</p>
+      <p class="mb-5">Entdecken Sie Ihr Zuhause auf Zeit – mit SabaNia.</p>
     </div>
   </main>
 </template>
