@@ -8,7 +8,7 @@
       'bg-red-600': type === 'error',
     }"
   >
-    <component v-if="type && getNotificationIcon" :is="`svgo-${getNotificationIcon}`" />
+    <Icon v-if="type && getNotificationIcon" :name="getNotificationIcon" />
     <span>{{ message }}</span>
   </div>
 </template>

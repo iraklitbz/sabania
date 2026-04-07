@@ -34,7 +34,7 @@ function handleSearch() {
           }"
         >
           <template #prefixIcon="context">
-            <City class="text-2xl ml-3" />
+            <Icon name="city" class="text-2xl ml-3" />
           </template>
         </FormKit>
         <InputCalendar />
@@ -56,7 +56,7 @@ function handleSearch() {
           }"
         >
           <template #prefixIcon="context">
-            <User class="text-2xl ml-3" />
+            <Icon name="user" class="text-2xl ml-3" />
           </template>
         </FormKit>
         <FormKit type="submit"> Search </FormKit>

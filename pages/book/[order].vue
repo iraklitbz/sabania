@@ -16,7 +16,7 @@ definePageMeta({
       :to="`/${apartments()?.apartment.slug}`"
       class="text-blue-500 mb-5 flex items-center"
     >
-      <ChevronLeft class="text-3xl text-blue-500" />
+      <Icon name="chevron-left" class="text-3xl text-blue-500" />
       Zurück
     </nuxt-link>
     <div class="flex flex-col gap-6 md:gap-12 lg:flex-row items-start">

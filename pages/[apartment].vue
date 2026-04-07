@@ -90,7 +90,7 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
             class="absolute bottom-14 right-14 bg-white/80 text-gray-900 px-4 py-2 rounded-md flex items-center gap-2"
             @click="toggleGallery"
           >
-            <Image class="text-2xl text-black" />
+            <Icon name="image" class="text-2xl text-black" />
             Alle Bilder
           </button>
         </client-only>
