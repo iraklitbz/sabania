@@ -70,8 +70,8 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
                   <dd>
                     <a
                       class="text-neutral-600 hover:text-neutral-950"
-                      href="mailto:press@studioagency.com"
-                      >hola@sabania.com</a
+                      href="mailto:info@sabania.eu"
+                      >info@sabania.eu</a
                     >
                   </dd>
                 </div>
