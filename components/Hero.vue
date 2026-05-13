@@ -18,8 +18,8 @@
         <!-- Right -->
         <div class="flex-1 text-neutral-300">
           <p class="text-xl font-semibold text-white mb-3">Willkommen bei Sabania</p>
-          <p class="text-sm text-neutral-400 mb-4">Ihr Zuhause auf Zeit – komfortabel, flexibel, unkompliziert</p>
-          <p class="text-sm text-neutral-400 leading-relaxed">Ob für Monteure, Geschäftsreisende oder längere Aufenthalte: Bei uns finden Sie moderne Zimmer, eine entspannte Atmosphäre und alles, was Sie für einen angenehmen Aufenthalt brauchen.</p>
+          <p class="text-lg text-neutral-400 mb-4">Ihr Zuhause auf Zeit – komfortabel, flexibel, unkompliziert</p>
+          <p class="text-lg text-neutral-400 leading-relaxed">Ob für Monteure, Geschäftsreisende oder längere Aufenthalte: Bei uns finden Sie moderne Zimmer, eine entspannte Atmosphäre und alles, was Sie für einen angenehmen Aufenthalt brauchen.</p>
         </div>
       </div>
       <!-- CTA -->

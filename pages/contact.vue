@@ -8,7 +8,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
       :title="'Kontaktieren Sie uns'"
     />
     <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-0 pb-20">
-      <p class="mb-10">Haben Sie Fragen oder möchten Sie eine Unterkunft buchen? Wir sind für Sie da. Kontaktieren Sie uns <span class="pl-1">jederzeit</span> wir freuen uns darauf, Ihnen weiterzuhelfen.</p>
+      <p class="mb-10 text-lg">Haben Sie Fragen oder möchten Sie eine Unterkunft buchen? Wir sind für Sie da. Kontaktieren Sie uns <span class="pl-1">jederzeit</span> wir freuen uns darauf, Ihnen weiterzuhelfen.</p>
 
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
@@ -18,7 +18,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
               data-np-checked="1"
               data-np-watching="1"
             >
-              <h2 class="font-display text-base  text-neutral-950">
+              <h2 class="font-display text-lg  text-neutral-950">
                 Kontaktieren Sie uns
               </h2>
               <div class="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
@@ -40,7 +40,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
                   <FormKit
                     type="submit"
                     :classes="{
-                      input: 'w-full flex justify-center',
+                      input: 'w-full flex text-lg justify-center',
                     }"
                   >
                     Senden
@@ -52,7 +52,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
           <div style="opacity: 1; transform: none">
             <ul role="list" class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
               <li>
-                <address class="text-sm not-italic text-black">
+                <address class="text-lg not-italic text-black">
                   <strong class="text-black">Herforder Straße 109</strong
                   ><br />33602 Bielefeld
                 </address>
@@ -61,10 +61,10 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             <div
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
-              <h2 class="font-display text-base text-neutral-950">
+              <h2 class="font-display text-lg text-neutral-950">
                 Kontaktieren Sie uns
               </h2>
-              <dl class="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
+              <dl class="mt-6 grid grid-cols-1 text-lg gap-8 sm:grid-cols-2">
                 <div>
                   <dt class="text-neutral-950">Email</dt>
                   <dd>
@@ -80,7 +80,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             <div
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
-              <h2 class="font-display text-base text-neutral-950">
+              <h2 class="font-display text-lg text-neutral-950">
                 Folgen Sie uns
               </h2>
               <ul role="list" class="flex gap-x-10 text-neutral-950 mt-6">
