@@ -36,7 +36,7 @@ await apartments().fetchApartments();
                   class="group relative overflow-hidden rounded-3xl bg-neutral-100"
                 >
                   <nuxt-img
-                    class="h-96 w-full object-cover grayscale group-hover:grayscale-0 transition duration-500 motion-safe:group-hover:scale-105"
+                    class="h-96 w-full object-cover transition duration-500 motion-safe:group-hover:scale-105"
                     :src="apartment.feature.url"
                     :alt="apartment.feature.name"
                   />
