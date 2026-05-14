@@ -12,7 +12,9 @@ maxDate.setFullYear(today.getFullYear() + 1);
 </script>
 
 <template>
-  <article class="flex flex-col gap-10">
+  <article class="relative overflow-hidden rounded-3xl border border-saba-primary/20 bg-white shadow-2xl shadow-saba-primary/10">
+    <div class="h-1.5 w-full bg-gradient-to-r from-saba-darker via-saba-primary to-saba-dark" />
+    <div class="flex flex-col p-8">
     <Breadcumbs
       :name="data.name"
       :prev="{
@@ -20,7 +22,9 @@ maxDate.setFullYear(today.getFullYear() + 1);
         slug: data?.location?.slug,
       }"
     />
+    <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <h2 class="text-xl lg:text-3xl xl:text-4xl -indent-1.5">{{ data.name }}</h2>
+    <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <ul class="md:flex gap-4">
       <li v-if="data?.rooms?.guests">
         <span>Travelers:</span>
@@ -51,14 +55,16 @@ maxDate.setFullYear(today.getFullYear() + 1);
         >
       </li>
     </ul>
+    <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <div>
       <ul class="md:flex gap-4">
         <li v-if="data?.checkin">Checkin time: <span class="font-bold">{{ data.checkin }}</span></li>
         <li v-if="data?.checkout">Checkout time: <span class="font-bold">{{ data.checkout }}</span></li>
       </ul>
     </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <p class="text-gray-700">{{ data.description }}</p>
-
+    <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <div>
       <h3 class="text-lg mb-2">Address:</h3>
       <ul>
@@ -68,6 +74,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
       </ul>
     </div>
     <div v-if="data?.list && data?.list.length">
+      <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
       <h3 class="text-lg mb-2">What this apartment has:</h3>
       <ul class="grid grid-cols-3 gap-4">
         <li
@@ -80,6 +87,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
         </li>
       </ul>
     </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <div class="article-calendar">
       <h3 class="text-lg mb-5">Wählen Sie das Abfahrtsdatum aus</h3>
       <Datepicker
@@ -110,6 +118,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
       >
         Zurücksetzen
       </button>
+    </div>
     </div>
   </article>
 </template>

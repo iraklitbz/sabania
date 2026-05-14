@@ -40,13 +40,16 @@ const optionsTravelers = computed(() => {
   <aside
     class="top-32 flex w-full shrink-0 flex-col gap-3 lg:sticky lg:h-full lg:w-4/12 lg:gap-6"
   >
-    <div
-      class="bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"
-    >
-      <h2 class="text-xl lg:text-2xl xl:text-3xl mb-5">
-        {{ currencyFormat(apartments().getTotalPrice) }}
-        <span class="font-normal text-lg ml-1">nacht</span>
-      </h2>
+    <div class="relative overflow-hidden rounded-3xl border border-saba-primary/20 bg-white shadow-2xl shadow-saba-primary/10">
+      <div class="h-1.5 w-full bg-gradient-to-r from-saba-darker via-saba-primary to-saba-dark" />
+      <div class="p-6">
+      <div class="mb-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-saba-primary/50 mb-1">Preis pro Nacht</p>
+        <div class="flex items-baseline gap-2">
+          <span class="text-3xl xl:text-4xl font-bold text-saba-darker">{{ currencyFormat(apartments().getTotalPrice) }}</span>
+          <span class="text-sm text-saba-primary/40">/ Nacht</span>
+        </div>
+      </div>
       <FormKit
         type="form"
         :actions="false"
@@ -80,6 +83,7 @@ const optionsTravelers = computed(() => {
           Reservieren
         </FormKit>
       </FormKit>
+      </div>
     </div>
   </aside>
 </template>

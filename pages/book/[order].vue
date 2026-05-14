@@ -33,18 +33,21 @@ definePageMeta({
         <CheckoutForm />
       </div>
       <aside
-        class="lg:w-6/12 bg-white border border-solid border-gray-300 p-4 rounded-2xl shadow-xl"
+        class="lg:w-6/12 lg:sticky lg:top-6 relative overflow-hidden rounded-3xl border border-saba-primary/20 bg-white shadow-2xl shadow-saba-primary/10"
       >
-        <CardSmall
-          :apartment="apartments()?.apartment"
-          :checkin-date="apartments()?.checkinDate.toString()"
-          :checkout-date="apartments()?.checkoutDate.toString()"
-          :travelers="apartments()?.travelers"
-          :total-price="apartments()?.getTotalPrice"
-          :calculate-nights="apartments()?.calculateNights"
-          :calculate-total-price="apartments()?.calculateTotalPrice"
-          :discount-price="apartments().getTotalPriceWithDiscount"
-        />
+        <div class="h-1.5 w-full bg-gradient-to-r from-saba-darker via-saba-primary to-saba-dark" />
+        <div class="p-8">
+          <CardSmall
+            :apartment="apartments()?.apartment"
+            :checkin-date="apartments()?.checkinDate.toString()"
+            :checkout-date="apartments()?.checkoutDate.toString()"
+            :travelers="apartments()?.travelers"
+            :total-price="apartments()?.getTotalPrice"
+            :calculate-nights="apartments()?.calculateNights"
+            :calculate-total-price="apartments()?.calculateTotalPrice"
+            :discount-price="apartments().getTotalPriceWithDiscount"
+          />
+        </div>
       </aside>
     </div>
   </section>
