@@ -30,13 +30,13 @@ const props = defineProps<{
       <div>
         <div class="flex gap-3 justify-between">
           <span
-            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-blue-500"
+            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-[#1b4d42]"
           >
             Wohnungen
           </span>
         </div>
         <h2
-            class="inline-block text-md lg:text-lg font-medium tracking-wider mt-5 bg-black text-white py-1 px-4 rounded-2xl"
+            class="inline-block text-md lg:text-lg font-medium tracking-wider mt-5 bg-saba-primary/20 text-saba-primary py-1 px-4 rounded-2xl"
         >
             {{ props.data.name }}
           </h2>
@@ -44,7 +44,7 @@ const props = defineProps<{
           class="text-lg lg:text-xl xl:text-2xl leading-snug tracking-tight mt-3"
         >
           <span
-            class="bg-gradient-to-r from-blue-200 to-blue-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            class="text-saba-primary bg-gradient-to-r from-saba-primary/30 to-saba-primary/20 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
           >
             {{ props.data?.shortDescription }}
           </span>

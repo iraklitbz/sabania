@@ -25,7 +25,7 @@ const props = defineProps<{
     <div class="">
       <div>
         <span
-          class="inline-block text-xs font-medium tracking-wider uppercase text-emerald-700"
+          class="inline-block text-xs font-medium tracking-wider uppercase text-[#1b4d42]"
         >
           Apartment
         </span>

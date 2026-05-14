@@ -13,6 +13,10 @@ export default {
         'formkit.theme.ts',
     ],
     theme: {
+        fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+        },
         extend: {
             colors: {
                 'transparent': 'transparent',
@@ -28,7 +32,11 @@ export default {
                 'saba-red': '#d40e14',
                 'saba-red-100': '#9d0a0f',
                 'saba-yellow': '#FDB813',
-                'saba-success': '#30B675'
+                'saba-success': '#30B675',
+                'saba-primary': '#4D1B26',
+                'saba-dark': '#4d1b3f',
+                'saba-darker': '#301118',
+                'saba-light': '#C2BEB5',
             },
         }
     },

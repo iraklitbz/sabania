@@ -7,7 +7,7 @@ if(orderRegister().getDataIsExpired) {
 </script>
 <template>
   <section v-if="Object.keys(orderRegister().currentOrder).length && Object.keys(orderRegister().currentApartment).length && !orderRegister().getDataIsExpired" class="relative max-w-7xl mx-auto p-6 lg:px-8">
-    <nuxt-link to="/" class="text-blue-500 mb-5 flex items-center">
+    <nuxt-link to="/" class="text-saba-primary mb-5 flex items-center">
       <Icon name="chevron-left" class="text-3xl text-black" />
       Home
     </nuxt-link>
@@ -40,7 +40,7 @@ if(orderRegister().getDataIsExpired) {
     class="flex flex-col items-center justify-center py-20"
   >
     <p class="text-2xl mb-2">No order found</p>
-    <nuxt-link to="/" class="text-blue-500 ml-2">Back home</nuxt-link>
+    <nuxt-link to="/" class="text-saba-primary ml-2">Back home</nuxt-link>
   </div>
 </template>
 

@@ -18,7 +18,7 @@ await locations().fetchLocations();
         class="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8"
       >
         <div>
-          <h2 class="font-display text-2xl text-neutral-950">
+          <h2 class="font-display text-2xl text-saba-darker">
             Unsere Städte
           </h2>
         </div>

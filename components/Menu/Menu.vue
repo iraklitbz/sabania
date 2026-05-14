@@ -10,13 +10,13 @@ onMounted(() => {
 </script>
 <template>
   <div
-    class="relative z-50 overflow-hidden bg-neutral-950 pt-2 transition-all duration-300 ease-in-out"
+    class="relative z-50 overflow-hidden bg-saba-primary pt-2 transition-all duration-300 ease-in-out"
     :style="
       settings().menuIsOpen ? `height: ${containerHeight}px` : 'height: 0.8rem'
     "
   >
-    <div ref="containerRef" class="bg-neutral-800">
-      <div class="bg-neutral-950 pb-16 pt-14">
+    <div ref="containerRef" class="bg-saba-dark">
+      <div class="bg-gradient-to-r from-saba-primary to-saba-dark pb-16 pt-14">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl lg:max-w-none">
             <div class="flex items-center justify-between">
@@ -25,14 +25,14 @@ onMounted(() => {
               </nuxt-link>
               <div class="flex items-center gap-x-8">
                 <nuxt-link
-                  class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-white text-neutral-950 hover:bg-neutral-200"
+                  class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-saba-light text-saba-primary hover:bg-white"
                   to="/contact"
                 >
                   <span class="relative top-px">Kontakt</span>
                 </nuxt-link>
                 <button
                   type="button"
-                  class="group -m-2.5 rounded-full p-2.5 transition hover:bg-white/10"
+                  class="group -m-2.5 rounded-full p-2.5 transition hover:bg-white/5"
                   aria-label="Toggle navigation"
                   @click="settings().toggleMenu()"
                 >
@@ -55,54 +55,54 @@ onMounted(() => {
         </div>
       </div>
       <nav
-        class="mt-px font-display text-5xl font-medium tracking-tight text-white"
+        class="mt-px font-display text-5xl font-medium tracking-tight text-saba-light"
       >
-        <div class="even:mt-px sm:bg-neutral-950">
+        <div class="sm:bg-saba-primary border-t border-b border-saba-darker">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:max-w-none">
               <div class="grid grid-cols-1 sm:grid-cols-2">
                 <nuxt-link
-                  class="group relative isolate -mx-6 bg-neutral-950 px-6 font-thin py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+                  class="group relative isolate -mx-6 bg-saba-primary px-6 font-thin py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-saba-darker sm:even:pl-16"
                   to="/apartments"
                 >
                   Wohnungen
                   <span
-                    class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
+                    class="absolute inset-y-0 -z-10 w-screen bg-white/5 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
                 </nuxt-link>
                 <nuxt-link
-                  class="group relative isolate -mx-6 font-thin bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+                  class="group relative isolate -mx-6 font-thin bg-saba-primary px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-saba-darker sm:even:pl-16"
                   to="/location"
                 >
                   Städte
                   <span
-                    class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
+                    class="absolute inset-y-0 -z-10 w-screen bg-white/5 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
                 </nuxt-link>
               </div>
             </div>
           </div>
         </div>
-        <div class="even:mt-px sm:bg-neutral-950">
+        <div class="sm:bg-saba-primary">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:max-w-none">
               <div class="grid grid-cols-1 sm:grid-cols-2">
                 <nuxt-link
-                  class="group relative isolate -mx-6 font-thin bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+                  class="group relative isolate -mx-6 font-thin bg-saba-primary px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-saba-darker sm:even:pl-16"
                   to="/about"
                 >
                   Über uns
                   <span
-                    class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
+                    class="absolute inset-y-0 -z-10 w-screen bg-white/5 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
                 </nuxt-link>
                 <nuxt-link
-                  class="group relative isolate -mx-6 font-thin bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+                  class="group relative isolate -mx-6 font-thin bg-saba-primary px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-saba-darker sm:even:pl-16"
                   to="/contact"
                 >
                   Kontaktier uns
                   <span
-                    class="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
+                    class="absolute inset-y-0 -z-10 w-screen bg-white/5 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100"
                   ></span>
                 </nuxt-link>
               </div>
@@ -111,7 +111,7 @@ onMounted(() => {
         </div>
       </nav>
       <div
-        class="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800"
+        class="relative bg-saba-primary before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-saba-darker"
       >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl lg:max-w-none">
@@ -119,7 +119,7 @@ onMounted(() => {
               class="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16"
             >
               <div>
-                <h2 class="font-display text-base text-white">
+                <h2 class="font-display text-base text-saba-light">
                   Unsere Büros
                 </h2>
                 <ul
@@ -127,18 +127,18 @@ onMounted(() => {
                   class="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
                 >
                   <li>
-                    <address class="text-sm not-italic text-neutral-300">
-                      <strong class="text-white">Herforder Straße 109</strong
+                    <address class="text-sm not-italic text-saba-light/80">
+                      <strong class="text-saba-light">Herforder Straße 109</strong
                       ><br />33602 Bielefeld
                     </address>
                   </li>
                 </ul>
               </div>
               <div class="sm:border-l sm:border-transparent sm:pl-16">
-                <h2 class="font-display text-base text-white">
+                <h2 class="font-display text-base text-saba-light">
                   Folgen Sie uns
                 </h2>
-                <ul role="list" class="flex gap-x-10 text-white mt-6">
+                <ul role="list" class="flex gap-x-10 text-saba-light mt-6">
                   <li>
                     <a
                       aria-label="Facebook"

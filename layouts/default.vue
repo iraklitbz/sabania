@@ -7,7 +7,7 @@ router.afterEach(() => {
 });
 </script>
 <template>
-  <div class="general">
+  <div class="general bg-saba-primary">
     <Header />
     <Menu />
     <div class="pt-32 bg-white rounded-t-[40px]">

@@ -18,7 +18,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
               data-np-checked="1"
               data-np-watching="1"
             >
-              <h2 class="font-display text-lg  text-neutral-950">
+              <h2 class="font-display text-lg  text-saba-darker">
                 Kontaktieren Sie uns
               </h2>
               <div class="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
@@ -61,15 +61,15 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             <div
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
-              <h2 class="font-display text-lg text-neutral-950">
+              <h2 class="font-display text-lg text-saba-darker">
                 Kontaktieren Sie uns
               </h2>
               <dl class="mt-6 grid grid-cols-1 text-lg gap-8 sm:grid-cols-2">
                 <div>
-                  <dt class="text-neutral-950">Email</dt>
+                  <dt class="text-saba-darker">Email</dt>
                   <dd>
                     <a
-                      class="text-neutral-600 hover:text-neutral-950"
+                      class="text-neutral-600 hover:text-saba-darker"
                       href="mailto:info@sabania.eu"
                       >info@sabania.eu</a
                     >
@@ -80,10 +80,10 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
             <div
               class="mt-16 pt-16 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px"
             >
-              <h2 class="font-display text-lg text-neutral-950">
+              <h2 class="font-display text-lg text-saba-darker">
                 Folgen Sie uns
               </h2>
-              <ul role="list" class="flex gap-x-10 text-neutral-950 mt-6">
+              <ul role="list" class="flex gap-x-10 text-saba-darker mt-6">
                 <li>
                   <a
                     aria-label="Facebook"

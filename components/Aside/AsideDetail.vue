@@ -68,7 +68,7 @@ const optionsTravelers = computed(() => {
         >
           <template #message="{ message }"> </template>
           <template #prefixIcon="context">
-            <Icon name="user" class="text-2xl ml-3" />
+            <Icon name="user" class="text-2xl ml-3 text-saba-primary" />
           </template>
         </FormKit>
         <FormKit

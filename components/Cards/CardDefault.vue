@@ -24,7 +24,7 @@ console.log(props.data)
       <div>
         <div class="flex gap-3">
           <span
-            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-emerald-700"
+            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-[#1b4d42]"
           >
             Städt
           </span>
@@ -33,7 +33,7 @@ console.log(props.data)
           class="text-lg lg:text-xl xl:text-2xl leading-snug tracking-tight mt-2"
         >
           <span
-            class="bg-gradient-to-r from-green-200 font-normal to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            class="bg-gradient-to-r from-saba-primary/30 font-normal to-saba-primary/20 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
           >
             {{ props.data.city }}
           </span>

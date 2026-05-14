@@ -10,7 +10,7 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
     />
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8 text-xl text-neutral-600 pb-20">
       <div class="mb-8">
-        <nuxt-link to="/contact" class="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-neutral-950 font-semibold px-6 py-3 rounded-full transition-colors duration-200 text-base">
+        <nuxt-link to="/contact" class="inline-flex items-center gap-2 bg-saba-primary hover:bg-saba-dark text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200 text-base">
           👉 Kontaktieren Sie uns
         </nuxt-link>
       </div>

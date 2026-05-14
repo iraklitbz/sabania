@@ -9,7 +9,7 @@ import { settings } from "~/store/settings";
           <nuxt-link class="text-2xl" to="/"> Sabania </nuxt-link>
           <div class="flex items-center gap-x-8">
             <nuxt-link
-              class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-neutral-950 text-white hover:bg-neutral-800"
+              class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-saba-primary text-white hover:bg-saba-dark"
               to="/contact"
             >
               <span class="relative top-px"> Kontakt </span>

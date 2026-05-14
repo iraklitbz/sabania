@@ -20,7 +20,15 @@ export default defineNuxtConfig({
     "pinia-plugin-persistedstate/nuxt",
     "@nuxt/eslint",
     'nuxt-paypal',
+    '@nuxtjs/google-fonts',
   ],
+  googleFonts: {
+    families: {
+      'Outfit': [400, 500, 600, 700],
+      'Inter': [300, 400, 500, 600, 700],
+    },
+    display: 'swap',
+  },
   paypal: {
     clientId: process.env.PAYPAL_CLIENT_ID,
   },

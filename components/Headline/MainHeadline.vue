@@ -10,7 +10,7 @@ const props = defineProps<{
       <div style="opacity: 1; transform: none">
         <h1>
           <span
-            class="mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-6xl -indent-2.5"
+            class="mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-saba-darker [text-wrap:balance] sm:text-6xl -indent-2.5"
           >
             {{ props.title }}
           </span>

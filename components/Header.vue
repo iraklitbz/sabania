@@ -67,7 +67,7 @@ const navMenu = ref([
         >
           <nuxt-link :to="item.link">
             <span
-              class="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+              class="bg-gradient-to-r from-saba-primary/30 to-saba-primary/20 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
             >
               {{ item.name }}
             </span>
