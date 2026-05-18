@@ -33,6 +33,15 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       ],
+      script: [
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-BMPSB28JV0',
+          async: true,
+        },
+        {
+          innerHTML: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-BMPSB28JV0');`,
+        },
+      ],
     },
   },
   modules: [
@@ -46,11 +55,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     'nuxt-paypal',
     '@nuxtjs/google-fonts',
-    'nuxt-gtag',
   ],
-  gtag: {
-    id: 'G-BMPSB28JV0',
-  },
   googleFonts: {
     families: {
       'Outfit': [400, 500, 600, 700],

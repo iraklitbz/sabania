@@ -50,7 +50,6 @@
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "nuxt-gtag": "^4.1.0",
     "nuxt-svgo": "^4.2.6"
   }
 }
