@@ -22,6 +22,34 @@ async function handleSubmit(fields: { email: string; subject: string; textarea: 
 }
 </script>
 
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 0.25s ease, max-height 0.25s ease, margin 0.25s ease;
+  overflow: hidden;
+  max-height: 80px;
+}
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+}
+</style>
+
 <template>
   <main class="w-full flex-auto">
     <MainHeadline
@@ -33,20 +61,33 @@ async function handleSubmit(fields: { email: string; subject: string; textarea: 
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
           <div class="lg:order-last" style="opacity: 1; transform: none">
-            <form
-              data-np-autofill-form-type="identity"
-              data-np-checked="1"
-              data-np-watching="1"
-            >
-              <h2 class="font-display text-lg  text-saba-darker">
-                Kontaktieren Sie uns
-              </h2>
-              <div class="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-                <div v-if="sent" class="p-4 rounded-xl bg-green-50 text-green-800 text-base">
-                  Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns bald!
+            <h2 class="font-display text-lg text-saba-darker">
+              Kontaktieren Sie uns
+            </h2>
+            <div class="isolate mt-6 rounded-2xl bg-white/50">
+              <Transition name="fade" mode="out-in">
+
+                <!-- Estado de éxito -->
+                <div v-if="sent" key="success" class="flex flex-col items-center gap-4 py-12 px-6 text-center">
+                  <div class="flex items-center justify-center w-16 h-16 rounded-full bg-saba-success/10">
+                    <svg class="w-8 h-8 text-saba-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p class="text-xl font-semibold text-saba-darker">Nachricht gesendet!</p>
+                  <p class="text-base text-neutral-600">Vielen Dank. Wir melden uns so schnell wie möglich bei Ihnen.</p>
+                  <button
+                    class="mt-2 text-sm text-saba-primary underline underline-offset-2 hover:text-saba-darker transition"
+                    @click="sent = false"
+                  >
+                    Neue Nachricht senden
+                  </button>
                 </div>
+
+                <!-- Formulario -->
                 <FormKit
                   v-else
+                  key="form"
                   type="form"
                   :actions="false"
                   form-class="flex flex-col gap-4"
@@ -63,19 +104,38 @@ async function handleSubmit(fields: { email: string; subject: string; textarea: 
                     placeholder="Nachricht"
                     validation="required"
                   />
-                  <p v-if="error" class="text-red-600 text-sm">{{ error }}</p>
-                  <FormKit
+
+                  <!-- Banner de error -->
+                  <Transition name="slide">
+                    <div v-if="error" class="flex items-start gap-3 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 mb-1">
+                      <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                      </svg>
+                      <span>{{ error }}</span>
+                    </div>
+                  </Transition>
+
+                  <!-- Botón con spinner -->
+                  <button
                     type="submit"
-                    :classes="{
-                      input: 'w-full flex text-lg justify-center',
-                    }"
                     :disabled="sending"
+                    class="w-full flex items-center justify-center gap-2 text-lg rounded-xl px-6 py-3 bg-saba-primary text-white font-medium transition hover:bg-saba-darker disabled:opacity-60 disabled:cursor-not-allowed"
                   >
+                    <svg
+                      v-if="sending"
+                      class="animate-spin h-5 w-5 shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                    </svg>
                     {{ sending ? "Wird gesendet…" : "Senden" }}
-                  </FormKit>
+                  </button>
                 </FormKit>
-              </div>
-            </form>
+
+              </Transition>
+            </div>
           </div>
           <div style="opacity: 1; transform: none">
             <ul role="list" class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
