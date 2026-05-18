@@ -97,6 +97,7 @@ export default defineNuxtConfig({
     autoImportPath: "./assets/icons/",
   },
   runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY || "",
     strapiUrl: process.env.STRAPI_URL || "http://localhost:1337",
     strapiToken: process.env.STRAPI_TOKEN || "",
     revalidateSecret: process.env.REVALIDATE_SECRET || "",

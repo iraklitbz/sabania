@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "nuxt-svgo": "^4.2.6"
+    "nuxt-svgo": "^4.2.6",
+    "resend": "^6.12.3"
   }
 }

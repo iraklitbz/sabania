@@ -1,5 +1,25 @@
 <script setup lang="ts">
 import MainHeadline from "~/components/Headline/MainHeadline.vue";
+
+const sending = ref(false);
+const sent = ref(false);
+const error = ref("");
+
+async function handleSubmit(fields: { email: string; subject: string; textarea: string }) {
+  sending.value = true;
+  error.value = "";
+  try {
+    await $fetch("/api/contact", {
+      method: "POST",
+      body: fields,
+    });
+    sent.value = true;
+  } catch {
+    error.value = "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.";
+  } finally {
+    sending.value = false;
+  }
+}
 </script>
 
 <template>
@@ -22,28 +42,36 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
                 Kontaktieren Sie uns
               </h2>
               <div class="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
+                <div v-if="sent" class="p-4 rounded-xl bg-green-50 text-green-800 text-base">
+                  Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns bald!
+                </div>
                 <FormKit
+                  v-else
                   type="form"
                   :actions="false"
                   form-class="flex flex-col gap-4"
                   name="input"
                   :on-submit-invalid="true"
                   :incomplete-message="false"
+                  @submit="handleSubmit"
                 >
-                  <FormKit type="email" name="email" placeholder="Email" />
-                  <FormKit type="text" name="subject" placeholder="Betreff" />
+                  <FormKit type="email" name="email" placeholder="Email" validation="required|email" />
+                  <FormKit type="text" name="subject" placeholder="Betreff" validation="required" />
                   <FormKit
                     type="textarea"
                     name="textarea"
                     placeholder="Nachricht"
+                    validation="required"
                   />
+                  <p v-if="error" class="text-red-600 text-sm">{{ error }}</p>
                   <FormKit
                     type="submit"
                     :classes="{
                       input: 'w-full flex text-lg justify-center',
                     }"
+                    :disabled="sending"
                   >
-                    Senden
+                    {{ sending ? "Wird gesendet…" : "Senden" }}
                   </FormKit>
                 </FormKit>
               </div>

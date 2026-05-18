@@ -11,7 +11,11 @@
       "Bash(pnpm lint:*)",
       "Bash(pnpm build:*)",
       "WebFetch(domain:tailwindcss.com)",
-      "Bash(grep -n 'formkit\\\\|FormKit\\\\|btn\\\\|$reset\\\\|$submit' /Users/iraklitbz/Desktop/apps/webs/sabania/formkit.config.ts)"
+      "Bash(grep -n 'formkit\\\\|FormKit\\\\|btn\\\\|$reset\\\\|$submit' /Users/iraklitbz/Desktop/apps/webs/sabania/formkit.config.ts)",
+      "Bash(git -C /Users/iraklitbz/Desktop/apps/webs/sabania log --oneline -5)",
+      "Bash(git -C /Users/iraklitbz/Desktop/apps/webs/sabania status)",
+      "Bash(git -C /Users/iraklitbz/Desktop/apps/webs/sabania diff nuxt.config.ts)",
+      "Bash(npm install *)"
     ],
     "deny": []
   }
