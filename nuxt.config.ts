@@ -98,6 +98,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || "",
+    vercelWebhookSecret: process.env.VERCEL_WEBHOOK_SECRET || "",
     strapiUrl: process.env.STRAPI_URL || "http://localhost:1337",
     strapiToken: process.env.STRAPI_TOKEN || "",
     revalidateSecret: process.env.REVALIDATE_SECRET || "",

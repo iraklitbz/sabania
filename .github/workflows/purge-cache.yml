@@ -1,0 +1,16 @@
+name: Purge Cloudflare cache after deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel deployment
+        run: sleep 60
+      - name: Purge Cloudflare cache
+        run: |
+          curl -X POST https://sabania.eu/api/revalidate \
+            -H "x-webhook-secret: ${{ secrets.REVALIDATE_SECRET }}"
