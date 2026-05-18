@@ -25,6 +25,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
     />
     <Datepicker
       v-model="apartments().selectedRange"
+      teleport="body"
       :range="true"
       :multi-calendars="2"
       placeholder="Check-in - Check-out"

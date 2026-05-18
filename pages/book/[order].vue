@@ -20,7 +20,7 @@ definePageMeta({
       Zurück
     </nuxt-link>
     <div class="flex flex-col gap-6 md:gap-12 lg:flex-row items-start">
-      <div class="lg:w-6/12">
+      <div class="order-2 lg:order-1 lg:w-6/12">
         <h2 class="text-xl mb-10">
           Ihr Buch ist für:
           <span class="font-bold">
@@ -33,7 +33,7 @@ definePageMeta({
         <CheckoutForm />
       </div>
       <aside
-        class="lg:w-6/12 lg:sticky lg:top-6 relative overflow-hidden rounded-3xl border border-saba-primary/20 bg-white shadow-2xl shadow-saba-primary/10"
+        class="order-1 lg:order-2 lg:w-6/12 lg:sticky lg:top-6 relative overflow-hidden rounded-3xl border border-saba-primary/20 bg-white shadow-2xl shadow-saba-primary/10"
       >
         <div class="h-1.5 w-full bg-gradient-to-r from-saba-darker via-saba-primary to-saba-dark" />
         <div class="p-8">

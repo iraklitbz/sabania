@@ -1,57 +1,68 @@
 <script setup lang="ts">
+import { currencyFormat } from "~/utils/currency-utils";
+
 const props = defineProps<{
   data: {
     name: string;
     slug: string;
-    feature: {
-      name: string;
-      url: string;
-    };
+    shortDescription?: string;
+    feature: { name: string; url: string };
+    price?: { basePrice?: number };
+    rooms?: { guests?: number; rooms?: number; beds?: number };
+    location?: { city?: string };
   };
 }>();
 </script>
+
 <template>
-  <div class="group cursor-pointer">
-    <div
-      class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105"
-    >
-      <nuxt-link
-        class="relative block aspect-square"
-        :to="`/${props.data.slug}`"
-      >
-        <nuxt-img
-          :alt="props.data.feature.name"
-          class="object-cover transition-all absolute h-full w-full text-transparent inset-0"
-          :src="props.data.feature.url"
-        />
-      </nuxt-link>
-    </div>
-    <nuxt-link :to="`/${props.data.slug}`">
-      <div>
-        <div class="flex gap-3 justify-between">
-          <span
-            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-[#1b4d42]"
-          >
-            Wohnungen
-          </span>
-        </div>
-        <h2
-            class="inline-block text-md lg:text-lg font-medium tracking-wider mt-5 bg-saba-primary/20 text-saba-primary py-1 px-4 rounded-2xl"
-        >
-            {{ props.data.name }}
-          </h2>
-        <h2
-          class="text-lg lg:text-xl xl:text-2xl leading-snug tracking-tight mt-3"
-        >
-          <span
-            class="text-saba-primary bg-gradient-to-r from-saba-primary/30 to-saba-primary/20 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
-          >
-            {{ props.data?.shortDescription }}
-          </span>
-        </h2>
+  <nuxt-link
+    :to="`/${props.data.slug}`"
+    class="group flex flex-col rounded-3xl overflow-hidden bg-white border border-saba-primary/10 shadow-lg shadow-saba-primary/5 hover:shadow-2xl hover:shadow-saba-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+  >
+    <!-- Image -->
+    <div class="relative overflow-hidden aspect-[4/3]">
+      <nuxt-img
+        :src="props.data.feature.url"
+        :alt="props.data.feature.name"
+        class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-in-out"
+        width="600"
+        height="450"
+      />
+      <!-- Price badge -->
+      <div v-if="props.data?.price?.basePrice" class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-md">
+        <span class="text-sm font-bold text-saba-darker">{{ currencyFormat(props.data.price.basePrice) }}</span>
+        <span class="text-xs text-saba-primary/50"> / Nacht</span>
       </div>
-    </nuxt-link>
-  </div>
+      <!-- Location badge -->
+      <div v-if="props.data?.location?.city" class="absolute top-4 left-4 bg-saba-darker/80 backdrop-blur-sm rounded-full px-3 py-1.5">
+        <span class="text-xs font-semibold text-white uppercase tracking-widest">{{ props.data.location.city }}</span>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="flex flex-col gap-3 p-5">
+      <div>
+        <h2 class="text-lg font-bold text-saba-darker leading-snug">{{ props.data.name }}</h2>
+        <p v-if="props.data?.shortDescription" class="mt-1 text-sm text-saba-primary/60 line-clamp-2">{{ props.data.shortDescription }}</p>
+      </div>
+
+      <!-- Stats -->
+      <div v-if="props.data?.rooms" class="flex items-center gap-3 text-xs text-saba-primary/50 pt-1 border-t border-saba-primary/10">
+        <span v-if="props.data.rooms.guests" class="flex items-center gap-1">
+          <Icon name="user" class="text-sm" />
+          {{ props.data.rooms.guests }} Gäste
+        </span>
+        <span v-if="props.data.rooms.rooms" class="flex items-center gap-1">
+          <Icon name="kitchen" class="text-sm" />
+          {{ props.data.rooms.rooms }} Zimmer
+        </span>
+        <span v-if="props.data.rooms.beds" class="flex items-center gap-1">
+          <Icon name="bed" class="text-sm" />
+          {{ props.data.rooms.beds }} Betten
+        </span>
+      </div>
+    </div>
+  </nuxt-link>
 </template>
 
 <style scoped></style>

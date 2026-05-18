@@ -26,7 +26,7 @@ function hanldeClosePhoto() {
 
 <template>
   <main
-    class="bg-white h-screen fixed top-0 left-0 z-40 w-full"
+    class="bg-white h-screen fixed top-0 left-0 z-50 w-full"
     :class="openDetailImage ? 'overflow-hidden' : 'overflow-y-auto'"
   >
     <div class="relative max-w-7xl mx-auto p-6 lg:px-8">
@@ -74,7 +74,7 @@ function hanldeClosePhoto() {
             @click="hanldeClosePhoto()"
           >
             <Icon name="close" class="text-3xl text-white" />
-            Close
+            Schließen
           </button>
           <nuxt-img
             :src="selectedImage?.url"

@@ -3,41 +3,28 @@ const props = defineProps<{
   data: {
     city: string;
     slug: string;
+    feature?: { name?: string; url?: string };
+    name?: string;
   };
 }>();
-console.log(props.data)
 </script>
+
 <template>
-  <nuxt-link class="group cursor-pointer" :to="`/location/${props.data.slug}`">
-    <div
-      class="overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105"
-    >
-      <figure class="relative block aspect-square">
-        <img
-          :alt="props?.data?.name"
-          class="object-cover transition-all absolute h-full w-full text-transparent inset-0"
-          :src="props?.data?.feature?.url"
-        />
-      </figure>
-    </div>
-    <div class="">
-      <div>
-        <div class="flex gap-3">
-          <span
-            class="inline-block text-xs font-medium tracking-wider uppercase mt-5 text-[#1b4d42]"
-          >
-            Städt
-          </span>
-        </div>
-        <h2
-          class="text-lg lg:text-xl xl:text-2xl leading-snug tracking-tight mt-2"
-        >
-          <span
-            class="bg-gradient-to-r from-saba-primary/30 font-normal to-saba-primary/20 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
-          >
-            {{ props.data.city }}
-          </span>
-        </h2>
+  <nuxt-link
+    :to="`/location/${props.data.slug}`"
+    class="group flex flex-col rounded-3xl overflow-hidden bg-white border border-saba-primary/10 shadow-lg shadow-saba-primary/5 hover:shadow-2xl hover:shadow-saba-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+  >
+    <!-- Image -->
+    <div class="relative overflow-hidden aspect-[4/3]">
+      <img
+        :src="props.data?.feature?.url"
+        :alt="props.data?.feature?.name || props.data.city"
+        class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-in-out"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-saba-darker/60 via-transparent to-transparent" />
+      <div class="absolute bottom-4 left-5">
+        <p class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-1">Reiseziel</p>
+        <h2 class="text-xl font-bold text-white leading-tight">{{ props.data.city }}</h2>
       </div>
     </div>
   </nuxt-link>

@@ -9,6 +9,14 @@ const props = defineProps<{
 const today = new Date();
 const maxDate = new Date();
 maxDate.setFullYear(today.getFullYear() + 1);
+
+const isMobile = ref(false);
+onMounted(() => {
+  isMobile.value = window.innerWidth < 640;
+  window.addEventListener("resize", () => {
+    isMobile.value = window.innerWidth < 640;
+  });
+});
 </script>
 
 <template>
@@ -23,43 +31,44 @@ maxDate.setFullYear(today.getFullYear() + 1);
       }"
     />
     <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
-    <h2 class="text-xl lg:text-3xl xl:text-4xl -indent-1.5">{{ data.name }}</h2>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-saba-primary/50 mb-2">{{ data?.location?.city }}</p>
+      <h2 class="text-2xl lg:text-4xl xl:text-5xl font-bold text-saba-darker leading-tight">{{ data.name }}</h2>
+      <p v-if="data?.shortDescription" class="mt-3 text-saba-primary/60 text-base lg:text-lg">{{ data.shortDescription }}</p>
+    </div>
     <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
-    <ul class="md:flex gap-4">
-      <li v-if="data?.rooms?.guests">
-        <span>Travelers:</span>
-        <span
-          class="rounded-full w-7 h-7 bg-saba-primary inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
-          >{{ data.rooms.guests }}</span
-        >
+    <ul class="flex flex-wrap gap-6">
+      <li v-if="data?.rooms?.guests" class="flex flex-col items-center gap-1.5">
+        <span class="text-xs font-semibold uppercase tracking-widest text-saba-primary/50">Gäste</span>
+        <span class="rounded-full w-9 h-9 bg-saba-primary inline-flex items-center justify-center text-white font-bold text-sm">{{ data.rooms.guests }}</span>
       </li>
-      <li v-if="data?.rooms?.rooms">
-        <span>Rooms:</span>
-        <span
-          class="rounded-full w-7 h-7 bg-saba-primary inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
-          >{{ data.rooms.rooms }}</span
-        >
+      <li v-if="data?.rooms?.rooms" class="flex flex-col items-center gap-1.5">
+        <span class="text-xs font-semibold uppercase tracking-widest text-saba-primary/50">Zimmer</span>
+        <span class="rounded-full w-9 h-9 bg-saba-primary inline-flex items-center justify-center text-white font-bold text-sm">{{ data.rooms.rooms }}</span>
       </li>
-      <li v-if="data?.rooms?.beds">
-        <span>Beds:</span>
-        <span
-          class="rounded-full w-7 h-7 bg-saba-primary inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
-          >{{ data.rooms.beds }}</span
-        >
+      <li v-if="data?.rooms?.beds" class="flex flex-col items-center gap-1.5">
+        <span class="text-xs font-semibold uppercase tracking-widest text-saba-primary/50">Betten</span>
+        <span class="rounded-full w-9 h-9 bg-saba-primary inline-flex items-center justify-center text-white font-bold text-sm">{{ data.rooms.beds }}</span>
       </li>
-      <li v-if="data?.rooms?.WC">
-        <span>WC:</span>
+      <li v-if="data?.rooms?.WC" class="flex flex-col items-center gap-1.5">
+        <span class="text-xs font-semibold uppercase tracking-widest text-saba-primary/50">WC</span>
         <span
-          class="rounded-full w-7 h-7 bg-saba-primary inline-flex items-center justify-center border border-solid border-gray-200 text-white ml-1 -indent-0.5"
+          class="rounded-full w-9 h-9 bg-saba-primary inline-flex items-center justify-center text-white font-bold text-sm"
           >{{ data.rooms.WC }}</span
         >
       </li>
     </ul>
     <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <div>
-      <ul class="md:flex gap-4">
-        <li v-if="data?.checkin">Checkin time: <span class="font-bold">{{ data.checkin }}</span></li>
-        <li v-if="data?.checkout">Checkout time: <span class="font-bold">{{ data.checkout }}</span></li>
+      <ul class="flex flex-wrap gap-3">
+        <li v-if="data?.checkin" class="flex items-center gap-2 bg-saba-primary/5 border border-saba-primary/10 rounded-full px-4 py-2 text-sm">
+          <span class="text-saba-primary/50 font-semibold uppercase tracking-widest text-xs">Check-in</span>
+          <span class="font-bold text-saba-darker">{{ data.checkin }}</span>
+        </li>
+        <li v-if="data?.checkout" class="flex items-center gap-2 bg-saba-primary/5 border border-saba-primary/10 rounded-full px-4 py-2 text-sm">
+          <span class="text-saba-primary/50 font-semibold uppercase tracking-widest text-xs">Check-out</span>
+          <span class="font-bold text-saba-darker">{{ data.checkout }}</span>
+        </li>
       </ul>
     </div>
     <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
@@ -76,13 +85,13 @@ maxDate.setFullYear(today.getFullYear() + 1);
     <div v-if="data?.list && data?.list.length">
       <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
       <h3 class="text-lg mb-2">What this apartment has:</h3>
-      <ul class="grid grid-cols-3 gap-4">
+      <ul class="flex flex-wrap gap-2">
         <li
           v-for="item in matchingCategories(data?.list)"
           :key="item"
-          class="bg-saba-primary/5 rounded-full px-2 py-2 text-center border border-solid border-saba-primary/10 text-saba-darker flex items-center gap-2 justify-center"
+          class="bg-saba-primary/5 rounded-2xl px-3 py-2 border border-solid border-saba-primary/10 text-saba-darker flex items-center gap-2"
         >
-          <Icon :name="item.icon" class="text-2xl" />
+          <Icon :name="item.icon" class="w-5 h-5 shrink-0" />
           {{ item.name }}
         </li>
       </ul>
@@ -95,7 +104,7 @@ maxDate.setFullYear(today.getFullYear() + 1);
         inline
         auto-apply
         :range="true"
-        :multi-calendars="2"
+        :multi-calendars="isMobile ? false : 2"
         :hide-navigation="['month', 'year']"
         :min-date="today"
         :max-date="maxDate"
@@ -125,7 +134,11 @@ maxDate.setFullYear(today.getFullYear() + 1);
 
 <style lang="scss">
 .article-calendar {
-  --dp-cell-size: 45px;
+  --dp-cell-size: 38px;
+
+  @media (min-width: 640px) {
+    --dp-cell-size: 45px;
+  }
   --dp-common-padding: 5px;
   --dp-primary-color: #4D1B26;
   --dp-primary-text-color: #ffffff;

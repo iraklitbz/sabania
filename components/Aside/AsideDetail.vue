@@ -27,18 +27,12 @@ function handleSearch() {
   }
 }
 
-const optionsTravelers = computed(() => {
-  const opts: Record<number, number> = {};
-  for (let i = 1; i <= props.data.price.maxTravelers; i++) {
-    opts[i] = i;
-  }
-  return opts;
-});
+const maxTravelers = computed(() => props.data?.price?.maxTravelers ?? 10);
 </script>
 
 <template>
   <aside
-    class="top-32 flex w-full shrink-0 flex-col gap-3 lg:sticky lg:h-full lg:w-4/12 lg:gap-6"
+    class="top-32 flex w-full shrink-0 flex-col gap-3 lg:sticky lg:h-full lg:w-4/12 lg:gap-6 lg:self-start"
   >
     <div class="relative overflow-hidden rounded-3xl border border-saba-primary/20 bg-white shadow-2xl shadow-saba-primary/10">
       <div class="h-1.5 w-full bg-gradient-to-r from-saba-darker via-saba-primary to-saba-dark" />
@@ -60,20 +54,29 @@ const optionsTravelers = computed(() => {
         @submit="handleSearch"
       >
         <InputCalendar />
-        <FormKit
-          v-model.number="apartments().travelers"
-          id="adultsInput"
-          name="travelers"
-          type="select"
-          placeholder="Adults"
-          validation="required"
-          :options="optionsTravelers"
-        >
-          <template #message="{ message }"> </template>
-          <template #prefixIcon="context">
-            <Icon name="user" class="text-2xl ml-3 text-saba-primary" />
-          </template>
-        </FormKit>
+        <div class="flex items-center justify-between border border-saba-primary/10 bg-saba-primary/5 rounded-full px-4 py-3">
+          <div class="flex items-center gap-3">
+            <Icon name="user" class="text-xl text-saba-primary" />
+            <span class="text-saba-darker">
+              {{ apartments().travelers }} {{ apartments().travelers === 1 ? 'Reisender' : 'Reisende' }}
+            </span>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              type="button"
+              class="w-8 h-8 rounded-full border border-saba-primary/30 flex items-center justify-center text-saba-darker text-lg leading-none disabled:opacity-30"
+              :disabled="apartments().travelers <= 1"
+              @click="apartments().travelers--"
+            >−</button>
+            <span class="w-4 text-center font-semibold text-saba-darker">{{ apartments().travelers }}</span>
+            <button
+              type="button"
+              class="w-8 h-8 rounded-full border border-saba-primary/30 flex items-center justify-center text-saba-darker text-lg leading-none disabled:opacity-30"
+              :disabled="apartments().travelers >= maxTravelers"
+              @click="apartments().travelers++"
+            >+</button>
+          </div>
+        </div>
         <FormKit
           type="submit"
           :classes="{
