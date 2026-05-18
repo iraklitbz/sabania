@@ -122,6 +122,12 @@ export default defineNuxtConfig({
     register: {
       ssr: false,
     },
+    "forgot-password": {
+      ssr: false,
+    },
+    "reset-password": {
+      ssr: false,
+    },
     "activate-user": {
       ssr: false,
     },

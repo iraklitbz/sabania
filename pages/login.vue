@@ -104,9 +104,12 @@ const handleProviderAuth = async () => {
           <span v-if="!loading" class="flex items-center"> login </span>
           <Icon name="loader" v-else class="text-6xl" />
         </FormKit>
-        <div>
+        <div class="flex flex-col gap-1">
           <NuxtLink to="/register" class="text-center text-gray-600">
             Don't have an account? <span class="text-blue-500">Register</span>
+          </NuxtLink>
+          <NuxtLink to="/forgot-password" class="text-center text-gray-600">
+            <span class="text-blue-500">Forgot password?</span>
           </NuxtLink>
         </div>
         <transition name="fade" mode="out-in">
