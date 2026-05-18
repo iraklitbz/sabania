@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { settings } from "~/store/settings";
+const token = useStrapiToken();
 const containerRef = ref<HTMLElement | null>(null);
 const containerHeight = ref<number | null>(null);
 onMounted(() => {
@@ -24,6 +25,12 @@ onMounted(() => {
                 Sabania
               </nuxt-link>
               <div class="flex items-center gap-x-8">
+                <nuxt-link
+                  class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-white/10 text-white hover:bg-white/20"
+                  :to="token ? '/account' : '/login'"
+                >
+                  <span class="relative top-px">{{ token ? 'Konto' : 'Login' }}</span>
+                </nuxt-link>
                 <nuxt-link
                   class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-saba-light text-saba-primary hover:bg-white"
                   to="/contact"

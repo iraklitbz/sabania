@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { settings } from "~/store/settings";
+const token = useStrapiToken();
 const navMenu = ref([
   {
     name: "Home",
@@ -73,11 +74,17 @@ const navMenu = ref([
             </span>
           </nuxt-link>
         </li>
+        <li class="text-sm/6 leading-snug tracking-tight">
+          <nuxt-link :to="token ? '/account' : '/login'">
+            <span
+              class="bg-gradient-to-r from-saba-primary/30 to-saba-primary/20 bg-[length:0px_10px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              {{ token ? 'My Account' : 'Log in' }}
+            </span>
+          </nuxt-link>
+        </li>
       </ul>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <nuxt-link to="/login" class="text-sm/6 text-gray-900"
-          >Log in <span aria-hidden="true">&rarr;</span>
-        </nuxt-link>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -137,6 +144,14 @@ const navMenu = ref([
             </ul>
             <div class="py-6">
               <nuxt-link
+                v-if="token"
+                to="/account"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 text-gray-900 hover:bg-gray-50"
+              >
+                My Account
+              </nuxt-link>
+              <nuxt-link
+                v-else
                 to="/login"
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 text-gray-900 hover:bg-gray-50"
               >
