@@ -1,146 +1,117 @@
-<script setup lang="ts">
-import type { LoginInput } from "~/types/locale-types";
-import { FormKitMessages } from "@formkit/vue";
-import { getNode } from "@formkit/core";
-import Notification from "~/components/Notification.vue";
-import { markRaw, ref } from "vue";
-const { login, getProviderAuthenticationUrl } = useStrapiAuth();
-const loading = ref(false);
-
-const FormKitMessagesCustomComponents = { Notification: markRaw(Notification) };
-
-const onSubmit = async (input: LoginInput, node: any) => {
-  loading.value = true;
-  try {
-    node.clearErrors();
-    await login({
-      identifier: input.email,
-      password: input.password,
-    });
-    loading.value = false;
-    navigateTo("/account");
-  } catch (e) {
-    console.error(e);
-    loading.value = false;
-    const generalErrors = [];
-    if (e.error.status === 500) {
-      generalErrors.push("500. Something went wrong, please try again later");
-    }
-    if (
-      e.error.status === 400 &&
-      e.error.message === "Invalid identifier or password"
-    ) {
-      generalErrors.push("Invalid email or password");
-    }
-    if (
-      e.error.status === 400 &&
-      e.error.message === "Your account has been blocked by an administrator"
-    ) {
-      generalErrors.push(
-        "Your account has been blocked, please contact support.",
-      );
-    }
-    node.setErrors(generalErrors);
-  }
-};
-const handleProviderAuth = async () => {
-  try {
-    window.location.href = getProviderAuthenticationUrl("google");
-  } catch (e) {
-    console.error(e);
-  }
-};
-</script>
-
 <template>
-  <div class="flex justify-center">
-    <div class="w-full bg-gray-100 py-14 px-6">
-      <FormKit
-        type="form"
-        :actions="false"
-        name="loginForm"
-        form-class="flex flex-col gap-3 max-w-[20em] mx-auto"
-        @submit="onSubmit"
-      >
-        <FormKit
-          id="email"
-          name="email"
-          autocomplete="current-email"
-          placeholder="winterfell@sabania.com"
-          type="email"
-          label="Email"
-          validation="required|email"
-          validation-visibility="dirty"
-          :classes="{
-            outer: 'mb-3 sm:mb-0',
-          }"
-          :validation-messages="{
-            required: 'This field is required',
-            email: 'Please enter a valid email address',
-          }"
-        />
-        <FormKit
-          id="password"
-          name="password"
-          type="password"
-          autocomplete="new-password"
-          label="Password"
-          :classes="{
-            outer: 'mb-3 sm:mb-0',
-          }"
-          :validation-messages="{
-            required: 'This field is required',
-          }"
-        />
-
-        <FormKit
-          variant="primary"
-          type="submit"
-          :classes="{
-            input: 'w-full flex justify-center',
-          }"
-          :disabled="loading"
-        >
-          <span v-if="!loading" class="flex items-center"> login </span>
-          <Icon name="loader" v-else class="text-6xl" />
-        </FormKit>
-        <div class="flex flex-col gap-1">
-          <NuxtLink to="/register" class="text-center text-gray-600">
-            Don't have an account? <span class="text-blue-500">Register</span>
-          </NuxtLink>
-          <NuxtLink to="/forgot-password" class="text-center text-gray-600">
-            <span class="text-blue-500">Forgot password?</span>
-          </NuxtLink>
-        </div>
-        <transition name="fade" mode="out-in">
-          <FormKitMessages
-            :node="getNode('loginForm')"
-            :library="FormKitMessagesCustomComponents"
-            :sections-schema="{
-              message: {
-                $el: undefined,
-                $cmp: 'Notification',
-                props: {
-                  type: 'error',
-                  message: '$message.value',
-                },
-              },
-            }"
-          />
-        </transition>
-      </FormKit>
-      <div class="max-w-[20em] mx-auto mt-6">
-        <p class="text-center text-gray-600 mb-2">Or sign-in with</p>
-        <FormKit
-          type="button"
-          @click="handleProviderAuth()"
-          :classes="{
-            input: 'w-full flex justify-center',
-          }"
-        >
-          Sign-in with Google
-        </FormKit>
+  <div class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-20">
+    <div class="w-full max-w-md">
+      <div class="mb-8 text-center">
+        <h1 class="font-display text-2xl font-bold text-zinc-900">Sign in to your account</h1>
+        <p class="mt-2 text-sm text-zinc-500">Welcome back! Please enter your details.</p>
       </div>
+
+      <form class="space-y-4" @submit.prevent="handleLogin">
+        <div v-if="error" class="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-600">
+          {{ error }}
+        </div>
+
+        <div>
+          <label class="mb-1.5 block text-sm font-medium text-zinc-700">Email</label>
+          <input
+            v-model="form.email"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+            class="w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-saba-primary focus:ring-2 focus:ring-saba-primary/10"
+          />
+        </div>
+
+        <div>
+          <div class="mb-1.5 flex items-center justify-between">
+            <label class="text-sm font-medium text-zinc-700">Password</label>
+            <NuxtLink to="/forgot-password" class="text-xs text-saba-primary hover:underline">
+              Forgot password?
+            </NuxtLink>
+          </div>
+          <input
+            v-model="form.password"
+            type="password"
+            required
+            autocomplete="current-password"
+            placeholder="••••••••"
+            class="w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-saba-primary focus:ring-2 focus:ring-saba-primary/10"
+          />
+        </div>
+
+        <button
+          type="submit"
+          :disabled="loading"
+          class="flex w-full items-center justify-center gap-2 rounded-xl bg-saba-primary px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          <svg v-if="loading" class="size-4 animate-spin" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+          </svg>
+          Sign in
+        </button>
+      </form>
+
+      <div class="relative my-5">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-zinc-200" />
+        </div>
+        <div class="relative flex justify-center">
+          <span class="bg-white px-3 text-xs text-zinc-400">Or continue with</span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="flex w-full items-center justify-center gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50"
+        @click="handleGoogleLogin"
+      >
+        <svg class="size-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+
+      <p class="mt-6 text-center text-sm text-zinc-500">
+        Don't have an account?
+        <NuxtLink to="/register" class="font-medium text-saba-primary hover:underline">
+          Create account
+        </NuxtLink>
+      </p>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const { login, getProviderAuthenticationUrl } = useStrapiAuth();
+const token = useStrapiToken();
+
+if (token.value) {
+  await navigateTo("/account");
+}
+
+const form = reactive({ email: "", password: "" });
+const loading = ref(false);
+const error = ref("");
+
+async function handleLogin() {
+  loading.value = true;
+  error.value = "";
+  try {
+    await login({ identifier: form.email, password: form.password });
+    navigateTo("/account");
+  } catch (e: any) {
+    error.value = e?.error?.message || "Invalid email or password";
+  } finally {
+    loading.value = false;
+  }
+}
+
+function handleGoogleLogin() {
+  window.location.href = getProviderAuthenticationUrl("google");
+}
+</script>

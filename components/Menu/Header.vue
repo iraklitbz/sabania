@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { settings } from "~/store/settings";
+const token = useStrapiToken();
 </script>
 <template>
   <div class="absolute left-0 right-0 top-2 z-40 pt-14">
@@ -7,7 +8,13 @@ import { settings } from "~/store/settings";
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="flex items-center justify-between">
           <nuxt-link class="text-2xl" to="/"> Sabania </nuxt-link>
-          <div class="flex items-center gap-x-8">
+          <div class="flex items-center gap-x-4">
+            <nuxt-link
+              class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-saba-light text-saba-primary hover:bg-saba-light/80"
+              :to="token ? '/account' : '/login'"
+            >
+              <span class="relative top-px">{{ token ? 'Konto' : 'Login' }}</span>
+            </nuxt-link>
             <nuxt-link
               class="inline-flex rounded-full px-4 py-1.5 text-sm transition bg-saba-primary text-white hover:bg-saba-dark"
               to="/contact"
@@ -33,5 +40,3 @@ import { settings } from "~/store/settings";
     </div>
   </div>
 </template>
-
-<style scoped></style>
