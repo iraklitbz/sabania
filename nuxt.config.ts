@@ -46,7 +46,11 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     'nuxt-paypal',
     '@nuxtjs/google-fonts',
+    'nuxt-gtag',
   ],
+  gtag: {
+    id: 'G-BMPSB28JV0',
+  },
   googleFonts: {
     families: {
       'Outfit': [400, 500, 600, 700],
