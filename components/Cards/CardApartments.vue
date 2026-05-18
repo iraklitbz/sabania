@@ -11,16 +11,27 @@ const props = defineProps<{
     rooms?: { guests?: number; rooms?: number; beds?: number };
     location?: { city?: string };
   };
+  from?: string;
+  to?: string;
 }>();
+
+const aptLink = computed(() => {
+  const query: Record<string, string> = {};
+  if (props.from && props.to) {
+    query.from = props.from;
+    query.to = props.to;
+  }
+  return { path: `/${props.data.slug}`, query };
+});
 </script>
 
 <template>
   <nuxt-link
-    :to="`/${props.data.slug}`"
+    :to="aptLink"
     class="group flex flex-col rounded-3xl overflow-hidden bg-white border border-saba-primary/10 shadow-lg shadow-saba-primary/5 hover:shadow-2xl hover:shadow-saba-primary/15 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
   >
     <!-- Image -->
-    <div class="relative overflow-hidden aspect-[4/3]">
+    <div class="relative overflow-hidden aspect-[4/3] [transform:translateZ(0)]">
       <nuxt-img
         :src="props.data.feature.url"
         :alt="props.data.feature.name"

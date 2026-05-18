@@ -5,13 +5,23 @@ export const apartmentsByLocaleQuery = `
         shortDescription
         slug
         description
+        smoobuID
         price {
             price
             travelers
             maxTravelers
             increasePrice
         }
-         address {
+        rooms {
+            beds
+            guests
+            rooms
+        }
+        location {
+            city
+            slug
+        }
+        address {
             postalCode
             street
             city

@@ -2,6 +2,15 @@
 import { locations } from "~/store/locations";
 import CardDefault from "~/components/Cards/CardDefault.vue";
 await locations().fetchLocations();
+
+useSeoMeta({
+  title: "Wohnungen auf Zeit mieten",
+  ogTitle: "Sabania Apartments – Wohnungen auf Zeit mieten",
+  description:
+    "Komfortable Ferienwohnungen und Monteurunterkünfte in Deutschland. Für Monteure, Geschäftsreisende und längere Aufenthalte – flexibel und unkompliziert.",
+  ogDescription:
+    "Komfortable Ferienwohnungen und Monteurunterkünfte in Deutschland. Für Monteure, Geschäftsreisende und längere Aufenthalte – flexibel und unkompliziert.",
+});
 </script>
 
 <template>

@@ -121,7 +121,9 @@ export const apartments = defineStore("apartmentsData", {
         return;
       }
       this.currentSlug = slug;
-      this.clearDatesCalendar();
+      this.apartment = {} as ApartmentSabania;
+      this.occupiedDates = [];
+      this.checkIfDataRangeIsEmpty = false;
       const variables = {
         filters: {
           slug: {

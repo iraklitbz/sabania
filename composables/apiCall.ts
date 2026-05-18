@@ -10,8 +10,10 @@ export async function apiCall(
   returnObject?: string,
   variables: StrapiGraphqlVariables = {},
 ): Promise<any> {
-  const graphql = useStrapiGraphQL();
-  const data: DataObject = await graphql(query, variables);
+  const data: DataObject = await $fetch("/api/graphql", {
+    method: "POST",
+    body: { query, variables },
+  });
   if (data && returnObject) {
     return data[returnObject];
   }

@@ -10,7 +10,8 @@
       "Bash(pkill:*)",
       "Bash(pnpm lint:*)",
       "Bash(pnpm build:*)",
-      "WebFetch(domain:tailwindcss.com)"
+      "WebFetch(domain:tailwindcss.com)",
+      "Bash(grep -n 'formkit\\\\|FormKit\\\\|btn\\\\|$reset\\\\|$submit' /Users/iraklitbz/Desktop/apps/webs/sabania/formkit.config.ts)"
     ],
     "deny": []
   }

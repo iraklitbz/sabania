@@ -9,6 +9,25 @@ import "@vuepic/vue-datepicker/dist/main.css";
 
 const route = useRoute();
 await apartments().fetchApartment(route.params.apartment as string);
+
+useSeoMeta({
+  title: () => apartments().apartment?.name ?? "Apartment",
+  ogTitle: () => `${apartments().apartment?.name ?? "Apartment"} mieten – Sabania Apartments`,
+  description: () =>
+    apartments().apartment?.shortDescription ??
+    `${apartments().apartment?.name ?? "Apartment"} in ${apartments().apartment?.address?.city ?? ""} mieten – komfortabel, flexibel und direkt buchbar bei Sabania Apartments.`,
+  ogDescription: () =>
+    apartments().apartment?.shortDescription ??
+    `${apartments().apartment?.name ?? "Apartment"} in ${apartments().apartment?.address?.city ?? ""} mieten – komfortabel, flexibel und direkt buchbar bei Sabania Apartments.`,
+});
+
+const fromParam = route.query.from as string | undefined;
+const toParam = route.query.to as string | undefined;
+if (fromParam && toParam) {
+  apartments().checkinDate = fromParam;
+  apartments().checkoutDate = toParam;
+  apartments().selectedRange = [fromParam, toParam] as any;
+}
 if (
   !apartments().apartment ||
   Object.keys(apartments().apartment).length === 0
