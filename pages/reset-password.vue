@@ -2,14 +2,14 @@
   <div class="flex min-h-[calc(100vh-4rem)] justify-center px-4 py-20">
     <div class="w-full max-w-md">
       <div class="mb-8 text-center">
-        <h1 class="font-display text-2xl font-bold text-zinc-900">Reset your password</h1>
-        <p class="mt-2 text-sm text-zinc-500">Enter your new password below.</p>
+        <h1 class="font-display text-2xl font-bold text-zinc-900">Passwort zurücksetzen</h1>
+        <p class="mt-2 text-sm text-zinc-500">Geben Sie Ihr neues Passwort ein.</p>
       </div>
 
       <div v-if="!code" class="rounded-xl border border-red-100 bg-red-50 px-5 py-6 text-center">
-        <p class="text-sm text-red-600">Invalid or expired reset link.</p>
+        <p class="text-sm text-red-600">Ungültiger oder abgelaufener Link.</p>
         <NuxtLink to="/forgot-password" class="mt-3 inline-block text-sm font-medium text-saba-primary hover:underline">
-          Request a new link
+          Neuen Link anfordern
         </NuxtLink>
       </div>
 
@@ -19,10 +19,10 @@
             <path d="M20 6L9 17l-5-5"/>
           </svg>
         </div>
-        <h2 class="font-semibold text-zinc-900">Password reset!</h2>
-        <p class="mt-1 text-sm text-zinc-500">Your password has been changed successfully.</p>
+        <h2 class="font-semibold text-zinc-900">Passwort zurückgesetzt!</h2>
+        <p class="mt-1 text-sm text-zinc-500">Ihr Passwort wurde erfolgreich geändert.</p>
         <NuxtLink to="/login" class="mt-4 inline-block text-sm font-medium text-saba-primary hover:underline">
-          Go to login
+          Zur Anmeldung
         </NuxtLink>
       </div>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div>
-          <label class="mb-1.5 block text-sm font-medium text-zinc-700">New Password</label>
+          <label class="mb-1.5 block text-sm font-medium text-zinc-700">Neues Passwort</label>
           <input
             v-model="form.password"
             type="password"
@@ -53,7 +53,7 @@
         </div>
 
         <div>
-          <label class="mb-1.5 block text-sm font-medium text-zinc-700">Confirm Password</label>
+          <label class="mb-1.5 block text-sm font-medium text-zinc-700">Passwort bestätigen</label>
           <input
             v-model="form.confirmPassword"
             type="password"
@@ -73,7 +73,7 @@
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
           </svg>
-          Reset password
+          Passwort zurücksetzen
         </button>
       </form>
     </div>
@@ -91,16 +91,16 @@ const error = ref("");
 const success = ref(false);
 
 const passwordRules = computed(() => [
-  { label: "At least 8 characters", valid: form.password.length >= 8 },
-  { label: "One uppercase letter", valid: /[A-Z]/.test(form.password) },
-  { label: "One special character", valid: /[^A-Za-z0-9]/.test(form.password) },
+  { label: "Mindestens 8 Zeichen", valid: form.password.length >= 8 },
+  { label: "Ein Großbuchstabe", valid: /[A-Z]/.test(form.password) },
+  { label: "Ein Sonderzeichen", valid: /[^A-Za-z0-9]/.test(form.password) },
 ]);
 
 const passwordValid = computed(() => passwordRules.value.every((r) => r.valid));
 
 async function handleReset() {
-  if (!passwordValid.value) { error.value = "Password does not meet requirements"; return; }
-  if (form.password !== form.confirmPassword) { error.value = "Passwords do not match"; return; }
+  if (!passwordValid.value) { error.value = "Passwort erfüllt nicht die Anforderungen"; return; }
+  if (form.password !== form.confirmPassword) { error.value = "Passwörter stimmen nicht überein"; return; }
   if (!code.value) return;
   loading.value = true;
   error.value = "";
@@ -108,7 +108,7 @@ async function handleReset() {
     await resetPassword({ code: code.value, password: form.password, passwordConfirmation: form.confirmPassword });
     success.value = true;
   } catch (e: any) {
-    error.value = e?.error?.message || "Could not reset password. The link may have expired.";
+    error.value = e?.error?.message || "Passwort konnte nicht zurückgesetzt werden. Der Link ist möglicherweise abgelaufen.";
   } finally {
     loading.value = false;
   }

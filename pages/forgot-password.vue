@@ -2,8 +2,8 @@
   <div class="flex min-h-[calc(100vh-4rem)] justify-center px-4 py-20">
     <div class="w-full max-w-md">
       <div class="mb-8 text-center">
-        <h1 class="font-display text-2xl font-bold text-zinc-900">Forgot your password?</h1>
-        <p class="mt-2 text-sm text-zinc-500">Enter your email and we'll send you a reset link.</p>
+        <h1 class="font-display text-2xl font-bold text-zinc-900">Passwort vergessen?</h1>
+        <p class="mt-2 text-sm text-zinc-500">Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Link zum Zurücksetzen.</p>
       </div>
 
       <div v-if="success" class="rounded-xl border border-green-100 bg-green-50 px-5 py-6 text-center">
@@ -12,10 +12,10 @@
             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
           </svg>
         </div>
-        <h2 class="font-semibold text-zinc-900">Check your email</h2>
-        <p class="mt-1 text-sm text-zinc-500">If an account exists with that email, a reset link has been sent.</p>
+        <h2 class="font-semibold text-zinc-900">E-Mail überprüfen</h2>
+        <p class="mt-1 text-sm text-zinc-500">Falls ein Konto mit dieser E-Mail existiert, wurde ein Link zum Zurücksetzen gesendet.</p>
         <NuxtLink to="/login" class="mt-4 inline-block text-sm font-medium text-saba-primary hover:underline">
-          Back to login
+          Zurück zur Anmeldung
         </NuxtLink>
       </div>
 
@@ -25,7 +25,7 @@
         </div>
 
         <div>
-          <label class="mb-1.5 block text-sm font-medium text-zinc-700">Email</label>
+          <label class="mb-1.5 block text-sm font-medium text-zinc-700">E-Mail</label>
           <input
             v-model="email"
             type="email"
@@ -45,13 +45,13 @@
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
           </svg>
-          Send reset link
+          Link senden
         </button>
       </form>
 
       <p class="mt-6 text-center text-sm text-zinc-500">
         <NuxtLink to="/login" class="font-medium text-saba-primary hover:underline">
-          ← Back to login
+          ← Zurück zur Anmeldung
         </NuxtLink>
       </p>
     </div>
@@ -73,7 +73,7 @@ async function handleForgot() {
     await forgotPassword({ email: email.value });
     success.value = true;
   } catch (e: any) {
-    error.value = e?.error?.message || "Something went wrong. Please try again.";
+    error.value = e?.error?.message || "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.";
   } finally {
     loading.value = false;
   }
