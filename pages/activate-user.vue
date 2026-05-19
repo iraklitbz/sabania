@@ -68,7 +68,7 @@ onMounted(async () => {
   if (!confirmation) return;
   try {
     const config = useRuntimeConfig();
-    const strapiUrl = config.public.strapi?.url || 'https://sabaniacms.onrender.com';
+    const strapiUrl = config.public.strapi?.url || 'https://cms.sabania.eu';
     await $fetch(`${strapiUrl}/api/auth/email-confirmation`, {
       params: { confirmation },
     });
