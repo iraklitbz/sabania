@@ -138,9 +138,9 @@ export const apartments = defineStore("apartmentsData", {
     },
     async fetchApartmentSmoobu(id: string) {
       this.occupiedDates = [];
-      const { data } = await useFetch<{ bookings: Range[] }>(`/api/availability/${id}`);
-      if (data.value) {
-        this.occupiedDates = data.value.bookings.map((booking: Range) => ({
+      const data = await $fetch<{ bookings: Range[] }>(`/api/availability/${id}`);
+      if (data) {
+        this.occupiedDates = data.bookings.map((booking: Range) => ({
           arrival: booking.arrival,
           departure: booking.departure,
           apartment: booking.apartment,
