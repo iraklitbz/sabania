@@ -110,28 +110,28 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "account/**": {
+    "/account/**": {
       ssr: false,
     },
-    login: {
+    "/login": {
       ssr: false,
     },
-    register: {
+    "/register": {
       ssr: false,
     },
-    "forgot-password": {
+    "/forgot-password": {
       ssr: false,
     },
-    "reset-password": {
+    "/reset-password": {
       ssr: false,
     },
-    "activate-user": {
+    "/activate-user": {
       ssr: false,
     },
-    thanks: {
+    "/thanks": {
       ssr: false,
     },
-    "book/**": {
+    "/book/**": {
       ssr: false,
     },
   },
