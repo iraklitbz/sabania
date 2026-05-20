@@ -20,8 +20,8 @@ export default defineEventHandler(async (event): Promise<any> => {
         arrivalDate,
         departureDate,
         "apartmentId": Number(body.apartmentId),
-        "firstName": body.firstName || "",
-        "lastName": body.lastName || "",
+        "firstName": body.firstName || "Guest",
+        "lastName": body.lastName || body.firstName || "Guest",
         "phone": body.phone || "",
         "street": body.address?.street || "",
         "postalCode": body.address?.postalCode || "",
@@ -30,8 +30,6 @@ export default defineEventHandler(async (event): Promise<any> => {
         "adults": Number(body.travelers) || 1,
         "price": parseFloat(body.amountPayed) || 0
     });
-
-    console.log("Smoobu request:", { arrivalDate, departureDate, apartmentId: body.apartmentId, email: body.email });
 
     try {
         const response = await $fetch(`${config.smoobuApiUrl}/api/reservations`, {
