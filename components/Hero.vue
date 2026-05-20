@@ -53,7 +53,7 @@ function handleSearch() {
           <p class="text-base text-white/60 leading-relaxed mb-6">Ihr Zuhause auf Zeit – komfortabel, flexibel und unkompliziert. Für Monteure, Geschäftsreisende oder längere Aufenthalte.</p>
 
           <!-- Search widget -->
-          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl py-4 px-2 flex flex-col gap-2">
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-6 flex flex-col gap-3">
 
             <!-- City select -->
             <FormKit
