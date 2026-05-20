@@ -110,10 +110,10 @@ function handleLogout() {
 onMounted(async () => {
   if (!user.value?.email) { loading.value = false; return }
   try {
-    const data = await apiCall(ordersByEmailQuery, "orders", {
+    const data = await apiCall(ordersByEmailQuery, "data", {
       filters: { email: { eq: user.value.email } }
     })
-    bookings.value = data || []
+    bookings.value = data?.orders || []
   } catch (e) {
     console.error("Error fetching bookings:", e)
   } finally {
