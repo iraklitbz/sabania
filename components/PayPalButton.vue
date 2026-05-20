@@ -7,6 +7,7 @@ import { orderRegister } from "~/store/orderRegister"
 const emit = defineEmits(["trigger-submit"])
 const router = useRouter()
 const { $paypal } = useNuxtApp()
+const paymentError = ref("")
 
 onMounted(() => {
   if (!$paypal?.Buttons) return
@@ -85,14 +86,21 @@ onMounted(() => {
         router.push("/book/success")
       } catch (err) {
         console.error("PayPal onApprove error:", err)
+        paymentError.value = "Bei der Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
       }
     },
     onError(err: any) {
       console.error("PayPal SDK error:", err)
+      paymentError.value = "Bei der Zahlung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
     },
   }).render("#paypal-checkout")
 })
 </script>
 <template>
-  <div id="paypal-checkout" />
+  <div>
+    <div v-if="paymentError" class="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+      {{ paymentError }}
+    </div>
+    <div id="paypal-checkout" />
+  </div>
 </template>

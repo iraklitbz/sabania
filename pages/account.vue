@@ -64,7 +64,7 @@
           </div>
 
           <ul v-else class="divide-y divide-zinc-100">
-            <li v-for="booking in bookings" :key="booking.documentId" class="py-4 first:pt-0 last:pb-0">
+            <li v-for="booking in paginatedBookings" :key="booking.documentId" class="py-4 first:pt-0 last:pb-0">
               <div class="flex items-center justify-between gap-4">
                 <div>
                   <p class="text-sm font-semibold text-zinc-800">{{ booking.apartment }}</p>
@@ -80,6 +80,20 @@
               <p class="mt-1 text-xs text-zinc-400">Order #{{ booking.orderID }}</p>
             </li>
           </ul>
+
+          <div v-if="totalPages > 1" class="mt-6 flex items-center justify-center gap-2">
+            <button
+              :disabled="currentPage <= 1"
+              class="rounded-full px-3 py-1 text-sm border border-zinc-200 transition hover:bg-zinc-50 disabled:opacity-30"
+              @click="currentPage--"
+            >←</button>
+            <span class="text-sm text-zinc-500">{{ currentPage }} / {{ totalPages }}</span>
+            <button
+              :disabled="currentPage >= totalPages"
+              class="rounded-full px-3 py-1 text-sm border border-zinc-200 transition hover:bg-zinc-50 disabled:opacity-30"
+              @click="currentPage++"
+            >→</button>
+          </div>
         </div>
       </div>
     </div>
@@ -96,6 +110,15 @@ const { logout } = useStrapiAuth();
 
 const bookings = ref<any[]>([]);
 const loading = ref(true);
+const currentPage = ref(1);
+const perPage = 5;
+
+const paginatedBookings = computed(() => {
+  const start = (currentPage.value - 1) * perPage;
+  return bookings.value.slice(start, start + perPage);
+});
+
+const totalPages = computed(() => Math.ceil(bookings.value.length / perPage));
 
 function formatDate(dateStr: string) {
   if (!dateStr) return ""
