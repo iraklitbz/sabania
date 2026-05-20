@@ -7,6 +7,9 @@ const props = defineProps<{
       name: string;
       url: string;
     };
+    price: {
+      price: number;
+    };
   };
 }>();
 </script>
@@ -33,7 +36,7 @@ const props = defineProps<{
           {{ props.data.name }}
         </h2>
         <span class=" text-base">
-          {{ currencyFormat(props.data.price) }} /Night
+          {{ currencyFormat(props.data.price?.price) }} /Nacht
         </span>
       </div>
     </div>

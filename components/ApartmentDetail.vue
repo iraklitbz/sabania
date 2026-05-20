@@ -96,6 +96,16 @@ onMounted(() => {
         </li>
       </ul>
     </div>
+    <div v-if="data?.address?.latitude && data?.address?.longitude">
+      <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
+      <h3 class="text-lg mb-4">Standort</h3>
+      <Maps
+        :city-location="{
+          lat: data.address.latitude,
+          lng: data.address.longitude,
+        }"
+      />
+    </div>
     <div class="h-px bg-gradient-to-r from-transparent via-saba-primary/20 to-transparent my-8" />
     <div class="article-calendar">
       <h3 class="text-lg mb-5">Wählen Sie das Abfahrtsdatum aus</h3>

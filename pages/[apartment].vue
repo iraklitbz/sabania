@@ -185,15 +185,6 @@ if (apartments().apartment && apartments().apartment?.smoobuID) {
       </div>
     </section>
 
-    <div class="mt-16">
-      <Maps
-        :city-location="{
-          lat: apartments().apartment.address.latitude,
-          lng: apartments().apartment.address.longitude,
-        }"
-      />
-    </div>
-
     <!-- Mobile fixed bottom bar -->
     <client-only>
       <div

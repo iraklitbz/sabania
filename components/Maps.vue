@@ -17,19 +17,21 @@ const handleMarkerClick = (apartment: Apartments) => {
 
 <template>
   <client-only>
-    <GoogleMap
-      :api-key="config.public.GOOGLE_MAPS_API_KEY"
-      :mapId="config.public.GOOGLE_MAPS_ID"
-      :center="{
-        lat: Number(props.cityLocation.lat),
-        lng: Number(props.cityLocation.lng),
-      }"
-      :zoom="
-        props.apartamentsLocation && props.apartamentsLocation.length > 0
-          ? 13
-          : 16
-      "
-    >
+    <div class="mapu">
+      <GoogleMap
+        :api-key="config.public.GOOGLE_MAPS_API_KEY"
+        :mapId="config.public.GOOGLE_MAPS_ID"
+        style="width: 100%; height: 100%"
+        :center="{
+          lat: Number(props.cityLocation.lat),
+          lng: Number(props.cityLocation.lng),
+        }"
+        :zoom="
+          props.apartamentsLocation && props.apartamentsLocation.length > 0
+            ? 13
+            : 16
+        "
+      >
       <div
         v-if="props.apartamentsLocation && props.apartamentsLocation.length > 0"
       >
@@ -61,7 +63,13 @@ const handleMarkerClick = (apartment: Apartments) => {
         </AdvancedMarker>
       </div>
     </GoogleMap>
+    </div>
   </client-only>
 </template>
 
-<style scoped></style>
+<style scoped>
+.mapu {
+  height: 400px;
+  width: 100%;
+}
+</style>
