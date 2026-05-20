@@ -9,14 +9,14 @@ if(orderRegister().getDataIsExpired) {
   <section v-if="Object.keys(orderRegister().currentOrder).length && Object.keys(orderRegister().currentApartment).length && !orderRegister().getDataIsExpired" class="relative max-w-7xl mx-auto p-6 lg:px-8">
     <nuxt-link to="/" class="text-saba-primary mb-5 flex items-center">
       <Icon name="chevron-left" class="text-3xl text-black" />
-      Home
+      Startseite
     </nuxt-link>
     <div class="flex flex-col gap-6 md:gap-12 lg:flex-row items-start">
       <div class="lg:w-6/12">
-        <h2 v-if="orderRegister().currentOrder.orderID">Order ID #{{ orderRegister().currentOrder.orderID }}</h2>
-        <h2 class="text-xl mb-3 font-bold">Thanks for booking with us! <span v-if="orderRegister().currentOrder.fullName">{{ orderRegister().currentOrder.fullName }}</span></h2>
+        <h2 v-if="orderRegister().currentOrder.orderID">Bestellnummer #{{ orderRegister().currentOrder.orderID }}</h2>
+        <h2 class="text-xl mb-3 font-bold">Vielen Dank für Ihre Buchung! <span v-if="orderRegister().currentOrder.fullName">{{ orderRegister().currentOrder.fullName }}</span></h2>
         <p v-if="orderRegister().currentOrder.email">
-          We will send your soon a confirmation email and the billing at {{ orderRegister().currentOrder.email }}
+          Wir senden Ihnen in Kürze eine Bestätigungs-E-Mail und die Rechnung an {{ orderRegister().currentOrder.email }}
         </p>
       </div>
       <aside
@@ -39,8 +39,8 @@ if(orderRegister().getDataIsExpired) {
     v-else
     class="flex flex-col items-center justify-center py-20"
   >
-    <p class="text-2xl mb-2">No order found</p>
-    <nuxt-link to="/" class="text-saba-primary ml-2">Back home</nuxt-link>
+    <p class="text-2xl mb-2">Keine Bestellung gefunden</p>
+    <nuxt-link to="/" class="text-saba-primary ml-2">Zur Startseite</nuxt-link>
   </div>
 </template>
 

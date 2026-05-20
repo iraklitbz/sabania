@@ -767,16 +767,21 @@ export type OrderInputSabania = {
   address?: InputMaybe<ComponentAddressAddressInputSabania>;
   amountPayed?: InputMaybe<Scalars['String']['input']>;
   apartment?: InputMaybe<Scalars['String']['input']>;
+  billingAddress?: InputMaybe<ComponentAddressAddressInputSabania>;
   checkin?: InputMaybe<Scalars['String']['input']>;
   checkout?: InputMaybe<Scalars['String']['input']>;
+  company?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['DateTime']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   firstName?: InputMaybe<Scalars['String']['input']>;
   lastName?: InputMaybe<Scalars['String']['input']>;
   orderID?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
+  phonePrefix?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  sameAsPersonal?: InputMaybe<Scalars['Boolean']['input']>;
   travelers?: InputMaybe<Scalars['Int']['input']>;
+  vatNumber?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PaginationSabania = {

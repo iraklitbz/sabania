@@ -53,7 +53,6 @@ export default defineNuxtConfig({
     "@formkit/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "@nuxt/eslint",
-    'nuxt-paypal',
     '@nuxtjs/google-fonts',
   ],
   googleFonts: {
@@ -62,9 +61,6 @@ export default defineNuxtConfig({
       'Inter': [300, 400, 500, 600, 700],
     },
     display: 'swap',
-  },
-  paypal: {
-    clientId: process.env.PAYPAL_CLIENT_ID,
   },
   eslint: {
     config: {
@@ -104,9 +100,10 @@ export default defineNuxtConfig({
     revalidateSecret: process.env.REVALIDATE_SECRET || "",
     cloudflareApiToken: process.env.CLOUDFLARE_API_TOKEN || "",
     cloudflareZoneId: process.env.CLOUDFLARE_ZONE_ID || "",
+    smoobuApiUrl: process.env.SMOOBU_API_URL ?? "",
+    smoobuApiKey: process.env.SMOOBU_API_KEY ?? "",
+    paypalSecret: process.env.PAYPAL_SECRET || "",
     public: {
-      SMOOBU_API_URL: process.env.SMOOBU_API_URL ?? "",
-      SMOOBU_API_KEY: process.env.SMOOBU_API_KEY ?? "",
       PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
       GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
       GOOGLE_MAPS_ID: process.env.GOOGLE_MAPS_ID,

@@ -1,5 +1,4 @@
 import { format } from "@formkit/tempo";
-import {apartments} from "~/store/apartments";
 export default defineEventHandler(async (event): Promise<any> => {
     const config = useRuntimeConfig();
     const body = await readBody(event);
@@ -10,21 +9,19 @@ export default defineEventHandler(async (event): Promise<any> => {
         "firstName": body.firstName || "",
         "lastName": body.lastName || "",
         "phone": body.phone || "",
-        "address": {
-            "street": body.street || "",
-            "postalCode": body.postalCode || "",
-            "location": body.location || ""
-        },
+        "street": body.address?.street || "",
+        "postalCode": body.address?.postalCode || "",
+        "location": body.address?.location || "",
         "email": body.email,
         'adults': Number(body.travelers),
         'price': parseFloat(body.amountPayed)
     });
     try {
-        const response = await $fetch(`${config.public.SMOOBU_API_URL}/api/reservations`, {
+        const response = await $fetch(`${config.smoobuApiUrl}/api/reservations`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "API-Key": config.public.SMOOBU_API_KEY
+                "API-Key": config.smoobuApiKey
             },
             body: dataToSend
         });

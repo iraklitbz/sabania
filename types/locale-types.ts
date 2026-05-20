@@ -24,6 +24,11 @@ export interface Customer {
   location: string;
   email: string;
   phone: string;
+  phonePrefix: string;
+  phoneGroup: {
+    phoneCountry: string;
+    phone: string;
+  };
 }
 
 export interface ComponentAddressAddress {

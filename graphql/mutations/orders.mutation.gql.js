@@ -12,11 +12,20 @@ export const orderMutation = `
         firstName
         lastName
         phone
+        phonePrefix
         address {
             street
             postalCode
             location
         }
+        billingAddress {
+            street
+            postalCode
+            location
+        }
+        company
+        vatNumber
+        sameAsPersonal
         orderID
         publishedAt
         travelers
