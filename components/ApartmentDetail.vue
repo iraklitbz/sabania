@@ -135,10 +135,6 @@ onMounted(() => {
 <style lang="scss">
 .article-calendar {
   --dp-cell-size: 38px;
-
-  @media (min-width: 640px) {
-    --dp-cell-size: 45px;
-  }
   --dp-common-padding: 5px;
   --dp-primary-color: #4D1B26;
   --dp-primary-text-color: #ffffff;
@@ -148,6 +144,10 @@ onMounted(() => {
   --dp-range-between-dates-text-color: #301118;
   --dp-range-between-border-color: rgba(77, 27, 38, 0.15);
   --dp-border-color: rgba(77, 27, 38, 0.1);
+
+  @media (min-width: 640px) {
+    --dp-cell-size: 45px;
+  }
   .dp__main {
     @apply w-full;
   }

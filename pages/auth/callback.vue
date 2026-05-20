@@ -15,7 +15,9 @@ onMounted(async () => {
 
   try {
     await authenticateProvider("google", accessToken);
-    navigateTo("/account");
+    const redirect = localStorage.getItem("auth_redirect");
+    localStorage.removeItem("auth_redirect");
+    navigateTo(redirect || "/account");
   } catch (e) {
     console.error("[OAuth Callback]", e);
     error.value = "Authentication failed. Please try again.";

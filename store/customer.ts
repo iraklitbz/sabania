@@ -1,4 +1,3 @@
-import type { Customer } from "~/types/locale-types";
 export const customer = defineStore("customerData", {
     state: () => ({
         userData: {
@@ -8,13 +7,27 @@ export const customer = defineStore("customerData", {
             postalCode: "",
             location: "",
             email: "",
-            phone: ""
-        } as Customer,
-        dataIsValidate: false,
+            phone: "",
+            phonePrefix: "DE",
+            phoneGroup: {
+                phoneCountry: "DE",
+                phone: "",
+            },
+        },
+        billingData: {
+            street: "",
+            postalCode: "",
+            location: "",
+            company: "",
+            vatNumber: "",
+        },
+        sameAsPersonal: true,
     }),
     getters: {
         getIfInputsAreFilled(state) {
-            return Object.values(state.userData).every(value => value !== "")
+            const { firstName, lastName, street, postalCode, location, email } = state.userData
+            const phone = state.userData.phoneGroup.phone
+            return !!(firstName && lastName && street && postalCode && location && email && phone)
         }
     }
 });

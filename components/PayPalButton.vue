@@ -3,36 +3,51 @@ import type { OrderInputSabania } from "~/types/sabania-types"
 import { customer } from "~/store/customer"
 import { apartments } from "~/store/apartments"
 import { orderRegister } from "~/store/orderRegister"
+
 const emit = defineEmits(["trigger-submit"])
 const router = useRouter()
+const { $paypal } = useNuxtApp()
+
 onMounted(() => {
-  usePaypalButton({
-    onClick: (data, actions) => {
-      const isFormFiller = customer().getIfInputsAreFilled
-      if( !isFormFiller ) {
-        emit('trigger-submit')
+  if (!$paypal?.Buttons) return
+
+  $paypal.Buttons({
+    style: { layout: "vertical", shape: "rect" },
+    onClick(_data: any, actions: any) {
+      const isLoggedIn = !!useStrapiUser().value
+      if (!isLoggedIn && !customer().getIfInputsAreFilled) {
+        emit("trigger-submit")
         return actions.reject()
       }
+      return actions.resolve()
     },
-    createOrder: function (data, actions) {
+    createOrder(_data: any, actions: any) {
+      const amount = apartments().calculateTotalPrice === apartments().getTotalPriceWithDiscount
+        ? apartments().calculateTotalPrice.toFixed(2)
+        : apartments().getTotalPriceWithDiscount.toFixed(2)
       return actions.order.create({
-        purchase_units: [
-          {
-            amount: {
-              value: apartments().calculateTotalPrice === apartments().getTotalPriceWithDiscount
-                  ? apartments().calculateTotalPrice.toFixed(2)
-                  : apartments().getTotalPriceWithDiscount.toFixed(2)
-            },
-          },
-        ],
-      });
+        purchase_units: [{ amount: { value: amount, currency_code: "EUR" } }],
+      })
     },
-    onApprove: async (data, actions) => {
+    async onApprove(_data: any, actions: any) {
       try {
-        if (!actions.order) {
-          throw new Error("Order actions are not available.");
-        }
-        const details = await actions.order.capture()
+        const details = await actions.order!.capture()
+
+        const store = customer()
+        const loggedUser = useStrapiUser().value
+
+        const firstName = loggedUser ? (loggedUser.username?.split(" ")[0] || loggedUser.username || "") : store.userData.firstName
+        const lastName = loggedUser ? (loggedUser.username?.split(" ").slice(1).join(" ") || "") : store.userData.lastName
+        const email = loggedUser ? loggedUser.email : store.userData.email
+        const phone = loggedUser ? "" : store.userData.phoneGroup.phone
+        const phonePrefix = loggedUser ? "" : store.userData.phoneGroup.phoneCountry
+        const personalAddress = loggedUser
+          ? { street: "", postalCode: "", location: "" }
+          : { street: store.userData.street, postalCode: store.userData.postalCode, location: store.userData.location }
+
+        const billingAddress = store.sameAsPersonal
+          ? personalAddress
+          : { street: store.billingData.street, postalCode: store.billingData.postalCode, location: store.billingData.location }
 
         const orderDetail: OrderInputSabania = {
           amountPayed: details.purchase_units[0].amount.value,
@@ -40,18 +55,19 @@ onMounted(() => {
           checkin: apartments().checkinDate,
           checkout: apartments().checkoutDate,
           date: new Date(),
-          email: customer().userData.email || "N/A",
-          firstName: customer().userData.firstName,
-          lastName: customer().userData.lastName,
-          address: {
-            street: customer().userData.street,
-            postalCode: customer().userData.postalCode,
-            location: customer().userData.location,
-          },
-          phone: customer().userData.phone,
+          email: email || "N/A",
+          firstName,
+          lastName,
+          address: personalAddress,
+          phone,
+          phonePrefix,
+          billingAddress,
+          company: store.sameAsPersonal ? "" : store.billingData.company,
+          vatNumber: store.sameAsPersonal ? "" : store.billingData.vatNumber,
+          sameAsPersonal: store.sameAsPersonal,
           orderID: details.id,
           travelers: apartments().travelers,
-        };
+        }
 
         const currentApartmentData = {
           apartment: apartments().apartment,
@@ -63,23 +79,20 @@ onMounted(() => {
           calculateNights: apartments().calculateNights,
           calculateTotalPrice: apartments().calculateTotalPrice,
           discountPrice: apartments().getTotalPriceWithDiscount,
-        };
+        }
 
-        await orderRegister().registerOrder(orderDetail, currentApartmentData);
-        router.push("/book/success");
+        await orderRegister().registerOrder(orderDetail, currentApartmentData)
+        router.push("/book/success")
       } catch (err) {
-        console.error("Error durante la aprobación de PayPal:", err);
+        console.error("PayPal onApprove error:", err)
       }
     },
-
-    onError: (err) => {
-      console.error("Error del SDK de PayPal:", err);
+    onError(err: any) {
+      console.error("PayPal SDK error:", err)
     },
-  });
-});
+  }).render("#paypal-checkout")
+})
 </script>
 <template>
-  <div>
-    <div id="paypal-checkout" />
-  </div>
+  <div id="paypal-checkout" />
 </template>

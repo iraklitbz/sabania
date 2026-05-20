@@ -1,7 +1,6 @@
 import { orderMutation } from "~/graphql/mutations/orders.mutation.gql.js"
 import { apartments } from "~/store/apartments";
-import type {OrderInputSabania, ApartmentSabania} from "~/types/sabania-types";
-import {format} from "@formkit/tempo";
+import type {OrderInputSabania} from "~/types/sabania-types";
 export const orderRegister = defineStore("orderData", {
     state: () => ({
         currentOrder: {} as OrderInputSabania,
@@ -26,35 +25,34 @@ export const orderRegister = defineStore("orderData", {
     },
     actions: {
         async registerOrder(order: OrderInputSabania, currentApartment: any) {
-            this.currentApartment = {}
             this.currentApartment = currentApartment
             this.orderCreationTime = new Date().toISOString()
             apartments().clearDatesCalendar()
 
-            try {
-                const smoobuData = {
-                    apartmentId: currentApartment.apartment.smoobuID,
-                    ...order
-                }
-                const { data: postResponse, error: postError } = await useFetch('/api/reservations', {
+            // 1. SMOOBU reservation
+            const smoobuData = {
+                apartmentId: currentApartment.apartment.smoobuID,
+                ...order
+            }
+            await $fetch('/api/reservations', {
+                method: 'POST',
+                body: smoobuData
+            })
+
+            // 2. Strapi order registration
+            const variables = { data: order as OrderInputSabania }
+            const data = await apiCall(orderMutation, "data", variables)
+            if (data) {
+                this.currentOrder = data.createOrder
+
+                // 3. Send confirmation emails
+                $fetch('/api/booking-confirmation', {
                     method: 'POST',
-                    body: smoobuData
-                })
-
-                if (postError.value) {
-                    console.error('Error en la llamada POST:', postError.value)
-                    return
-                }
-
-
-                const variables = { data: order as OrderInputSabania }
-                const data = await apiCall(orderMutation, "data", variables)
-
-                if (data) {
-                    this.currentOrder = data.createOrder
-                }
-            } catch (error) {
-                console.error('Error general en registerOrder:', error)
+                    body: {
+                        order: data.createOrder,
+                        apartment: currentApartment.apartment,
+                    }
+                }).catch(err => console.error("Email sending error:", err))
             }
         },
         cleanOrderData() {
