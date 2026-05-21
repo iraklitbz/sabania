@@ -193,8 +193,8 @@ function handleSearch() {
 .hero-calendar .dp__active_date,
 .hero-calendar .dp__range_start,
 .hero-calendar .dp__range_end {
-  background-color: #301118 !important;
-  color: #C2BEB5 !important;
+  background-color: rgba(194, 190, 181, 0.7) !important;
+  color: #4D1B26 !important;
 }
 .hero-calendar .dp__today {
   border-color: rgba(255, 255, 255, 0.5) !important;
