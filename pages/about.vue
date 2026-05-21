@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import MainHeadline from "~/components/Headline/MainHeadline.vue";
+
+useSeoMeta({
+  title: "Über uns – Ihr Partner für Kurzzeitunterkünfte",
+  description: "SabaNia bietet stilvolle möblierte Apartments in Bielefeld und Ostwestfalen-Lippe. Ideal für Monteure, Geschäftsreisende und längere Aufenthalte.",
+  ogTitle: "Über SabaNia – Möblierte Apartments in OWL",
+  ogDescription: "Komfortable Kurzzeitunterkünfte in Bielefeld, Hiddenhausen und Umgebung. Hochwertig ausgestattet, flexibel buchbar.",
+});
 </script>
 
 <template>

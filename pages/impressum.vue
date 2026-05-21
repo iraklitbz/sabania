@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  title: "Impressum",
+  description: "Impressum der SabaNia GmbH – Angaben gemäß § 5 TMG. Kontakt, Geschäftsführung und rechtliche Hinweise.",
+  robots: "noindex, follow",
+});
+</script>
 
 <template>
   <main>

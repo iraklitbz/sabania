@@ -86,6 +86,12 @@ export const apartmentQuery = `
             mime
           }
         }
+        seo {
+            metaTitle
+            metaDescription
+            keywords
+            canonicalURL
+        }
       }
   }
 `

@@ -26,6 +26,12 @@ export const locationQuery = `
             name
             url
         }
+        seo {
+            metaTitle
+            metaDescription
+            keywords
+            canonicalURL
+        }
     }
   }
 `

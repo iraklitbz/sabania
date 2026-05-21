@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  title: "AGB – Allgemeine Geschäftsbedingungen",
+  description: "Allgemeine Geschäftsbedingungen der SabaNia GmbH für die Buchung und Nutzung unserer möblierten Apartments.",
+  robots: "noindex, follow",
+});
+</script>
 
 <template>
   <main>

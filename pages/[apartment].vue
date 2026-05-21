@@ -11,14 +11,51 @@ const route = useRoute();
 await apartments().fetchApartment(route.params.apartment as string);
 
 useSeoMeta({
-  title: () => apartments().apartment?.name ?? "Apartment",
-  ogTitle: () => `${apartments().apartment?.name ?? "Apartment"} mieten – Sabania Apartments`,
+  title: () => apartments().apartment?.seo?.metaTitle ?? apartments().apartment?.name ?? "Apartment",
+  ogTitle: () => apartments().apartment?.seo?.metaTitle ?? `${apartments().apartment?.name ?? "Apartment"} mieten – Sabania Apartments`,
   description: () =>
+    apartments().apartment?.seo?.metaDescription ??
     apartments().apartment?.shortDescription ??
     `${apartments().apartment?.name ?? "Apartment"} in ${apartments().apartment?.address?.city ?? ""} mieten – komfortabel, flexibel und direkt buchbar bei Sabania Apartments.`,
   ogDescription: () =>
+    apartments().apartment?.seo?.metaDescription ??
     apartments().apartment?.shortDescription ??
     `${apartments().apartment?.name ?? "Apartment"} in ${apartments().apartment?.address?.city ?? ""} mieten – komfortabel, flexibel und direkt buchbar bei Sabania Apartments.`,
+  ogImage: () => apartments().apartment?.feature?.url ?? undefined,
+  keywords: () => apartments().apartment?.seo?.keywords ?? undefined,
+});
+
+useHead({
+  link: () => apartments().apartment?.seo?.canonicalURL ? [{ rel: 'canonical', href: apartments().apartment.seo.canonicalURL }] : [],
+  script: () => {
+    const apt = apartments().apartment;
+    if (!apt?.name) return [];
+    return [{
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Apartment',
+        name: apt.name,
+        description: apt.shortDescription || apt.description || '',
+        url: `https://sabania.eu/${apt.slug}`,
+        numberOfRooms: apt.rooms?.rooms ?? undefined,
+        occupancy: { '@type': 'QuantitativeValue', maxValue: apt.rooms?.guests ?? undefined },
+        address: apt.address ? {
+          '@type': 'PostalAddress',
+          streetAddress: apt.address.street,
+          postalCode: apt.address.postalCode,
+          addressLocality: apt.address.city,
+          addressCountry: 'DE',
+        } : undefined,
+        geo: apt.address?.latitude ? {
+          '@type': 'GeoCoordinates',
+          latitude: apt.address.latitude,
+          longitude: apt.address.longitude,
+        } : undefined,
+        image: apt.feature?.url ? `${apt.feature.url}` : undefined,
+      }),
+    }];
+  },
 });
 
 const fromParam = route.query.from as string | undefined;

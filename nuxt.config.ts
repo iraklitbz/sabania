@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     layoutTransition: { name: "fade", mode: "out-in" },
     pageTransition: { name: "fade", mode: "out-in" },
     head: {
+      htmlAttrs: { lang: "de" },
       titleTemplate: "%s | Sabania Apartments",
       meta: [
         { charset: "utf-8" },
@@ -16,12 +17,13 @@ export default defineNuxtConfig({
         {
           name: "keywords",
           content:
-            "Ferienwohnung mieten, Monteurwohnung, Kurzzeitmiete, Apartment mieten, Wohnung auf Zeit, Geschäftsreise Unterkunft, Sabania Apartments",
+            "Wohnung mieten Bielefeld, Monteurwohnung Ostwestfalen-Lippe, möblierte Wohnung NRW, Kurzzeitmiete Bielefeld, Ferienwohnung OWL, Apartment mieten Lippe, Geschäftsreise Unterkunft, Sabania Apartments",
         },
         { name: "robots", content: "index, follow" },
         { name: "theme-color", content: "#4D1B26" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Sabania Apartments" },
+        { property: "og:image", content: "https://sabania.eu/favicon.svg" },
         {
           property: "og:description",
           content:
@@ -54,7 +56,14 @@ export default defineNuxtConfig({
     "pinia-plugin-persistedstate/nuxt",
     "@nuxt/eslint",
     '@nuxtjs/google-fonts',
+    '@nuxtjs/sitemap',
   ],
+  site: {
+    url: 'https://sabania.eu',
+  },
+  sitemap: {
+    sources: ['/api/__sitemap'],
+  },
   googleFonts: {
     families: {
       'Outfit': [400, 500, 600, 700],

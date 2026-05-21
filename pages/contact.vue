@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import MainHeadline from "~/components/Headline/MainHeadline.vue";
 
+useSeoMeta({
+  title: "Kontakt – Fragen zu unseren Apartments",
+  description: "Kontaktieren Sie Sabania für Fragen zu unseren möblierten Apartments in Bielefeld und Umgebung. Wir helfen Ihnen gerne weiter.",
+  ogTitle: "Kontakt – Sabania Apartments",
+  ogDescription: "Haben Sie Fragen zu unseren Wohnungen? Schreiben Sie uns – wir antworten schnell und unkompliziert.",
+});
+
 const sending = ref(false);
 const sent = ref(false);
 const error = ref("");

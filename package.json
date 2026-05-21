@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sitemap": "^8.0.15",
     "@paypal/paypal-js": "8.1.2",
     "libphonenumber-js": "1.12.7",
     "nuxt-svgo": "^4.2.6",

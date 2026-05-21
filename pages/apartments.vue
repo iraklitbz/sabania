@@ -2,6 +2,14 @@
 import MainHeadline from "~/components/Headline/MainHeadline.vue";
 import { apartments } from "~/store/apartments";
 await apartments().fetchApartments();
+
+useSeoMeta({
+  title: "Alle Wohnungen – Möblierte Apartments mieten",
+  description: "Alle verfügbaren möblierten Apartments von Sabania. Finden Sie Ihre perfekte Unterkunft in Bielefeld, Detmold, Paderborn und Ostwestfalen-Lippe.",
+  ogTitle: "Sabania Apartments – Alle Wohnungen auf einen Blick",
+  ogDescription: "Möblierte Wohnungen für Monteure, Geschäftsreisende und Kurzzeitmiete in NRW. Jetzt verfügbare Apartments entdecken.",
+  keywords: "Wohnungen mieten, Apartments Deutschland, Monteurwohnung NRW, möblierte Wohnung Ostwestfalen, Sabania Apartments",
+});
 </script>
 
 <template>

@@ -11,12 +11,40 @@ const route = useRoute();
 await locations().fetchLocation(route.params.city as string);
 
 useSeoMeta({
-  title: () => `Wohnungen mieten in ${locations().location?.city ?? ""}`,
-  ogTitle: () => `Ferienwohnungen & Monteurunterkünfte in ${locations().location?.city ?? ""} – Sabania`,
-  description: () =>
-    `Verfügbare Apartments in ${locations().location?.city ?? ""} mieten. Komfortabel, flexibel und direkt buchbar – ideal für Monteure und Geschäftsreisende.`,
-  ogDescription: () =>
-    `Verfügbare Apartments in ${locations().location?.city ?? ""} mieten. Komfortabel, flexibel und direkt buchbar – ideal für Monteure und Geschäftsreisende.`,
+  title: () => locations().location?.seo?.metaTitle ?? `Wohnungen mieten in ${locations().location?.city ?? ""}`,
+  ogTitle: () => locations().location?.seo?.metaTitle ?? `Ferienwohnungen & Monteurunterkünfte in ${locations().location?.city ?? ""} – Sabania`,
+  description: () => locations().location?.seo?.metaDescription ?? `Verfügbare Apartments in ${locations().location?.city ?? ""} mieten. Komfortabel, flexibel und direkt buchbar – ideal für Monteure und Geschäftsreisende.`,
+  ogDescription: () => locations().location?.seo?.metaDescription ?? `Verfügbare Apartments in ${locations().location?.city ?? ""} mieten. Komfortabel, flexibel und direkt buchbar – ideal für Monteure und Geschäftsreisende.`,
+  ogImage: () => locations().location?.feature?.url ?? undefined,
+  keywords: () => locations().location?.seo?.keywords ?? undefined,
+});
+
+useHead({
+  link: () => locations().location?.seo?.canonicalURL ? [{ rel: 'canonical', href: locations().location.seo.canonicalURL }] : [],
+  script: () => {
+    const loc = locations().location;
+    if (!loc?.city) return [];
+    return [{
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LodgingBusiness',
+        name: `Sabania Apartments ${loc.city}`,
+        description: loc.seo?.metaDescription || loc.description || '',
+        url: `https://sabania.eu/location/${loc.slug}`,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: loc.city,
+          addressCountry: 'DE',
+        },
+        geo: loc.latitude ? {
+          '@type': 'GeoCoordinates',
+          latitude: loc.latitude,
+          longitude: loc.longitude,
+        } : undefined,
+      }),
+    }];
+  },
 });
 if (!locations().location || Object.keys(locations().location).length === 0) {
   navigateTo("/404");
