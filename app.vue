@@ -1,8 +1,14 @@
+<script setup>
+const { init } = useCookieConsent()
+onMounted(() => init())
+</script>
+
 <template>
   <div class="main bg-neutral-950">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
+    <CookieConsent />
   </div>
 </template>
 

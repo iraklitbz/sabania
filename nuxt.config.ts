@@ -35,15 +35,7 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       ],
-      script: [
-        {
-          src: 'https://www.googletagmanager.com/gtag/js?id=G-BMPSB28JV0',
-          async: true,
-        },
-        {
-          innerHTML: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-BMPSB28JV0');`,
-        },
-      ],
+      script: [],
     },
   },
   modules: [
