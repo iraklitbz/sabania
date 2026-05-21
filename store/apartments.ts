@@ -158,14 +158,12 @@ export const apartments = defineStore("apartmentsData", {
       }
     },
     clearDatesCalendar() {
-      this.apartment = {} as ApartmentSabania;
       this.selectedRange = "";
       this.checkinDate = "";
-      this.occupiedDates = [];
       this.checkoutDate = "";
+      this.occupiedDates = [];
       this.travelers = 1;
       this.checkIfDataRangeIsEmpty = false;
-
     },
     setCheckDataRangeIsEmpty() {
       this.checkIfDataRangeIsEmpty = true;
