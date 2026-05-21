@@ -72,6 +72,8 @@ maxDate.setFullYear(today.getFullYear() + 1);
 }
 .dp__month_year_select {
   width: 100%;
+  pointer-events: none;
+  cursor: default;
 }
 .dp__input {
   @apply text-saba-darker border-saba-primary/10 bg-saba-primary/5 rounded-full hover:!border-saba-primary/10 focus-within:ring-1 focus-within:ring-saba-primary focus-within:border-saba-primary group-data-[invalid]:border-red-500 group-data-[invalid]:ring-1 group-data-[invalid]:ring-red-500 group-data-[disabled]:bg-neutral-100 group-data-[disabled]:cursor-not-allowed placeholder:text-saba-primary/50 text-base;
@@ -102,6 +104,11 @@ maxDate.setFullYear(today.getFullYear() + 1);
   border-color: #4D1B26 !important;
 }
 .dp__active_date {
+  background-color: #4D1B26 !important;
+  color: white !important;
+}
+.dp__range_start,
+.dp__range_end {
   background-color: #4D1B26 !important;
   color: white !important;
 }

@@ -180,5 +180,9 @@ onMounted(() => {
     color: #4D1B26;
     font-weight: 700;
   }
+  .dp__month_year_select {
+    pointer-events: none;
+    cursor: default;
+  }
 }
 </style>
