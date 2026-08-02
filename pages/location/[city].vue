@@ -31,7 +31,7 @@ useHead({
         '@type': 'LodgingBusiness',
         name: `Sabania Apartments ${loc.city}`,
         description: loc.seo?.metaDescription || loc.description || '',
-        url: `https://sabania.eu/location/${loc.slug}`,
+        url: `https://www.sabania.eu/location/${loc.slug}`,
         address: {
           '@type': 'PostalAddress',
           addressLocality: loc.city,
@@ -49,9 +49,9 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sabania.eu/' },
-          { '@type': 'ListItem', position: 2, name: 'Standorte', item: 'https://sabania.eu/location' },
-          { '@type': 'ListItem', position: 3, name: loc.city, item: `https://sabania.eu/location/${loc.slug}` },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sabania.eu/' },
+          { '@type': 'ListItem', position: 2, name: 'Standorte', item: 'https://www.sabania.eu/location' },
+          { '@type': 'ListItem', position: 3, name: loc.city, item: `https://www.sabania.eu/location/${loc.slug}` },
         ],
       }),
     }];

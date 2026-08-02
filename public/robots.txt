@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sabania.eu/sitemap.xml
+Sitemap: https://www.sabania.eu/sitemap.xml

@@ -5,7 +5,7 @@ await apartments().fetchApartments();
 
 useSeoMeta({
   title: "Alle Wohnungen – Möblierte Apartments mieten",
-  ogUrl: "https://sabania.eu/apartments",
+  ogUrl: "https://www.sabania.eu/apartments",
   description: "Alle verfügbaren möblierten Apartments von Sabania. Finden Sie Ihre perfekte Unterkunft in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen.",
   ogTitle: "Sabania Apartments – Alle Wohnungen auf einen Blick",
   ogDescription: "Möblierte Wohnungen für Monteure, Geschäftsreisende und Kurzzeitmiete in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Jetzt verfügbare Apartments entdecken.",
@@ -13,7 +13,7 @@ useSeoMeta({
 });
 
 useHead({
-  link: [{ rel: "canonical", href: "https://sabania.eu/apartments" }],
+  link: [{ rel: "canonical", href: "https://www.sabania.eu/apartments" }],
 });
 </script>
 

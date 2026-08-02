@@ -37,7 +37,7 @@ useHead({
         '@type': 'Apartment',
         name: apt.name,
         description: apt.shortDescription || apt.description || '',
-        url: `https://sabania.eu/${apt.slug}`,
+        url: `https://www.sabania.eu/${apt.slug}`,
         numberOfRooms: apt.rooms?.rooms ?? undefined,
         occupancy: { '@type': 'QuantitativeValue', maxValue: apt.rooms?.guests ?? undefined },
         address: apt.address ? {
@@ -60,10 +60,10 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sabania.eu/' },
-          { '@type': 'ListItem', position: 2, name: 'Wohnungen', item: 'https://sabania.eu/apartments' },
-          ...(apt.location?.city ? [{ '@type': 'ListItem', position: 3, name: apt.location.city, item: `https://sabania.eu/location/${apt.location.slug}` }] : []),
-          { '@type': 'ListItem', position: apt.location?.city ? 4 : 3, name: apt.name, item: `https://sabania.eu/${apt.slug}` },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sabania.eu/' },
+          { '@type': 'ListItem', position: 2, name: 'Wohnungen', item: 'https://www.sabania.eu/apartments' },
+          ...(apt.location?.city ? [{ '@type': 'ListItem', position: 3, name: apt.location.city, item: `https://www.sabania.eu/location/${apt.location.slug}` }] : []),
+          { '@type': 'ListItem', position: apt.location?.city ? 4 : 3, name: apt.name, item: `https://www.sabania.eu/${apt.slug}` },
         ],
       }),
     }];

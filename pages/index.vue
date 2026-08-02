@@ -6,7 +6,7 @@ await locations().fetchLocations();
 useSeoMeta({
   title: "Ferienwohnungen & Monteurwohnungen in Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
   ogTitle: "Sabania Apartments – Möblierte Wohnungen in Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
-  ogUrl: "https://sabania.eu/",
+  ogUrl: "https://www.sabania.eu/",
   description:
     "Möblierte Apartments in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen mieten. Ideal für Monteure, Geschäftsreisende und Kurzzeitmiete – flexibel und direkt buchbar.",
   ogDescription:
@@ -15,7 +15,7 @@ useSeoMeta({
 });
 
 useHead({
-  link: [{ rel: "canonical", href: "https://sabania.eu/" }],
+  link: [{ rel: "canonical", href: "https://www.sabania.eu/" }],
 });
 
 useHead({
@@ -25,8 +25,8 @@ useHead({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'SabaNia GmbH',
-      url: 'https://sabania.eu',
-      logo: 'https://sabania.eu/favicon.svg',
+      url: 'https://www.sabania.eu',
+      logo: 'https://www.sabania.eu/favicon.svg',
       contactPoint: { '@type': 'ContactPoint', telephone: '+49-172-1577536', contactType: 'customer service', availableLanguage: ['German'] },
       address: { '@type': 'PostalAddress', streetAddress: 'Herforderstraße 109', postalCode: '33602', addressLocality: 'Bielefeld', addressCountry: 'DE' },
     }),

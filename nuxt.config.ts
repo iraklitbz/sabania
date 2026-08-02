@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Sabania Apartments" },
         { property: "og:locale", content: "de_DE" },
-        { property: "og:image", content: "https://sabania.eu/favicon.svg" },
+        { property: "og:image", content: "https://www.sabania.eu/favicon.svg" },
         {
           property: "og:description",
           content:
@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
   site: {
-    url: 'https://sabania.eu',
+    url: 'https://www.sabania.eu',
   },
   sitemap: {
     sources: ['/api/__sitemap'],
