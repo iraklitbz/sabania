@@ -2,6 +2,18 @@
 import MainHeadline from "~/components/Headline/MainHeadline.vue";
 import { locations } from "~/store/locations";
 await locations().fetchLocations();
+
+useSeoMeta({
+  title: "Unsere Standorte – Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
+  description: "Möblierte Apartments und Monteurwohnungen von Sabania in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Jetzt Ihre Stadt wählen und Wohnung finden.",
+  ogTitle: "Sabania Standorte – Wohnungen in Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
+  ogUrl: "https://sabania.eu/location",
+  ogDescription: "Entdecken Sie unsere Apartments an allen Standorten – flexibel buchbar für Monteure, Geschäftsreisende und Kurzzeitmiete.",
+});
+
+useHead({
+  link: [{ rel: "canonical", href: "https://sabania.eu/location" }],
+});
 </script>
 
 <template>

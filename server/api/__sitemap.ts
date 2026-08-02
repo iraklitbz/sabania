@@ -17,7 +17,7 @@ export default defineSitemapEventHandler(async (event) => {
   })
 
   const urls = [
-    ...(data?.locations?.map((l: any) => ({ loc: `/location/${l.slug}`, changefreq: 'weekly', priority: 0.8 })) ?? []),
+    ...(data?.locations?.map((l: any) => ({ loc: `/location/${l.slug}`, changefreq: 'weekly', priority: 0.9 })) ?? []),
     ...(data?.apartments?.map((a: any) => ({ loc: `/${a.slug}`, changefreq: 'weekly', priority: 0.9 })) ?? []),
   ]
 

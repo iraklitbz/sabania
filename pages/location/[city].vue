@@ -43,6 +43,17 @@ useHead({
           longitude: loc.longitude,
         } : undefined,
       }),
+    }, {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sabania.eu/' },
+          { '@type': 'ListItem', position: 2, name: 'Standorte', item: 'https://sabania.eu/location' },
+          { '@type': 'ListItem', position: 3, name: loc.city, item: `https://sabania.eu/location/${loc.slug}` },
+        ],
+      }),
     }];
   },
 });

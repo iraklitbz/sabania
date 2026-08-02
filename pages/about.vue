@@ -3,9 +3,14 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
 
 useSeoMeta({
   title: "Über uns – Ihr Partner für Kurzzeitunterkünfte",
-  description: "SabaNia bietet stilvolle möblierte Apartments in Bielefeld und Ostwestfalen-Lippe. Ideal für Monteure, Geschäftsreisende und längere Aufenthalte.",
-  ogTitle: "Über SabaNia – Möblierte Apartments in OWL",
-  ogDescription: "Komfortable Kurzzeitunterkünfte in Bielefeld, Hiddenhausen und Umgebung. Hochwertig ausgestattet, flexibel buchbar.",
+  description: "SabaNia bietet stilvolle möblierte Apartments in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Ideal für Monteure, Geschäftsreisende und längere Aufenthalte.",
+  ogTitle: "Über SabaNia – Möblierte Apartments in Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
+  ogUrl: "https://sabania.eu/about",
+  ogDescription: "Komfortable Kurzzeitunterkünfte in Bielefeld, Hiddenhausen, Oerlinghausen und Hagen. Hochwertig ausgestattet, flexibel buchbar.",
+});
+
+useHead({
+  link: [{ rel: "canonical", href: "https://sabania.eu/about" }],
 });
 </script>
 

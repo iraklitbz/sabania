@@ -3,9 +3,14 @@ import MainHeadline from "~/components/Headline/MainHeadline.vue";
 
 useSeoMeta({
   title: "Kontakt – Fragen zu unseren Apartments",
-  description: "Kontaktieren Sie Sabania für Fragen zu unseren möblierten Apartments in Bielefeld und Umgebung. Wir helfen Ihnen gerne weiter.",
+  description: "Kontaktieren Sie Sabania für Fragen zu unseren möblierten Apartments in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Wir helfen Ihnen gerne weiter.",
   ogTitle: "Kontakt – Sabania Apartments",
+  ogUrl: "https://sabania.eu/contact",
   ogDescription: "Haben Sie Fragen zu unseren Wohnungen? Schreiben Sie uns – wir antworten schnell und unkompliziert.",
+});
+
+useHead({
+  link: [{ rel: "canonical", href: "https://sabania.eu/contact" }],
 });
 
 const sending = ref(false);

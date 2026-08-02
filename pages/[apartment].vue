@@ -54,6 +54,18 @@ useHead({
         } : undefined,
         image: apt.feature?.url ? `${apt.feature.url}` : undefined,
       }),
+    }, {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sabania.eu/' },
+          { '@type': 'ListItem', position: 2, name: 'Wohnungen', item: 'https://sabania.eu/apartments' },
+          ...(apt.location?.city ? [{ '@type': 'ListItem', position: 3, name: apt.location.city, item: `https://sabania.eu/location/${apt.location.slug}` }] : []),
+          { '@type': 'ListItem', position: apt.location?.city ? 4 : 3, name: apt.name, item: `https://sabania.eu/${apt.slug}` },
+        ],
+      }),
     }];
   },
 });

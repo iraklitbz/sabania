@@ -12,22 +12,23 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Sabania Apartments – Komfortable Ferienwohnungen und Monteurunterkünfte für Geschäftsreisende und längere Aufenthalte. Jetzt verfügbare Wohnungen finden und direkt buchen.",
+            "Sabania Apartments – Komfortable Ferienwohnungen und Monteurunterkünfte in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Jetzt verfügbare Wohnungen finden und direkt buchen.",
         },
         {
           name: "keywords",
           content:
-            "Wohnung mieten Bielefeld, Monteurwohnung Ostwestfalen-Lippe, möblierte Wohnung NRW, Kurzzeitmiete Bielefeld, Ferienwohnung OWL, Apartment mieten Lippe, Geschäftsreise Unterkunft, Sabania Apartments",
+            "Wohnung mieten Bielefeld, Monteurwohnung Bielefeld, Ferienwohnung Oerlinghausen, Wohnung mieten Hiddenhausen, Monteurunterkunft Hagen, möblierte Wohnung Ostwestfalen-Lippe, Kurzzeitmiete NRW, Sabania Apartments",
         },
         { name: "robots", content: "index, follow" },
         { name: "theme-color", content: "#4D1B26" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Sabania Apartments" },
+        { property: "og:locale", content: "de_DE" },
         { property: "og:image", content: "https://sabania.eu/favicon.svg" },
         {
           property: "og:description",
           content:
-            "Komfortable Ferienwohnungen und Monteurunterkünfte. Flexibel, unkompliziert und günstig – direkt online buchen.",
+            "Komfortable Ferienwohnungen und Monteurunterkünfte in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Flexibel, unkompliziert und günstig – direkt online buchen.",
         },
         { name: "twitter:card", content: "summary_large_image" },
       ],
@@ -111,6 +112,21 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
+    "/": {
+      sitemap: { priority: 1, changefreq: "weekly" },
+    },
+    "/location": {
+      sitemap: { priority: 0.7, changefreq: "weekly" },
+    },
+    "/apartments": {
+      sitemap: { priority: 0.8, changefreq: "daily" },
+    },
+    "/about": {
+      sitemap: { priority: 0.5, changefreq: "monthly" },
+    },
+    "/contact": {
+      sitemap: { priority: 0.4, changefreq: "yearly" },
+    },
     "/account/**": {
       ssr: false,
     },

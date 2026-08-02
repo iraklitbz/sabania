@@ -4,13 +4,18 @@ import CardDefault from "~/components/Cards/CardDefault.vue";
 await locations().fetchLocations();
 
 useSeoMeta({
-  title: "Möblierte Wohnungen mieten in Ostwestfalen-Lippe",
-  ogTitle: "Sabania Apartments – Möblierte Wohnungen in Bielefeld & OWL",
+  title: "Ferienwohnungen & Monteurwohnungen in Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
+  ogTitle: "Sabania Apartments – Möblierte Wohnungen in Bielefeld, Oerlinghausen, Hiddenhausen & Hagen",
+  ogUrl: "https://sabania.eu/",
   description:
-    "Möblierte Apartments in Bielefeld, Detmold und Ostwestfalen-Lippe mieten. Ideal für Monteure, Geschäftsreisende und Kurzzeitmiete – flexibel und direkt buchbar.",
+    "Möblierte Apartments in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen mieten. Ideal für Monteure, Geschäftsreisende und Kurzzeitmiete – flexibel und direkt buchbar.",
   ogDescription:
-    "Komfortable Ferienwohnungen und Monteurunterkünfte in NRW. Für Monteure, Geschäftsreisende und längere Aufenthalte – flexibel und unkompliziert.",
-  keywords: "Wohnung mieten Bielefeld, Monteurwohnung OWL, möblierte Apartments Ostwestfalen-Lippe, Kurzzeitmiete NRW, Ferienwohnung Bielefeld, Apartment mieten Lippe, Sabania",
+    "Komfortable Ferienwohnungen und Monteurunterkünfte in Bielefeld, Oerlinghausen, Hiddenhausen und Hagen. Für Monteure, Geschäftsreisende und längere Aufenthalte – flexibel und unkompliziert.",
+  keywords: "Wohnung mieten Bielefeld, Monteurwohnung Bielefeld, Ferienwohnung Oerlinghausen, Wohnung mieten Hiddenhausen, Monteurunterkunft Hagen, möblierte Apartments Ostwestfalen-Lippe, Kurzzeitmiete NRW, Sabania",
+});
+
+useHead({
+  link: [{ rel: "canonical", href: "https://sabania.eu/" }],
 });
 
 useHead({
